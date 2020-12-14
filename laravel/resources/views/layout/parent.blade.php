@@ -13,6 +13,7 @@
        
     </head>
     <body>
-        <h1>parent<h1>
+        @yield('content')
+        <h1>Parent</h1>
     </body>
 </html>
