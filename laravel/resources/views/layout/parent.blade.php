@@ -1,19 +1,15 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<!-- Stored in resources/views/layouts/master.blade.php -->
+
+<html>
     <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <title>Laravel</title>
-
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
-
-        <!-- Styles -->
-       
+        <title>App Name - @yield('title')</title>
     </head>
     <body>
-        @yield('content')
-        <h1>Parent</h1>
+    <header>PruebaHeader</header>
+        <div class="container">
+            @yield('content')
+        </div>
+    <footer>PruebaFooter</footer>
+
     </body>
 </html>
