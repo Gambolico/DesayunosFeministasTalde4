@@ -30,7 +30,7 @@
         }
     </style>
     </head>
-    <body class="backgroundWellcome">
+    <body class="backgroundGeneral">
 
     <header>
     <!--Navbar -->
