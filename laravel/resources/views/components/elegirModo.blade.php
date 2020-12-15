@@ -32,10 +32,10 @@
 <div class="container">
         <div class="row text-center">
             <div class="col">
-                <a href="{{ url('/') }}" class="btn boton">MODO LIBRE</a>
+                <a href="{{ route('elegirModoJuego', ['modo'=>'libre']) }}" class="btn boton">MODO LIBRE</a>
             </div>
             <div class="col">
-                <a href="{{ url('/') }}" class="btn boton">MODO HISTORIA</a>
+                <a href="{{ route('elegirModoJuego', ['modo'=>'historia']) }}" class="btn boton">MODO HISTORIA</a>
             </div>
         </div>
     </div>
