@@ -43,7 +43,7 @@
     <div class="container">
         <div class="row text-center">
             <div class="col">
-                <a href="{{ url('/inicioJuego') }}" class="btn boton">EMPEZAR</a>
+                <a href="{{ url('/elegirModo') }}" class="btn boton">EMPEZAR</a>
             </div>
             <div class="col">
                 <a href="{{ url('/comoJugar') }}" class="btn boton">COMO JUGAR</a>

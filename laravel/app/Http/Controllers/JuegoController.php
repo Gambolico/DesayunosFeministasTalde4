@@ -1,7 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Mujeres;
+use App\Models\Mujeresdesbloqueadas;
+use App\Models\USuarios;
 use Illuminate\Http\Request;
 
 class JuegoController extends Controller
@@ -14,6 +16,7 @@ class JuegoController extends Controller
 
     public function iniciojuego()
     {
+
         return view('components.inicioJuego');
     }
 

@@ -52,7 +52,7 @@
                 <a class="nav-link" href="{{ url('/comoJugar') }}">Como Jugar</a>
             </li>
             </ul>
-            <ul class="navbar-nav ml-auto nav-flex-icons">
+            <ul class="navbar-nav navbar-right ml-auto nav-flex-icons">
             <li class="nav-item avatar">
                 <a class="nav-link p-0" href="#">
                 <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-5.jpg" class="rounded-circle z-depth-0"
@@ -61,6 +61,7 @@
             </li>
             </ul>
         </div>
+        
         </nav>
         <!--/.Navbar -->
     </header>
