@@ -14,9 +14,9 @@ class JuegoController extends Controller
         return view('components.comoJugar');
     }
 
-    public function iniciojuego()
+    public function iniciojuego($modo)
     {
-        return view('components.inicioJuego', ['modo' => 'libre']);
+        return view('components.inicioJuego', ['modo' => $modo]);
     }
 
     public function elegirJuego()
