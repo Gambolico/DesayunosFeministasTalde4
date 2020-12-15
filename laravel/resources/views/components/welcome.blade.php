@@ -17,7 +17,7 @@
     </style>
 
     <div>
-        <button type="button" class="btn boton">EMPEZAR</button>
-        <button type="button"  class="btn boton">COMO JUGAR</button>
+        <a href="" class="btn boton">EMPEZAR</a>
+        <a href="" class="btn boton">COMO JUGAR</a>
     </div>
 @stop
