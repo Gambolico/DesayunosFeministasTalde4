@@ -30,7 +30,7 @@
         }
     </style>
     </head>
-    <body>
+    <body class="backgroundWellcome">
 
     <header>
     <!--Navbar -->
@@ -67,7 +67,7 @@
 
     <!--Main Layout-->
     <!-- La clase main la llamarán solo las view que tengas ese css -->
-    <main class="backgroundWellcome">
+    <main >
         <div class="container">
             @yield('content')
         </div>
