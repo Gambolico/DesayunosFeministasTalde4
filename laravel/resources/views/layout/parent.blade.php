@@ -52,10 +52,11 @@
                 <a class="nav-link" href="#">Como Jugar</a>
             </li>
             </ul>
-            <ul class="navbar-nav nav-flex-icons">
+            <ul class="navbar-nav ml-auto nav-flex-icons">
             <li class="nav-item avatar">
-                <a class="nav-link p-0 " href="#">
-                <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-5.jpg" class="rounded-circle z-depth-0" alt="avatar image" height="35">
+                <a class="nav-link p-0" href="#">
+                <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-5.jpg" class="rounded-circle z-depth-0"
+                    alt="avatar image" height="35">
                 </a>
             </li>
             </ul>
@@ -65,7 +66,8 @@
     </header>
 
     <!--Main Layout-->
-    <main>
+    <!-- La clase main la llamarán solo las view que tengas ese css -->
+    <main class="backgroundWellcome">
         <div class="container">
             @yield('content')
         </div>
