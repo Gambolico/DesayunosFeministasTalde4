@@ -6,21 +6,31 @@
         
         <!-- Bootstrap CSS -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-            <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-            <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
             @yield('css')
         <style>
+        html {
+            position: relative;
+            min-height: 100%;
+        }
+        body {
+            margin-bottom: 60px; /* Margin bottom by footer height */
+        }
         .navbar {
             background-color:#261343;
             color:white;          
         }
-        .page-footer {
+        #sticky-footer {
             background-color:#261343;
-            color:white;          
+            color:white;   
+            position: absolute;
+            bottom: 0;
+            width: 100%;
         }
     </style>
     </head>
-    <body>
+    <body class="backgroundWellcome">
 
     <header>
     <!--Navbar -->
@@ -42,10 +52,11 @@
                 <a class="nav-link" href="{{ url('/comoJugar') }}">Como Jugar</a>
             </li>
             </ul>
-            <ul class="navbar-nav nav-flex-icons">
+            <ul class="navbar-nav ml-auto nav-flex-icons">
             <li class="nav-item avatar">
-                <a class="nav-link p-0 " href="#">
-                <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-5.jpg" class="rounded-circle z-depth-0" alt="avatar image" height="35">
+                <a class="nav-link p-0" href="#">
+                <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-5.jpg" class="rounded-circle z-depth-0"
+                    alt="avatar image" height="35">
                 </a>
             </li>
             </ul>
@@ -55,91 +66,18 @@
     </header>
 
     <!--Main Layout-->
-    <main>
+    <!-- La clase main la llamarán solo las view que tengas ese css -->
+    <main >
         <div class="container">
             @yield('content')
         </div>
     </main>
     
     <!-- Footer -->
-    <footer class="page-footer font-small pt-4">
-        <!-- Footer Links -->
-        <div class="container-fluid text-center text-md-left">
-
-        <!-- Grid row -->
-        <div class="row">
-
-            <!-- Grid column -->
-            <div class="col-md-6 mt-md-0 mt-3">
-
-            <!-- Content -->
-            <h5 class="text-uppercase">Footer Content</h5>
-            <p>Here you can use rows and columns to organize your footer content.</p>
-
-            </div>
-            <!-- Grid column -->
-
-            <hr class="clearfix w-100 d-md-none pb-3">
-
-            <!-- Grid column -->
-            <div class="col-md-3 mb-md-0 mb-3">
-
-            <!-- Links -->
-            <h5 class="text-uppercase">Links</h5>
-
-            <ul class="list-unstyled">
-                <li>
-                <a href="#!">Link 1</a>
-                </li>
-                <li>
-                <a href="#!">Link 2</a>
-                </li>
-                <li>
-                <a href="#!">Link 3</a>
-                </li>
-                <li>
-                <a href="#!">Link 4</a>
-                </li>
-            </ul>
-
-            </div>
-            <!-- Grid column -->
-
-            <!-- Grid column -->
-            <div class="col-md-3 mb-md-0 mb-3">
-
-            <!-- Links -->
-            <h5 class="text-uppercase">Links</h5>
-
-            <ul class="list-unstyled">
-                <li>
-                <a href="#!">Link 1</a>
-                </li>
-                <li>
-                <a href="#!">Link 2</a>
-                </li>
-                <li>
-                <a href="#!">Link 3</a>
-                </li>
-                <li>
-                <a href="#!">Link 4</a>
-                </li>
-            </ul>
-
-            </div>
-            <!-- Grid column -->
-
+    <footer id="sticky-footer" class="py-4 bg-dark text-white-50">
+        <div class="container text-center">
+            <small>Copyright &copy; Desayunos Feministas</small>
         </div>
-        <!-- Grid row -->
-
-        </div>
-        <!-- Footer Links -->
-
-        <!-- Copyright -->
-        <div class="footer-copyright text-center py-3 bg-dark">© 2020 Copyright:
-        <a href="https://mdbootstrap.com/"> MDBootstrap.com</a>
-        </div>
-        <!-- Copyright -->
     </footer>
 
     </body>
