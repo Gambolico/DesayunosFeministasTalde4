@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\MujeresController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,56 +20,34 @@ Route::get('/', function () {
     return view('components/welcome');
 });
 
-//* Vista padre
-
-Route::get('/parent', function () {
-    return view('parent');
-});
-
 //* Vista login
 
-Route::get('/login', function () {
-    return view('login');
-});
+Route::get('/login', [LoginController::class, 'index']);
 
 //* Vista register
 
-Route::get('/register', function () {
-    return view('register');
-});
+Route::get('/register', [LoginController::class, 'register']);
 
 //* Vista inicio juego
 
-Route::get('/iniciojuego', function () {
-    return view('inicioJuego');
-});
+Route::get('/inicioJuego', [MujeresController::class, 'inicioJuego']);
 
 //* Vista elegir juego
 
-Route::get('/elegirjuego', function () {
-    return view('elegirJuego');
-});
+Route::get('/elegirJuego', [MujeresController::class, 'elegirJuego']);
 
 //* Vista elegir modo
 
-Route::get('/elegirmodo', function () {
-    return view('elegirModo');
-});
+Route::get('/elegirModo', [MujeresController::class, 'elegirModo']);
 
 //* Vista parejas
 
-Route::get('/pareja', function () {
-    return view('pareja');
-});
+Route::get('/parejas', [MujeresController::class, 'parejas']);
 
 //* Vista adivina
 
-Route::get('/adivina', function () {
-    return view('adivina');
-});
+Route::get('/adivina', [MujeresController::class, 'adivina']);
 
 //* Vista coleccion
 
-Route::get('/coleccion', function () {
-    return view('coleccion');
-});
+Route::get('/coleccion', [MujeresController::class, 'coleccion']);
