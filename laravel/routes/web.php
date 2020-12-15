@@ -22,7 +22,7 @@ Route::get('/', function () {
 
 //* Vista login
 
-Route::get('/login', [LoginController::class, 'index']);
+Route::get('/login', 'LoginController@Index');
 
 //* Vista register
 

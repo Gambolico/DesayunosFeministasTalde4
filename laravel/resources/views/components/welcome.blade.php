@@ -12,7 +12,7 @@
     </style>
 
     <div>
-        <button type="button" class="btn boton">EMPEZAR</button>
+        <a href="{{ url('/inicioJuego') }}" class="btn boton">EMPEZAR</a>
         <button type="button"  class="btn boton">MUJERES</button>
         <button type="button"  class="btn boton">COMO JUGAR</button>
     </div>
