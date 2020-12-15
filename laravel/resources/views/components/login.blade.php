@@ -249,6 +249,10 @@ input[type=text]:placeholder {
 #icon {
     width:60%;
 }
+
+.backgroundWellcome{
+            background-image: url("https://desayunosfeministascantabria.files.wordpress.com/2018/10/cropped-logotipo-2.jpg")
+        }
 </style>
 
 @section('content')
