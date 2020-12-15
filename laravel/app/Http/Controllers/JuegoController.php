@@ -21,7 +21,6 @@ class JuegoController extends Controller
 
     public function elegirJuego()
     {
-
         return view('components.elegirJuego');
     }
 
