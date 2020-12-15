@@ -6,14 +6,23 @@
 
 <style>
         .boton{
-            background-color:#261343;
-            color:white;
-            padding-top:30px;
-            padding-bottom:35px;
-            padding-left:70px;
-            padding-right:70px;
-            font-size:25px;
-            border-radius:8px;
+            background-color: #261343;
+            border: none;
+            color: white;
+            padding: 15px 80px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            text-transform: uppercase;
+            font-size: 25px;
+            box-shadow: 0 10px 30px 0 rgb(178, 138, 218);
+            border-radius: 5px 5px 5px 5px;
+            margin: 5px 20px 40px 20px;
+            width: 500px;
+        }
+        .boton:hover{
+            background-color: #5c2ba6;
+            color: white;
         }
         
         .backgroundGeneral{
