@@ -9,7 +9,38 @@
     </head>
     <body>
 
-    <header>Aqui va el navbar</header>
+    <header>
+    <!--Navbar -->
+        <nav class="mb-1 navbar navbar-expand-lg navbar-dark lighten-1 bg-primary">
+        <a class="navbar-brand" href="#">Desayunos Feministas</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-555"
+            aria-controls="navbarSupportedContent-555" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent-555">
+            <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Juegos</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Mujeres</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Como Jugar</a>
+            </li>
+            </ul>
+            <ul class="navbar-nav ml-auto nav-flex-icons">
+            <li class="nav-item avatar">
+                <a class="nav-link p-0" href="#">
+                <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-5.jpg" class="rounded-circle z-depth-0"
+                    alt="avatar image" height="35">
+                </a>
+            </li>
+            </ul>
+        </div>
+        </nav>
+        <!--/.Navbar -->
+    </header>
 
     <!--Main Layout-->
     <main>
@@ -19,7 +50,7 @@
     </main>
     
     <!-- Footer -->
-    <footer class="page-footer font-small blue pt-4">
+    <footer class="page-footer font-small pt-4 bg-light">
         <!-- Footer Links -->
         <div class="container-fluid text-center text-md-left">
 
@@ -93,7 +124,7 @@
         <!-- Footer Links -->
 
         <!-- Copyright -->
-        <div class="footer-copyright text-center py-3">© 2020 Copyright:
+        <div class="footer-copyright text-center py-3 bg-secondary">© 2020 Copyright:
         <a href="https://mdbootstrap.com/"> MDBootstrap.com</a>
         </div>
         <!-- Copyright -->
