@@ -15,8 +15,12 @@
             font-size:25px;
             border-radius:8px;
         }
-        .backgroundWellcome{
-            background-image: url("https://desayunosfeministascantabria.files.wordpress.com/2018/10/cropped-logotipo-2.jpg")
+        
+        .backgroundGeneral{
+            background-image: url('https://desayunosfeministascantabria.files.wordpress.com/2018/10/cropped-logotipo-2.jpg');
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-size: 100% 100%;
         }
 
         .container{
