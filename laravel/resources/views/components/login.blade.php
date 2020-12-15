@@ -16,13 +16,6 @@ body {
     height: 100vh;
 }
 
-a {
-    color: #92badd;
-    display:inline-block;
-    text-decoration: none;
-    font-weight: 400;
-}
-
 /* STRUCTURE */
 .wrapper {
     display: flex;
@@ -35,6 +28,7 @@ a {
 
 #formContent h3{
     margin-top: 15px;
+    margin-bottom: 15px;
 }
 #formContent {
     -webkit-border-radius: 10px 10px 10px 10px;
@@ -82,6 +76,7 @@ input[type=button], input[type=submit], input[type=reset]  {
     -ms-transition: all 0.3s ease-in-out;
     -o-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
+    margin-top: 25px;
 }
 
 input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover  {
