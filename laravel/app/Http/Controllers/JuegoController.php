@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 class JuegoController extends Controller
 {
     //
+    public function comojugar()
+    {
+        return view('components.comoJugar');
+    }
+
     public function iniciojuego()
     {
         return view('components.inicioJuego');

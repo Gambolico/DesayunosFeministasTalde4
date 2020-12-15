@@ -25,7 +25,7 @@
     <header>
     <!--Navbar -->
         <nav class="mb-1 navbar navbar-expand-lg navbar-dark lighten-1 ">
-        <a class="navbar-brand" href="#">Desayunos Feministas</a>
+        <a class="navbar-brand" href="{{ url('/') }}">Desayunos Feministas</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-555"
             aria-controls="navbarSupportedContent-555" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -33,13 +33,13 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent-555">
             <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="#">Juegos</a>
+                <a class="nav-link" href="{{ url('/elegirModo') }}">Juegos</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Mujeres</a>
+                <a class="nav-link" href="{{ url('/coleccion') }}">Mujeres</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Como Jugar</a>
+                <a class="nav-link" href="{{ url('/comoJugar') }}">Como Jugar</a>
             </li>
             </ul>
             <ul class="navbar-nav nav-flex-icons">

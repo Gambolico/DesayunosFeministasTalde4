@@ -18,6 +18,6 @@
 
     <div>
         <a href="{{ url('/inicioJuego') }}" class="btn boton">EMPEZAR</a>
-        <a href="" class="btn boton">COMO JUGAR</a>
+        <a href="{{ url('/comoJugar') }}" class="btn boton">COMO JUGAR</a>
     </div>
 @stop

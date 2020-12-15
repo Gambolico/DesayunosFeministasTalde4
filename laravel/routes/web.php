@@ -29,6 +29,10 @@ Route::get('/login', [LoginController::class, 'index']);
 
 Route::get('/register', [LoginController::class, 'register']);
 
+//* Vista Como jugar
+
+Route::get('/comoJugar', [JuegoController::class, 'comoJugar']);
+
 //* Vista inicio juego
 
 Route::get('/inicioJuego', [JuegoController::class, 'inicioJuego']);
