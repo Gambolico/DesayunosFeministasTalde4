@@ -6,6 +6,9 @@
         
         <!-- Bootstrap CSS -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+            <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+            <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            @yield('css')
         <style>
         .navbar {
             background-color:#261343;
@@ -39,11 +42,10 @@
                 <a class="nav-link" href="#">Como Jugar</a>
             </li>
             </ul>
-            <ul class="navbar-nav ml-auto nav-flex-icons">
+            <ul class="navbar-nav nav-flex-icons">
             <li class="nav-item avatar">
-                <a class="nav-link p-0" href="#">
-                <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-5.jpg" class="rounded-circle z-depth-0"
-                    alt="avatar image" height="35">
+                <a class="nav-link p-0 " href="#">
+                <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-5.jpg" class="rounded-circle z-depth-0" alt="avatar image" height="35">
                 </a>
             </li>
             </ul>
