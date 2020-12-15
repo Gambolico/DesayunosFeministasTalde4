@@ -51,7 +51,7 @@ h2 {
     width: 90%;
     max-width: 450px;
     position: relative;
-    padding: 0px;
+    padding: 1px;
     -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
     box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
     text-align: center;
@@ -260,7 +260,7 @@ input[type=text]:placeholder {
 
         <!-- Icon -->
         <div class="fadeIn first">
-        <img src="http://danielzawadzki.com/codepen/01/icon.svg" id="icon" alt="User Icon" />
+        <p>Desayunos Feministas</p>
         </div>
 
         <!-- Login Form -->

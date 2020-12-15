@@ -15,6 +15,14 @@
             border-radius:8px;
         }
 
+        .container{
+            display: flex;
+            align-items: center;
+            flex-direction: column; 
+            justify-content: center;
+            height: 80%;
+        }
+
         .backgroundWellcome{
             background-image: url("https://desayunosfeministascantabria.files.wordpress.com/2018/10/cropped-logotipo-2.jpg")
         }
