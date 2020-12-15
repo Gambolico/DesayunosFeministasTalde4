@@ -14,10 +14,21 @@
             font-size:25px;
             border-radius:8px;
         }
-    </style>
 
-    <div>
-        <a href="{{ url('/inicioJuego') }}" class="btn boton">EMPEZAR</a>
-        <a href="" class="btn boton">COMO JUGAR</a>
+        .backgroundWellcome{
+            background-image: url("https://desayunosfeministascantabria.files.wordpress.com/2018/10/cropped-logotipo-2.jpg")
+        }
+
+    </style>
+    
+    <div class="container">
+        <div class="row text-center">
+            <div class="col">
+                <a href="{{ url('/inicioJuego') }}" class="btn boton">EMPEZAR</a>
+            </div>
+            <div class="col">
+                <a href="" class="btn boton">COMO JUGAR</a>
+            </div>
+        </div>
     </div>
 @stop
