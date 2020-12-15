@@ -37,6 +37,10 @@ Route::get('/comoJugar', [JuegoController::class, 'comoJugar']);
 
 Route::get('/inicioJuego', [JuegoController::class, 'inicioJuego']);
 
+//* Vista inicio juego (cambiar modo)
+
+Route::get('/inicioJuego/{modo}', [JuegoController::class, 'inicioJuego'])->name('elegirModoJuego');
+
 //* Vista elegir juego
 
 Route::get('/elegirJuego', [JuegoController::class, 'elegirJuego']);

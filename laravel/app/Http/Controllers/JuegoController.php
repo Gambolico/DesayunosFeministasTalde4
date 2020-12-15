@@ -16,6 +16,7 @@ class JuegoController extends Controller
 
     public function iniciojuego()
     {
+
         return view('components.inicioJuego');
     }
 
