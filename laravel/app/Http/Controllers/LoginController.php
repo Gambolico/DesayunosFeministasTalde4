@@ -9,6 +9,8 @@ class LoginController extends Controller
     //
     public function index()
     {
+        //? Aqui se hacen las transacciones con los modelos
+
         return view('components.login');
     }
 
