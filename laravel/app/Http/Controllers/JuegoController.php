@@ -14,12 +14,12 @@ class JuegoController extends Controller
 
     public function iniciojuego()
     {
-
-        return view('components.inicioJuego');
+        return view('components.inicioJuego', ['modo' => 'libre']);
     }
 
     public function elegirJuego()
     {
+
         return view('components.elegirJuego');
     }
 
