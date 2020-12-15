@@ -4,10 +4,9 @@
 
 @section('content')
     <style>
-        .boton{
+        .boton {
             background-color:#261343;
             color:white;
-            
         }
     </style>
 
