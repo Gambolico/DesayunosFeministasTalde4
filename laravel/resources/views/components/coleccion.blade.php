@@ -1,67 +1,55 @@
 @extends('layout.parent')
 @section('title', 'Coleccion')
 @section('content')
-<style>
-.container{
-    width:90%;
-    height:auto;
-    flex-wrap:wrap;
-}
-/*Profile Card 5*/
-.profile-card-5{
-    margin-top:20px;
-}
-.profile-card-5 .btn{
-    border-radius:2px;
-    text-transform:uppercase;
-    font-size:12px;
-    padding:7px 20px;
-}
-.profile-card-5 .card-img-block {
-    width: 91%;
-    margin: 0 auto;
-    position: relative;
-    top: -20px;
-    
-}
-.profile-card-5 .card-img-block img{
-    border-radius:5px;
-    box-shadow:0 0 10px rgba(0,0,0,0.63);
-}
-.profile-card-5 h5{
-    color:#4E5E30;
-    font-weight:600;
-}
-.profile-card-5 p{
-    font-size:14px;
-    font-weight:300;
-}
-.profile-card-5 .btn-primary{
-    background-color:#4E5E30;
-    border-color:#4E5E30;
-}
-
-</style>
-
 <body>
-<p>Coleccion.</p>
-    <div class="container">
-    	<div class="row">
-            @foreach($Mujeres as $obj)
-                        <div class="col-md-4 mt-4">
-                            <div class="card profile-card-5">
-                                <div class="card-img-block">
-                                    <img class="card-img-top" src="{{ $obj->Img_Ruta}}" alt="Card image cap">
-                                </div>
-                                <div class="card-body pt-0">
-                                <h5 class="card-title">{{ $obj->Nombre}} <br> {{ $obj->Apellido}}</h5>
-                                <p class="card-text">{{ $obj->Zona_Geografica}}</p>
+<script>
+    $(document).ready(function() {
+$('.mdb-select').materialSelect();
+});
+</script>
+<div class=" filtro row">
+                <div class="col-md-12">
+                <div class="form-group">
+                <label for="demo_overview">Select one or more countries</label>
+                    <select id="demo_overview" class="form-control" data-role="select-dropdown" multiple>
+                    <!-- options -->
+                    
+                   
+                    </select>
+                </div>
+
+                </div>
+            </div>
+        <div class="mujeres">        
+            
+                <div class=" mujeres row">
+                @foreach($Mujeres as $obj)
+                    <div class="col-md-4">
+                            <div class="card card-blog">
+                                    <div class="card-image">
+                                        <a href="#"> <img class="img" src="{{ $obj->Img_Ruta}}"> </a>
+                                        <div class="ripple-cont"></div>
+                                    </div>
+                                    <div class="table">
+                                        <h6 class="category text-warning">
+                                            <i class="fa fa-soundcloud"></i> {{ $obj->Apellido}}
+                                        </h6>
+                                        <h4 class="card-caption">
+                                            <a href="#">{{ $obj->Nombre}} {{ $obj->Apellido}}</a>
+                                        </h4>
+                                        <div class="ftr">
+                                            <div class="stats"> <i class="fa fa-clock-o"></i> {{ $obj->Nombre}} </div>
+                                            <div class="stats"> <i class="fa fa-clock-o"></i> 15 min </div>
+                                        </div>
+                                    </div>
                                 
                             </div>
-                        </div>
-                @endforeach 
+                    </div>
+                    @endforeach 
+                </div>
         </div>
-    </div>
+
+    
 </body>
     
 @stop
