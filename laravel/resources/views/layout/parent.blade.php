@@ -62,7 +62,7 @@
             </ul>
             <ul class="navbar-nav navbar-right ml-auto nav-flex-icons">
             <li class="nav-item avatar">
-                <a class="nav-link p-0" href="#">
+                <a class="nav-link p-0" href="/login">
                 <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-5.jpg" class="rounded-circle z-depth-0"
                     alt="avatar image" height="35">
                 </a>

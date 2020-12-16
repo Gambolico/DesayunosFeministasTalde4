@@ -151,7 +151,7 @@ input[type=text]:placeholder {
 
         <!-- Remind Passowrd -->
         <div id="formFooter">
-        <a class="underlineHover" href="#">¿Aun no tienes cuenta?</a>
+        <a class="underlineHover" href="{{ url('/register') }}">¿Aun no tienes cuenta?</a>
         </div>
 
     </div>

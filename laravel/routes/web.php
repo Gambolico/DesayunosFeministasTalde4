@@ -23,11 +23,15 @@ Route::get('/', function () {
 
 //* Vista login
 
-Route::get('/login', [LoginController::class, 'index']);
+Route::get('/login', [LoginController::class, 'viewLogin']);
 
 //* Vista register
 
-Route::get('/register', [LoginController::class, 'register']);
+Route::get('/register', [LoginController::class, 'viewRegister']);
+
+//* Metodo post del registro
+
+Route::post('/register/login', [LoginController::class, 'createAccount']);
 
 //* Vista Como jugar
 
