@@ -6,6 +6,7 @@ body {
     margin-bottom: 60px; /* Margin bottom by footer height */
 }
 .navbar {
+    padding-left: 15px;
     background-color:#261343;
     color:white;          
 }
