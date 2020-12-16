@@ -1,5 +1,7 @@
 @extends('layout.parent')
+
 @section('title', 'Coleccion')
+
 @section('content')
 <body>
 <!-- Filtro de cartas -->

@@ -11,36 +11,17 @@
 
         <!-- CSS links -->
             <!-- Coleccion view -->
+                <!-- Parent -->
+                <link href="{{ asset('css/parent.css') }}" rel="stylesheet">
                 <!-- Cartas -->
                 <link href="{{ asset('CSS/cartas.css') }}" rel="stylesheet">
                 <!-- Restante -->
                 <link href="{{ asset('CSS/coleccion.css') }}" rel="stylesheet">
                 <!-- JS filter -->
                 <script src="{{ asset('js/coleccion.js') }}"></script>
-            @yield('css')
-        <style>
-        html {
-            position: relative;
-            min-height: 100%;
-        }
-        body {
-            margin-bottom: 60px; /* Margin bottom by footer height */
-        }
-        .navbar {
-            background-color:#261343;
-            color:white;          
-        }
-        #sticky-footer {
-            background-color:#261343;
-            color:white;   
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-        }
-    </style>
     </head>
-    <body class="backgroundGeneral">
 
+    <body class="backgroundGeneral">
     <header>
     <!--Navbar -->
         <nav class="mb-1 navbar navbar-expand-lg navbar-dark lighten-1 ">
