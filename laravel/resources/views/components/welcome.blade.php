@@ -2,10 +2,10 @@
 
 @section('title', 'Welcome')
 
+@section('content')
+
 <!-- CSS -->
 <link href="{{ asset('css/welcome.css') }}" rel="stylesheet">
-
-@section('content')
 
     <div class="container">
         <div class="row text-center">

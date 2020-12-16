@@ -2,10 +2,10 @@
 
 @section('title', 'Login')
 
+@section('content')
+
 <!-- CSS -->
 <link href="{{ asset('css/login.css') }}" rel="stylesheet">
-
-@section('content')
 
 <div class="wrapper fadeInDown">
     <div id="formContent">

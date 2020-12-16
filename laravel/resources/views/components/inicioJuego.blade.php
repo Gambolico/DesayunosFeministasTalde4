@@ -2,10 +2,10 @@
 
 @section('title', 'Inicio juego')
 
+@section('content')
+
 <!-- CSS -->
 <link href="{{ asset('css/inicioJuego.css') }}" rel="stylesheet">
-
-@section('content')
 
 <div class="container"> 
     <h1>Elija el Modo de Juego</h1>

@@ -2,10 +2,10 @@
 
 @section('title', 'Coleccion')
 
+@section('content')
+
 <!-- CSS -->
 <link href="{{ asset('css/coleccion.css') }}" rel="stylesheet">
-
-@section('content')
 
 <script>
     $(document).ready(function() {
