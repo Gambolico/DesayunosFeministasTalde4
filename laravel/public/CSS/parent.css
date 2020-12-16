@@ -1,0 +1,18 @@
+html {
+    position: relative;
+    min-height: 100%;
+}
+body {
+    margin-bottom: 60px; /* Margin bottom by footer height */
+}
+.navbar {
+    background-color:#261343;
+    color:white;          
+}
+#sticky-footer {
+    background-color:#261343;
+    color:white;   
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}

@@ -1,9 +1,11 @@
 @extends('layout.parent')
-@section('title', 'Coleccion')
-@section('content')
 
-<!-- Coleccion -->
+@section('title', 'Coleccion')
+
+<!-- CSS -->
 <link href="{{ asset('css/coleccion.css') }}" rel="stylesheet">
+
+@section('content')
 
 <script>
     $(document).ready(function() {

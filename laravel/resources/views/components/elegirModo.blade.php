@@ -2,10 +2,10 @@
 
 @section('title', 'Elegir modo')
 
-@section('content')
-
-<!-- Elegir Modo -->
+<!-- CSS -->
 <link href="{{ asset('css/elegirModo.css') }}" rel="stylesheet">
+
+@section('content')
 
 <div class="container">
         <div class="row text-center">

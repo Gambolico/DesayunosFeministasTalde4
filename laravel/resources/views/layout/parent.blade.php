@@ -10,35 +10,13 @@
         <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <!-- CSS links -->
             <!-- Coleccion view -->
+                <!-- Parent -->
+                <link href="{{ asset('css/parent.css') }}" rel="stylesheet">
                 <!-- Cartas -->
                 <link href="{{ asset('css/cartas.css') }}" rel="stylesheet">
-                
-            
-
-            @yield('css')
-        <style>
-        html {
-            position: relative;
-            min-height: 100%;
-        }
-        body {
-            margin-bottom: 60px; /* Margin bottom by footer height */
-        }
-        .navbar {
-            background-color:#261343;
-            color:white;          
-        }
-        #sticky-footer {
-            background-color:#261343;
-            color:white;   
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-        }
-    </style>
     </head>
-    <body class="backgroundGeneral">
 
+    <body class="backgroundGeneral">
     <header>
     <!--Navbar -->
         <nav class="mb-1 navbar navbar-expand-lg navbar-dark lighten-1 ">
