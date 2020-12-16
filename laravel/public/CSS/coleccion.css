@@ -1,6 +1,6 @@
-.mujeres{
-    margin-top: 5%;
-}
-.filtro{
-    padding-bottom: 50px;
+.backgroundGeneral{
+    background-image: url('https://desayunosfeministascantabria.files.wordpress.com/2018/10/cropped-logotipo-2.jpg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-size: 100% 100%;
 }
