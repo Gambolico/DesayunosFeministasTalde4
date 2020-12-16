@@ -17,6 +17,14 @@
     color: white;
 }
 
+.container{
+    display: flex;
+    align-items: center;
+    flex-direction: column; 
+    justify-content: center;
+    height: 80%;
+}
+
 .backgroundGeneral{
     background-image: url('https://desayunosfeministascantabria.files.wordpress.com/2018/10/cropped-logotipo-2.jpg');
     background-repeat: no-repeat;
