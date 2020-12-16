@@ -1,20 +1,22 @@
 @extends('layout.parent')
 @section('title', 'Coleccion')
 @section('content')
-<body>
+
+<!-- Coleccion -->
+<link href="{{ asset('css/coleccion.css') }}" rel="stylesheet">
+
 <script>
     $(document).ready(function() {
 $('.mdb-select').materialSelect();
 });
 </script>
+
 <div class=" filtro row">
                 <div class="col-md-12">
                 <div class="form-group">
                 <label for="demo_overview">Select one or more countries</label>
                     <select id="demo_overview" class="form-control" data-role="select-dropdown" multiple>
                     <!-- options -->
-                    
-                   
                     </select>
                 </div>
 

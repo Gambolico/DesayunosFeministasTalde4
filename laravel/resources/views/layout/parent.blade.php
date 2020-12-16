@@ -12,8 +12,7 @@
             <!-- Coleccion view -->
                 <!-- Cartas -->
                 <link href="{{ asset('css/cartas.css') }}" rel="stylesheet">
-                <!-- Restante -->
-                <link href="{{ asset('css/coleccion.css') }}" rel="stylesheet">
+                
             
 
             @yield('css')
