@@ -26,6 +26,7 @@ class LoginController extends Controller
 
         //$usuario=Usuarios::first()->checkUsername($_POST['username']);
 
+
         //* Comprobamos que el usuario no exista
         //if(!empty($usuario))
         //{
@@ -46,26 +47,26 @@ class LoginController extends Controller
 
 
 
-                 }
-                 else
-                 {
+                }
+                else
+                {
                     //? El usuario no existe (se sigue con el registro)
 
-                 }
+                }
                 
 
             
 
             $usuario = new Usuarios;
+
+            var_dump($usuario);
            
             $usuario->Usuario = $data['username'];
             $usuario->Contraseña = Hash::make($data['password']);
             $usuario->Email = $data['email'];
             $usuario->save();
 
-        return view('components.register');
         //}
-        
             
     }
 
