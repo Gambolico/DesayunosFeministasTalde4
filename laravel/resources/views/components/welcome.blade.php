@@ -5,7 +5,7 @@
 @section('content')
 
 <!-- CSS -->
-<link href="{{ asset('css/welcome.css') }}" rel="stylesheet">
+<link href="{{ asset('CSS/welcome.css') }}" rel="stylesheet">
 
     <div class="container">
         <div class="row text-center">

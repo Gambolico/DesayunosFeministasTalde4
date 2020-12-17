@@ -33,6 +33,10 @@ Route::get('/register', [LoginController::class, 'viewRegister']);
 
 Route::post('/register/login', [LoginController::class, 'createAccount']);
 
+//* Recuperar Contraseña
+
+Route::get('/recuperar', [LoginController::class, 'recuperarContraseña']);
+
 //* Vista Como jugar
 
 Route::get('/comoJugar', [JuegoController::class, 'comoJugar']);

@@ -55,4 +55,10 @@ class LoginController extends Controller
             
     }
 
+    public function recuperarContraseña()
+    {
+        //? Aqui se hacen las transacciones con los modelos
+
+        return view('components.recuperar');
+    }
 }
