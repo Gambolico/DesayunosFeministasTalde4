@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -11,7 +11,8 @@ class Ambitos extends Model
 
         public function getAmbitos()
         {   
-            $ambitos = Ambitos::get();
+            $ambitos = Ambitos::select('Id_Ambito','Nombre_Ambito')
+            ->get();
             return $ambitos;
         }
 }
