@@ -9,7 +9,8 @@
 
 <div class="wrapper fadeInDown">
     <div id="formContent">
-        <h3>Desayunos Feministas</h3>
+        <h3>INICIAR SESION</h3>
+        <hr>
 
         <!-- Login Form -->
         <form>
@@ -18,7 +19,7 @@
         <input type="submit" class="fadeIn fourth" value="Iniciar Sesion">
         </form>
 
-        <!-- Remind Passowrd -->
+        <!-- Crear Cuenta -->
         <div id="formFooter">
         <a class="underlineHover" href="{{ url('/register') }}">¿Aun no tienes cuenta?</a>
         </div>

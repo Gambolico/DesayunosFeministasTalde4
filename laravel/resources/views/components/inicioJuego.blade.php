@@ -24,10 +24,10 @@
             </div>
         </div>
         <div class="row text-center">
-            <div class="row">
-                <a href="{{ url('/') }}" class="btn boton">JUGAR</a>
+            <div class="col">
+                <a href="{{ route('elegirModoJuego', ['modo'=>'libre']) }}" class="btn boton">JUGAR</a>
             </div>
-            <div class="row">
+            <div class="col">
                 <a href="{{ url('/coleccion') }}" class="btn boton">MUJERES</a>
             </div>
         </div>
