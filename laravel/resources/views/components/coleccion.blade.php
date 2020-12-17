@@ -6,10 +6,10 @@
 <link href="{{ asset('css/biografia.css') }}" rel="stylesheet">
 <!-- JS filter -->
 <script src="{{ asset('js/Biografia.js') }}"></script>
-<body>
-
-<!-- CSS -->
 <link href="{{ asset('css/coleccion.css') }}" rel="stylesheet">
+<body>
+<!-- CSS -->
+
 <!-- Compiled and minified CSS -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
 
@@ -19,6 +19,9 @@
             <select id="sel-bs" class="mdb-select md-form" multiple searchable="Search for...">
                 <option value="" disabled selected>Seleccionar categorias</option>
                 <option value="0">Todas</option>
+                <option value="0">dfdfv</option>
+                <option value="0">wsefwef</option>
+
                 <!-- Apartado bd -->
 
             </select>
@@ -56,7 +59,7 @@
             </div>
 </div>
     </script>
-    <!-- app para el vue -->
+    <!-- app para el objeto en vue.js -->
     <div id="app">
     <!-- Seccion de las cartas -->
     <div class="mujeres">   
@@ -66,7 +69,7 @@
             <div id="{{ $obj->Mujeres_Id}}" id="show-modal" @click="showModal = true" class="col-md-3">
                 <div class="card card-blog">
                     <div class="card-image">
-                        <a href="#"> <img class="img" src="{{ $obj->Img_Ruta}}"> </a>
+                        <a href="#"> <img class="img h-100" src="{{ $obj->Img_Ruta}}"> </a>
                         <div class="ripple-cont"></div>
                     </div>
                     <div class="table">
@@ -88,11 +91,8 @@
     <!-- Para cerrar el modal -->
         <!-- use the modal component, pass in the prop -->
         <modal v-if="showModal" @close="showModal = false">
-            <!--
-            you can use custom content here to overwrite
-            default content
-            -->
-            <h3 slot="header">custom header</h3>
+            <!-- you can use custom content here to overwrite
+            default content -->
         </modal>
     </div>
 </body>

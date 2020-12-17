@@ -11,7 +11,9 @@ class Mujeres extends Model
 
         public function getMujeresInf()
         {   
-            $mujeres = Mujeres::get();
+            $mujeres = Mujeres::select('Mujeres_Id', 'Nombre','Apellido','Fecha_Nacimiento','Fecha_Muerte','Lore_Esp','')
+            ->join('categories', 'users.idUser', '=', 'categories.user_id')
+            ->get();
             return $mujeres;
         }
 

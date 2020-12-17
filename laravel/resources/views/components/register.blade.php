@@ -2,7 +2,6 @@
 
 @section('title', 'Login')
 
-@section('css', )
 
 <style>
 /* BASIC */
