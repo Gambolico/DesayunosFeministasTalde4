@@ -1,6 +1,6 @@
 @extends('layout.parent')
 
-@section('title', 'Login')
+@section('title', 'Register')
 
 @section('css', )
 

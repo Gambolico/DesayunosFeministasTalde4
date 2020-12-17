@@ -5,11 +5,11 @@
 @section('content')
 
 <!-- CSS -->
-<link href="{{ asset('css/inicioJuego.css') }}" rel="stylesheet">
+<link href="{{ asset('CSS/inicioJuego.css') }}" rel="stylesheet">
 
 <div class="container"> 
     <h1>Elija el Modo de Juego</h1>
-        <div class="row text-center">
+        <div class="row text-center CheckElegir">
             <div class="col">
                 <label class="ContainerRadio">Encontrar las Parejas
                     <input type="radio" checked="checked" name="radio">

@@ -6,7 +6,6 @@
 <link href="{{ asset('css/biografia.css') }}" rel="stylesheet">
 <!-- JS filter -->
 <script src="{{ asset('js/Biografia.js') }}"></script>
-<body>
 
 <!-- CSS -->
 <link href="{{ asset('css/coleccion.css') }}" rel="stylesheet">
@@ -95,6 +94,5 @@
             <h3 slot="header">custom header</h3>
         </modal>
     </div>
-</body>
-    
+
 @stop

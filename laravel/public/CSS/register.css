@@ -1,11 +1,6 @@
 /* BASIC */
-html {
-    background-color: #56baed;
-}
-
 body {
     font-family: "Poppins", sans-serif;
-    height: 100vh;
 }
 
 /* STRUCTURE */
@@ -14,8 +9,9 @@ body {
     align-items: center;
     flex-direction: column; 
     justify-content: center;
-    width: 100%;
-    height: 90%;
+    margin-top: 50px;
+    margin-bottom: 15%;
+    width: auto;
 }
 
 #formContent h3{
@@ -39,7 +35,6 @@ body {
     border-top: 1px solid #dce8f1;
     padding: 25px;
     text-align: center;
-    -webkit-border-radius: 0 0 10px 10px;
     border-radius: 0 0 10px 10px;
 }
 
