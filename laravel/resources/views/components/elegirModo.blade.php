@@ -5,7 +5,7 @@
 @section('content')
 
 <!-- CSS -->
-<link href="{{ asset('css/elegirModo.css') }}" rel="stylesheet">
+<link href="{{ asset('CSS/elegirModo.css') }}" rel="stylesheet">
 
     <div class="container">
         <div class="row text-center">

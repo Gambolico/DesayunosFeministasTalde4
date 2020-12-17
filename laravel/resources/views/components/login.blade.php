@@ -5,7 +5,7 @@
 @section('content')
 
 <!-- CSS -->
-<link href="{{ asset('css/login.css') }}" rel="stylesheet">
+<link href="{{ asset('CSS/login.css') }}" rel="stylesheet">
 
 <div class="wrapper fadeInDown">
     <div id="formContent">
@@ -21,7 +21,8 @@
 
         <!-- Crear Cuenta -->
         <div id="formFooter">
-        <a class="underlineHover" href="{{ url('/register') }}">¿Aun no tienes cuenta?</a>
+        <a class="underlineHover" href="{{ url('/register') }}">¿Aun no tienes cuenta?</a> <!-- Espaciado entre las dos --> &nbsp&nbsp&nbsp 
+        <a class="underlineHover" href="{{ url('/recuperar') }}">Recuperar contraseña</a>
         </div>
 
     </div>

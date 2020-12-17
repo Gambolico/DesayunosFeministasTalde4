@@ -3,11 +3,11 @@
 @section('title', 'Coleccion')
 
 @section('content')
-<link href="{{ asset('css/biografia.css') }}" rel="stylesheet">
+
+<!-- Biografia -->
+<link href="{{ asset('CSS/biografia.css') }}" rel="stylesheet">
 <!-- JS filter -->
-<script src="{{ asset('js/Biografia.js') }}"></script>
-<link href="{{ asset('css/coleccion.css') }}" rel="stylesheet">
-<body>
+<script src="{{ asset('JS/Biografia.js') }}"></script>
 <!-- CSS -->
 <link href="{{ asset('css/coleccion.css') }}" rel="stylesheet">
 <!-- Compiled and minified CSS -->
@@ -28,7 +28,7 @@
             </div>
             <div class="col-xl-6 my-3">
             <button class="btn-save btn btn-primary btn-sm">Save</button>
-            </div>
+        </div>
     </div>
 
     <!-- Modal para la biografia de la carta seleccionada -->
