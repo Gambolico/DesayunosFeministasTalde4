@@ -70,7 +70,7 @@
             <!-- Para abrir el modal al elegir carta-->
             <div id="{{$obj->Mujeres_Id}}" id="show-modal" @click="showModal = true" class="col-md-3">
                 <div class="card card-blog">
-                    <div class="card-image">
+                    <div id="{{$obj->Ambito_Id}}" class="card-image" style="backgroundClor={{color}}">
                         <a href="#"> <img class="img" src="{{ $obj->Img_Ruta}}"> </a>
                         <div class="ripple-cont"></div>
                     </div>
