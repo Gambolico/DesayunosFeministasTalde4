@@ -23,11 +23,15 @@ Route::get('/', function () {
 
 //* Vista login
 
-Route::get('/login', [LoginController::class, 'index']);
+Route::get('/login', [LoginController::class, 'viewLogin']);
 
 //* Vista register
 
-Route::get('/register', [LoginController::class, 'register']);
+Route::get('/register', [LoginController::class, 'viewRegister']);
+
+//* Metodo post del registro
+
+Route::post('/register/login', [LoginController::class, 'createAccount']);
 
 //* Vista Como jugar
 
@@ -35,15 +39,11 @@ Route::get('/comoJugar', [JuegoController::class, 'comoJugar']);
 
 //* Vista inicio juego
 
-Route::get('/inicioJuego', [JuegoController::class, 'inicioJuego']);
+Route::get('/juego', [JuegoController::class, 'inicioJuego']);
 
 //* Vista inicio juego (cambiar modo)
 
-Route::get('/inicioJuego/{modo}', [JuegoController::class, 'inicioJuego'])->name('elegirModoJuego');
-
-//* Vista elegir juego
-
-Route::get('/elegirJuego', [JuegoController::class, 'elegirJuego']);
+Route::get('/juego/{modo}', [JuegoController::class, 'inicioJuego'])->name('elegirModoJuego');
 
 //* Vista elegir modo
 
