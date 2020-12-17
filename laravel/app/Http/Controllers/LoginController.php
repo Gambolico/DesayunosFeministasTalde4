@@ -40,30 +40,15 @@ class LoginController extends Controller
 
             $data = $request->input();
                 
-                $nombreUsuario = $data['username'];
-
-                if (Usuarios::where('Usuario', '=', $data['username'])->exists()) {
-                    //? El usuario existe
-
-
-
-                }
-                else
-                {
-                    //? El usuario no existe (se sigue con el registro)
-
-                }
-                
-
-            
+            $nombreUsuario = $data['username'];
+            $emailUsuario = $data['email'];
+            $passwordUsuario = Hash::make($data['password']); 
 
             $usuario = new Usuarios;
-
-            var_dump($usuario);
            
-            $usuario->Usuario = $data['username'];
-            $usuario->Contraseña = Hash::make($data['password']);
-            $usuario->Email = $data['email'];
+            $usuario->Usuario = cleanInput($nombreUsuario);
+            $usuario->Contraseña = cleanInput($passwordUsuario);
+            $usuario->Email = cleanInput($emailUsuario);
             $usuario->save();
 
         //}
