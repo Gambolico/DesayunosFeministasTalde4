@@ -12,14 +12,14 @@ class CreateUsuariosTable extends Migration
      * @return void
      */
 
-    public function up()
-    {
-        Schema::create('usuarios', function (Blueprint $table) {
-            $table->id();
-            $table->string('Usuario')->unique();
-            $table->string('Contraseña');
-        });
-    }
+    // public function up()
+    // {
+    //     Schema::create('usuarios', function (Blueprint $table) {
+    //         $table->id();
+    //         $table->string('Usuario')->unique();
+    //         $table->string('Contraseña');
+    //     });
+    // }
 
     /**
      * Reverse the migrations.

@@ -1,6 +1,6 @@
 @extends('layout.parent')
 
-@section('title', 'Login')
+@section('title', 'Registro')
 
 <!-- CSS -->
 <link href="{{ asset('css/register.css') }}" rel="stylesheet">
@@ -13,13 +13,25 @@
         <h3>CREAR CUENTA</h3>
         <hr>
 
+        {{-- Esta parte saca los errores creados en la validacion del fomulario de registro --}}
+
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
         <!-- Login Form -->
         <form action="/register/login" method="POST">
             @csrf
-            <input type="text" id="email" class="fadeIn second" name="email" placeholder="Correo Electronico">
-            <input type="text" id="username" class="fadeIn second @error('usuario') is-invalid @enderror" name="username" placeholder="Usuario">
-            <input type="password" id="password" class="fadeIn third" name="password" placeholder="Contraseña">
-            <input type="password" id="passwordR" class="fadeIn third" name="passwordR" placeholder="Repita la contraseña">
+            <input type="text" class="fadeIn second" name="email" placeholder="Correo Electronico">
+            <input type="text" class="fadeIn second @error('usuario') is-invalid @enderror" name="username" placeholder="Usuario">
+            <input type="password" class="fadeIn third" name="password" placeholder="Contraseña">
+            <input type="password" class="fadeIn third" name="password_confirmation" placeholder="Repita la contraseña">
             <input type="submit" class="fadeIn fourth" value="Registrarme">
         </form>
 
