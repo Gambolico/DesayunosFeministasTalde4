@@ -71,7 +71,7 @@
                     </div>
                     <div class="table">
                         <p lass="category text-warning">
-                            <i class="fa fa-soundcloud"></i> {{ $obj->Apellido}}
+                            <i class="fa fa-soundcloud"></i> {{ $obj->Nombre_Ambito}}
                         </p>
                         <h6 class="card-caption">
                             <a href="#">{{ $obj->Nombre}} {{ $obj->Apellido}}</a>
