@@ -3,28 +3,26 @@
 @section('title', 'Coleccion')
 
 @section('content')
-<link href="{{ asset('css/biografia.css') }}" rel="stylesheet">
+
+<!-- Biografia -->
+<link href="{{ asset('CSS/biografia.css') }}" rel="stylesheet">
 <!-- JS filter -->
-<script src="{{ asset('js/Biografia.js') }}"></script>
-<link href="{{ asset('css/coleccion.css') }}" rel="stylesheet">
-<body>
+<script src="{{ asset('JS/Biografia.js') }}"></script>
 <!-- CSS -->
 <link href="{{ asset('css/coleccion.css') }}" rel="stylesheet">
 <!-- Compiled and minified CSS -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
 
 <!-- Filtro de cartas -->
-<!-- k t calles -->
     <div class=" filtro row">
-            <div class="col-md-6 my-3">
+        <div class="col-md-6 my-3">
             <select id="sel-bs" class="mdb-select md-form" multiple searchable="Search for...">
                 <option value="" disabled selected>Seleccionar categorias</option>
                 <option value="0">Todas</option>
                 <!-- Apartado bd -->
-
             </select>
             <button class="btn-save btn btn-primary btn-sm">Save</button>
-            </div>
+        </div>
     </div>
 
     <!-- Modal para la biografia de la carta seleccionada -->

@@ -5,7 +5,7 @@
 @section('content')
 
 <!-- CSS -->
-<link href="{{ asset('css/login.css') }}" rel="stylesheet">
+<link href="{{ asset('CSS/login.css') }}" rel="stylesheet">
 
 <div class="wrapper fadeInDown">
     <div id="formContent">
