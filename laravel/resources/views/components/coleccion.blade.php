@@ -13,6 +13,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
 
 <!-- Filtro de cartas -->
+<!-- k t calles -->
     <div class=" filtro row">
             <div class="col-md-6 my-3">
             <select id="sel-bs" class="mdb-select md-form" multiple searchable="Search for...">
