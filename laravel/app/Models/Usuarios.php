@@ -12,5 +12,4 @@ class Usuarios extends Model
                 'Usuario',
                 'Contraseña'
         ];
-        public $timestamps = false;
 }
