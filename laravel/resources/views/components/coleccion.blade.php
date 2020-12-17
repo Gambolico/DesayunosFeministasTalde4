@@ -6,7 +6,8 @@
 <link href="{{ asset('css/biografia.css') }}" rel="stylesheet">
 <!-- JS filter -->
 <script src="{{ asset('js/Biografia.js') }}"></script>
-
+<link href="{{ asset('css/coleccion.css') }}" rel="stylesheet">
+<body>
 <!-- CSS -->
 <link href="{{ asset('css/coleccion.css') }}" rel="stylesheet">
 <!-- Compiled and minified CSS -->

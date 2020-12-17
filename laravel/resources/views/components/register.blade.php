@@ -2,8 +2,6 @@
 
 @section('title', 'Registro')
 
-@section('css', )
-
 <!-- CSS -->
 <link href="{{ asset('css/register.css') }}" rel="stylesheet">
 
