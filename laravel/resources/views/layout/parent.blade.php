@@ -17,6 +17,8 @@
                 <link href="{{ asset('css/parent.css') }}" rel="stylesheet">
                 <!-- Cartas -->
                 <link href="{{ asset('CSS/cartas.css') }}" rel="stylesheet">
+                <!-- Restante -->
+                <link href="{{ asset('CSS/coleccion.css') }}" rel="stylesheet">
                 <!-- JS filter -->
                 <script src="{{ asset('js/coleccion.js') }}"></script>
     </head>
@@ -44,7 +46,7 @@
             </ul>
             <ul class="navbar-nav navbar-right ml-auto nav-flex-icons">
             <li class="nav-item avatar">
-                <a class="nav-link p-0" href="{{ url('/login') }}">
+                <a class="nav-link p-0" href="#">
                 <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-5.jpg" class="rounded-circle z-depth-0"
                     alt="avatar image" height="35">
                 </a>
@@ -67,9 +69,11 @@
 
     <!-- Galserias js -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
-    
     <!-- Footer -->
     <footer id="sticky-footer" class="py-4 bg-dark text-white-50">
         <div class="cFooter text-center">

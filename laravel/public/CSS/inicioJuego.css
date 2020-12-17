@@ -30,13 +30,6 @@
     border-radius: 10px 10px 10px 10px;
 }
 
-.row{
-    display: flex;
-    align-items: center;
-    flex-direction: column; 
-    justify-content: center;
-}
-
 .ContainerRadio {
     margin-top:25px;
     position: relative;
@@ -100,7 +93,6 @@
     background: white;
 }
 
-/* Botones */
 input[type=button], input[type=submit], input[type=reset]  {
     background-color: #56baed;
     border: none;
@@ -116,6 +108,17 @@ input[type=button], input[type=submit], input[type=reset]  {
     margin: 5px 20px 40px 20px;
 }
 
+input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover  {
+    background-color: #39ace7;
+}
+
+input[type=button]:active, input[type=submit]:active, input[type=reset]:active  {
+    -moz-transform: scale(0.95);
+    -webkit-transform: scale(0.95);
+    -o-transform: scale(0.95);
+    -ms-transform: scale(0.95);
+    transform: scale(0.95);
+}
 .backgroundGeneral{
     background-image: url('https://desayunosfeministascantabria.files.wordpress.com/2018/10/cropped-logotipo-2.jpg');
     background-repeat: no-repeat;

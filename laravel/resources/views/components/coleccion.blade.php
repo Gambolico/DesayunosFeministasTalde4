@@ -7,12 +7,6 @@
 <!-- JS filter -->
 <script src="{{ asset('js/Biografia.js') }}"></script>
 <body>
-
-<!-- CSS -->
-<link href="{{ asset('css/coleccion.css') }}" rel="stylesheet">
-<!-- Compiled and minified CSS -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
-
 <!-- Filtro de cartas -->
     <div class=" filtro row">
             <div class="col-md-6 my-3">
