@@ -15,14 +15,18 @@
 
 <!-- Filtro de cartas -->
 <!-- k t calles -->
-    <div class=" filtro row">
-            <div class="col-md-6 my-3">
+    <div class="filtro row">
+            <div class="col-xl-4 my-3">
             <select id="sel-bs" class="mdb-select md-form" multiple searchable="Search for...">
                 <option value="" disabled selected>Seleccionar categorias</option>
                 <option value="0">Todas</option>
                 <!-- Apartado bd -->
-
+                @foreach($Ambitos as $obj)
+                <option value="{{$obj->Id_Ambito}}">{{ $obj->Nombre_Ambito}}</option>
+                @endforeach
             </select>
+            </div>
+            <div class="col-xl-6 my-3">
             <button class="btn-save btn btn-primary btn-sm">Save</button>
             </div>
     </div>
@@ -64,7 +68,7 @@
         <div class=" mujeres row">
         @foreach($Mujeres as $obj)
             <!-- Para abrir el modal al elegir carta-->
-            <div id="{{ $obj->Mujeres_Id}}" id="show-modal" @click="showModal = true" class="col-md-3">
+            <div id="{{$obj->Mujeres_Id}}" id="show-modal" @click="showModal = true" class="col-md-3">
                 <div class="card card-blog">
                     <div class="card-image">
                         <a href="#"> <img class="img" src="{{ $obj->Img_Ruta}}"> </a>
