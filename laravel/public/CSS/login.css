@@ -1,11 +1,6 @@
 /* BASIC */
-html {
-    background-color: #56baed;
-}
-
 body {
     font-family: "Poppins", sans-serif;
-    height: 100vh;
 }
 
 /* STRUCTURE */
@@ -39,7 +34,6 @@ body {
     border-top: 1px solid #dce8f1;
     padding: 25px;
     text-align: center;
-    -webkit-border-radius: 0 0 10px 10px;
     border-radius: 0 0 10px 10px;
 }
 

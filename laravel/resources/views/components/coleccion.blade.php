@@ -6,8 +6,12 @@
 <link href="{{ asset('css/biografia.css') }}" rel="stylesheet">
 <!-- JS filter -->
 <script src="{{ asset('js/Biografia.js') }}"></script>
+<<<<<<< HEAD
+
+=======
 <link href="{{ asset('css/coleccion.css') }}" rel="stylesheet">
 <body>
+>>>>>>> e01d1c9e31d72587edb0d94a7fdab338057ba242
 <!-- CSS -->
 
 <!-- Compiled and minified CSS -->
@@ -95,6 +99,5 @@
             default content -->
         </modal>
     </div>
-</body>
-    
+
 @stop
