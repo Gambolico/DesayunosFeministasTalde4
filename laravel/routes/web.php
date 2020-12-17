@@ -25,13 +25,17 @@ Route::get('/', function () {
 
 Route::get('/login', [LoginController::class, 'viewLogin']);
 
+//* Intentar iniciar sesion
+
+Route::post('/login/authenticate', [LoginController::class, 'tryLogin']);
+
 //* Vista register
 
 Route::get('/register', [LoginController::class, 'viewRegister']);
 
 //* Metodo post del registro
 
-Route::post('/register/login', [LoginController::class, 'createAccount']);
+Route::post('/register', [LoginController::class, 'createAccount']);
 
 //* Recuperar Contraseña
 
