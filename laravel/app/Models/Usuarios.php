@@ -7,4 +7,10 @@ class Usuarios extends Model
 {
         //La tabla que vamos a usar
         protected $table = 'usuarios';
+
+        protected $fillable = [
+                'Usuario',
+                'Contraseña'
+        ];
+        public $timestamps = false;
 }
