@@ -159,7 +159,7 @@
         <div>
         <div class="row text-center">
             <div class="col">
-                <a href="{{ url('/') }}" class="btn boton">JUGAR</a>
+                <a href="{{ route('elegirModoJuego', ['modo'=>'libre']) }}" class="btn boton">JUGAR</a>
             </div>
             <div class="col">
                 <a href="{{ url('/') }}" class="btn boton">MUJERES</a>
