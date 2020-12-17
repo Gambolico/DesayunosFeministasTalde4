@@ -21,7 +21,8 @@
 
         <!-- Crear Cuenta -->
         <div id="formFooter">
-        <a class="underlineHover" href="{{ url('/register') }}">¿Aun no tienes cuenta?</a>
+        <a class="underlineHover" href="{{ url('/register') }}">¿Aun no tienes cuenta?</a> <!-- Espaciado entre las dos --> &nbsp&nbsp&nbsp 
+        <a class="underlineHover" href="{{ url('/recuperar') }}">Recuperar contraseña</a>
         </div>
 
     </div>
