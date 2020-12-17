@@ -33,9 +33,15 @@ class LoginController extends Controller
 
             $data = $request->input();
 
-            $usuario = new Usuarios;
+            if(!empty($data['username']) && !empty($data['email']) && !empty($data['password']) && !empty($data['passwordR']))
+            {
 
-            var_dump($usuario);
+                
+
+            }
+
+
+            $usuario = new Usuarios;
            
             $usuario->Usuario = $data['username'];
             $usuario->Contraseña = Hash::make($data['password']);
