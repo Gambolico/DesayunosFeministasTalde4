@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Usuarios;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
-use \Illuminate\Http\Response;
+use Illuminate\Http\Response;
 
 class LoginController extends Controller
 {
@@ -31,7 +31,31 @@ class LoginController extends Controller
         //if(!empty($usuario))
         //{
 
+            $validated = $request->validate([
+                    'username' => 'required|exists:Usuarios,Usuario',
+                    'password' => 'required|min:8|confirmed',
+                    'email' => 'required|email|unique:users'
+                ]);
+
+
             $data = $request->input();
+                
+                $nombreUsuario = $data['username'];
+
+                if (Usuarios::where('Usuario', '=', $data['username'])->exists()) {
+                    //? El usuario existe
+
+
+
+                }
+                else
+                {
+                    //? El usuario no existe (se sigue con el registro)
+
+                }
+                
+
+            
 
             $usuario = new Usuarios;
 
@@ -39,6 +63,7 @@ class LoginController extends Controller
            
             $usuario->Usuario = $data['username'];
             $usuario->Contraseña = Hash::make($data['password']);
+            $usuario->Email = $data['email'];
             $usuario->save();
 
         //}

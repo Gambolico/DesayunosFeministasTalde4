@@ -10,6 +10,18 @@ class Usuarios extends Model
 
         protected $fillable = [
                 'Usuario',
-                'Contraseña'
+                'Contraseña',
+                'Email'
         ];
+        public $timestamps = false;
+
+        public function checkUsername($username)
+        {
+                
+                $usuario = Usuarios::select('Usuario')
+                ->where('Usuario','=',$username)
+                ->get();
+                return $usuario;
+
+        }
 }
