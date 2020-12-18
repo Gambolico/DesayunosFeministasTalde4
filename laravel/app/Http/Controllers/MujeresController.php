@@ -8,7 +8,6 @@ use Illuminate\Http\Request;
 class MujeresController extends Controller
 {
     //
-
     public function coleccion()
     {
         $mujeres=Mujeres::first()->getMujeresInf();
