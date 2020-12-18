@@ -43,10 +43,16 @@
             </li>
             </ul>
             <ul class="navbar-nav navbar-right ml-auto nav-flex-icons">
-            <li class="nav-item avatar">
+            <li class="nav-item avatar" style="position: absolute; right: 0; margin-right:1%;">
+            @if (auth()->check())
+                <a class="nav-link p-0" href="{{ url('/logout') }}">Cerrar Sesion (<?php echo auth()->user()->name; ?>)
+                <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-5.jpg" class="rounded-circle z-depth-0" alt="avatar image" height="35">
+                </a>
+            @else
                 <a class="nav-link p-0" href="{{ url('/login') }}">Iniciar Sesion
                 <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-5.jpg" class="rounded-circle z-depth-0" alt="avatar image" height="35">
                 </a>
+            @endif
             </li>
             </ul>
         </div>

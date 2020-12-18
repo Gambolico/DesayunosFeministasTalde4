@@ -27,7 +27,11 @@ Route::get('/login', [LoginController::class, 'viewLogin']);
 
 //* Intentar iniciar sesion
 
-Route::post('/login/authenticate', [LoginController::class, 'tryLogin']);
+Route::post('/login', [LoginController::class, 'tryLogin']);
+
+//* Intentar iniciar sesion
+
+Route::get('/logout', [LoginController::class, 'Logout']);
 
 //* Vista register
 

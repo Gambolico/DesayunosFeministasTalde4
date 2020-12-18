@@ -18,5 +18,4 @@ class Mujeres extends Model
             ->get();
             return $mujeres;
         }
-
 }    
