@@ -82,7 +82,7 @@ class LoginController extends Controller
             $passwordUsuario = Hash::make($data['password']); 
 
             $usuario = new Usuarios;
-           try {
+            try {
 
             $usuario->Usuario = cleanInput($nombreUsuario);
             $usuario->Contraseña = cleanInput($passwordUsuario);
@@ -91,9 +91,9 @@ class LoginController extends Controller
 
             return view('components.login');
 
-           } catch (\Throwable $th) {
-               
-           }
+            } catch (\Throwable $th) {
+                
+            }
             
         //}
             
