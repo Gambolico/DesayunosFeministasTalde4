@@ -15,7 +15,7 @@
         <!-- Login Form -->
         <form>
         <input type="text" id="login" class="fadeIn second" name="login" placeholder="Correo Electronico">
-        <input type="submit" class="fadeIn fourth" value="Iniciar Sesion">
+        <input type="submit" class="fadeIn fourth" value="Recuperar Contraseña">
         </form>
 
         <!-- Crear Cuenta -->

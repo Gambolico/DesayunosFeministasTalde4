@@ -26,10 +26,10 @@
         @endif
 
         <!-- Login Form -->
-        <form action="/register/login" method="POST">
+        <form action="/register" method="POST">
             @csrf
             <input type="text" class="fadeIn second" name="email" placeholder="Correo Electronico">
-            <input type="text" class="fadeIn second @error('usuario') is-invalid @enderror" name="username" placeholder="Usuario">
+            <input type="text" class="fadeIn second" name="username" placeholder="Usuario">
             <input type="password" class="fadeIn third" name="password" placeholder="Contraseña">
             <input type="password" class="fadeIn third" name="password_confirmation" placeholder="Repita la contraseña">
             <input type="submit" class="fadeIn fourth" value="Registrarme">

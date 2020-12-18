@@ -16,7 +16,7 @@
 
 <!-- Filtro de cartas -->
     <div class="filtro row">
-            <div class="col-xl-4 my-3">
+        <div class="col-xl-4 my-3">
             <select id="sel-bs" class="mdb-select md-form" multiple searchable="Search for...">
                 <option value="" disabled selected>Seleccionar categorias</option>
                 <option value="0">Todas</option>
@@ -25,8 +25,8 @@
                 <option value="{{$obj->Id_Ambito}}">{{ $obj->Nombre_Ambito}}</option>
                 @endforeach
             </select>
-            </div>
-            <div class="col-xl-6 my-3">
+        </div>
+        <div class="col-xl-6 my-3">
             <button class="btn-save btn btn-primary btn-sm">Save</button>
         </div>
     </div>
@@ -38,32 +38,27 @@
     @foreach($Mujeres as $obj)
         <div name="modal">
             <div class="modal-mask">
-            <div class="modal-wrapper">
-                <div class="modal-container">
-                <div class="modal-header">
-                    <slot name="header">
-                    </slot>
-                </div>
-
-                <div class="modal-body">
-                    <slot name="body">
-                    </slot>
-                </div>
-
-                <div class="modal-footer">
-                    <slot name="footer">
-                    default footer
-                    <button class="modal-default-button" @click="$emit('close')">
-                        OK
-                    </button>
-                    </slot>
-                </div>
+                <div class="modal-wrapper">
+                    <div class="modal-container">
+                        <div class="modal-header">
+                            <slot name="header"></slot>
+                        </div>
+                        <div class="modal-body">
+                            <slot name="body"></slot>
+                        </div>
+                        <div class="modal-footer">
+                            <slot name="footer">default footer
+                            <button class="modal-default-button" @click="$emit('close')">OK</button>
+                            </slot>
+                        </div>
+                    </div>
                 </div>
             </div>
             </div>
 </div>
 @endforeach
     </script>
+
     <!-- app para el vue -->
     <div id="app">
     <!-- Seccion de las cartas -->
