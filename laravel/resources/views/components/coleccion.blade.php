@@ -8,15 +8,15 @@
 <link href="{{ asset('CSS/biografia.css') }}" rel="stylesheet">
 <!-- JS filter -->
 <script src="{{ asset('JS/Biografia.js') }}"></script>
+<script src="{{ asset('JS/Cartas.js') }}"></script>
 <!-- CSS -->
 <link href="{{ asset('css/coleccion.css') }}" rel="stylesheet">
 <!-- Compiled and minified CSS -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
 
 <!-- Filtro de cartas -->
-<!-- k t calles -->
     <div class="filtro row">
-            <div class="col-xl-4 my-3">
+        <div class="col-xl-4 my-3">
             <select id="sel-bs" class="mdb-select md-form" multiple searchable="Search for...">
                 <option value="" disabled selected>Seleccionar categorias</option>
                 <option value="0">Todas</option>
@@ -25,42 +25,40 @@
                 <option value="{{$obj->Id_Ambito}}">{{ $obj->Nombre_Ambito}}</option>
                 @endforeach
             </select>
-            </div>
-            <div class="col-xl-6 my-3">
+        </div>
+        <div class="col-xl-6 my-3">
             <button class="btn-save btn btn-primary btn-sm">Save</button>
         </div>
     </div>
 
     <!-- Modal para la biografia de la carta seleccionada -->
     <!-- Composicion del modal de biografia-->
+    
     <script type="text/x-template" id="modal-template">
+    @foreach($Mujeres as $obj)
         <div name="modal">
             <div class="modal-mask">
-            <div class="modal-wrapper">
-                <div class="modal-container">
-                <div class="modal-header">
-                    <slot name="header">
-                    </slot>
-                </div>
-
-                <div class="modal-body">
-                    <slot name="body">
-                    </slot>
-                </div>
-
-                <div class="modal-footer">
-                    <slot name="footer">
-                    default footer
-                    <button class="modal-default-button" @click="$emit('close')">
-                        OK
-                    </button>
-                    </slot>
-                </div>
+                <div class="modal-wrapper">
+                    <div class="modal-container">
+                        <div class="modal-header">
+                            <slot name="header"></slot>
+                        </div>
+                        <div class="modal-body">
+                            <slot name="body"></slot>
+                        </div>
+                        <div class="modal-footer">
+                            <slot name="footer">default footer
+                            <button class="modal-default-button" @click="$emit('close')">OK</button>
+                            </slot>
+                        </div>
+                    </div>
                 </div>
             </div>
             </div>
 </div>
+@endforeach
     </script>
+
     <!-- app para el vue -->
     <div id="app">
     <!-- Seccion de las cartas -->
@@ -69,17 +67,17 @@
         @foreach($Mujeres as $obj)
             <!-- Para abrir el modal al elegir carta-->
             <div id="{{$obj->Mujeres_Id}}" id="show-modal" @click="showModal = true" class="col-md-3">
-                <div class="card card-blog">
-                    <div id="{{$obj->Ambito_Id}}" class="card-image" style="backgroundClor={{color}}">
+                <div class="card card-blog" style="background:{{$obj->Cod_Color}};">
+                    <div id="{{$obj->Ambito_Id}}" class="card-image" >
                         <a href="#"> <img class="img" src="{{ $obj->Img_Ruta}}"> </a>
                         <div class="ripple-cont"></div>
                     </div>
                     <div class="table">
                         <p lass="category text-warning">
-                            <i class="fa fa-soundcloud"></i> {{ $obj->Nombre_Ambito}}
+                            <i class="fa fa-soundcloud"></i> {{$obj->Nombre_Ambito}}
                         </p>
                         <h6 class="card-caption">
-                            <a href="#">{{ $obj->Nombre}} {{ $obj->Apellido}}</a>
+                            <a href="#">{{ $obj->Nombre}}{{ $obj->Apellido}}</a>
                         </h6>
                         <div class="ftr">
                             <div class="stats"> <i class="fa fa-clock-o"></i> {{ $obj->Fecha_Nacimiento}} </div>
