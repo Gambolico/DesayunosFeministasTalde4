@@ -9,7 +9,7 @@
 
 <div class="container" class="slideshow-container">
     <div>
-        <h1>COMO JUGAR</h1>
+        <h1>COMO JUGAR</h1><br><br>
     </div>
     <!-- <div class="row">
         <div class="col">
@@ -32,9 +32,7 @@
             <div class="text">
                 Elige el modo de juego que quieras!
             </div>
-        </div>
+        </div><br><br>
     </div>
-
-    <a href="{{ url('/elegirModo') }}" class="btn boton">EMPEZAR A JUGAR</a>
 </div>
 @stop
