@@ -1,4 +1,4 @@
-.boton{
+.boton {
     background-color: #261343;
     border: none;
     color: white;
@@ -11,24 +11,25 @@
     margin: 5px 20px 40px 20px;
     width: 500px;
 }
-.boton:hover{
+.boton:hover {
     background-color: #5c2ba6;
     color: white;
 }
 
-.container{
+.container {
     display: flex;
     align-items: center;
     flex-direction: column; 
     justify-content: center;
     height: 80%;
 }
-.row{
+
+.row {
     display: flex;
     justify-content: center;
 }
 
-.backgroundGeneral{
+.backgroundGeneral {
     background-image: url('https://desayunosfeministascantabria.files.wordpress.com/2018/10/cropped-logotipo-2.jpg');
     background-repeat: no-repeat;
     background-size: contain;
