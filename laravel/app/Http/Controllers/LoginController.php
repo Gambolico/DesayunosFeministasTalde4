@@ -77,9 +77,9 @@ class LoginController extends Controller
         //{
 
             $validated = $request->validate([
-                    'username' => 'required|unique:Usuarios,usuario',
+                    'username' => 'required|unique:Users,name',
                     'password' => 'required|min:8|confirmed',
-                    'email' => 'required|email|unique:Usuarios,email'
+                    'email' => 'required|email|unique:Users,email'
                 ]);
 
 
