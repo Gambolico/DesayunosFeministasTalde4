@@ -13,6 +13,7 @@
 <link href="{{ asset('css/coleccion.css') }}" rel="stylesheet">
 <!-- Compiled and minified CSS -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+<script src="https://cdn.jsdelivr.net/vue.resource/1.3.1/vue-resource.min.js"></script>
 
 <!-- Filtro de cartas -->
     <div class="filtro row">
@@ -44,7 +45,8 @@
                             <slot name="header"></slot>
                         </div>
                         <div class="modal-body">
-                            <slot name="body"></slot>
+                        <img class="img" src="images/fotos de mujeres/{{$obj->Img_Ruta}}">
+                            
                         </div>
                         <div class="modal-footer">
                             <slot name="footer">default footer
@@ -66,10 +68,10 @@
         <div class=" mujeres row">
         @foreach($Mujeres as $obj)
             <!-- Para abrir el modal al elegir carta-->
-            <div id="{{$obj->Mujeres_Id}}" id="show-modal" @click="showModal = true" class="col-md-3">
+            <div id="{{$obj->Mujeres_Id}}" id="show-modal" @click="showModal = true;" class="col-md-3">
                 <div class="card card-blog" style="background:{{$obj->Cod_Color}};">
                     <div id="{{$obj->Ambito_Id}}" class="card-image" >
-                        <a href="#"> <img class="img" src="{{ $obj->Img_Ruta}}"> </a>
+                        <a href="#"> <img class="img" src="images/fotos de mujeres/{{$obj->Img_Ruta}}"> </a>
                         <div class="ripple-cont"></div>
                     </div>
                     <div class="table">
@@ -77,7 +79,7 @@
                             <i class="fa fa-soundcloud"></i> {{$obj->Nombre_Ambito}}
                         </p>
                         <h6 class="card-caption">
-                            <a href="#">{{ $obj->Nombre}}{{ $obj->Apellido}}</a>
+                            <a href="#">{{ $obj->Nombre}} {{ $obj->Apellido}}</a>
                         </h6>
                         <div class="ftr">
                             <div class="stats"> <i class="fa fa-clock-o"></i> {{ $obj->Fecha_Nacimiento}} </div>
