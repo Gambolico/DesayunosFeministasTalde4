@@ -13,9 +13,9 @@
         <hr>
 
         <!-- Login Form -->
-        <form action="/login/authenticate" method="POST">
+        <form action="/login" method="POST">
         @csrf
-        <input type="text" id="login" class="fadeIn second" name="username" placeholder="Usuario">
+        <input type="text" id="login" class="fadeIn second" name="name" placeholder="Usuario">
         <input type="password" id="password" class="fadeIn third" name="password" placeholder="Contraseña">
         <input type="submit" class="fadeIn fourth" value="Iniciar Sesion">
         </form>

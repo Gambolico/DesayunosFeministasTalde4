@@ -2,8 +2,10 @@
 
 namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class Usuarios extends Model
+class Usuarios extends Authenticatable
 {
         //La tabla que vamos a usar
         protected $table = 'usuarios';
@@ -13,6 +15,11 @@ class Usuarios extends Model
                 'Contraseña',
                 'Email'
         ];
+
+        protected $hidden = [
+                'Contraseña', 'remember_token',
+            ];
+
         public $timestamps = false;
 
         public function checkUsername($username)
@@ -24,4 +31,5 @@ class Usuarios extends Model
                 return $usuario;
 
         }
+
 }
