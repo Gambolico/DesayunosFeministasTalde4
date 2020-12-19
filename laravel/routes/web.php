@@ -76,3 +76,6 @@ Route::get('/adivina', [JuegoController::class, 'adivina']);
 //* Vista coleccion
 
 Route::get('/coleccion', [MujeresController::class, 'coleccion']);
+Route::get('/coleccion/{id}', [MujeresController::class, 'coleccion'])->name('mujer');
+//Vista Carta Biografia
+Route::get('/biografia', [MujeresController::class, 'biografia']);

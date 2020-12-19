@@ -17,7 +17,7 @@
 
 <!-- Filtro de cartas -->
     <div class="filtro row">
-        <div class="col-xl-4 my-3">
+        <div class="col-md-4 my-3">
             <select id="sel-bs" class="mdb-select md-form" multiple searchable="Search for...">
                 <option value="" disabled selected>Seleccionar categorias</option>
                 <option value="0">Todas</option>
@@ -27,7 +27,7 @@
                 @endforeach
             </select>
         </div>
-        <div class="col-xl-6 my-3">
+        <div class="col-md-6 my-3">
             <button class="btn-save btn btn-primary btn-sm">Save</button>
         </div>
     </div>
@@ -46,7 +46,8 @@
                         </div>
                         <div class="modal-body">
                         <img class="img" src="images/fotos de mujeres/{{$obj->Img_Ruta}}">
-                            
+
+                            <a href="#">{{ $obj->Nombre}} {{ $obj->Apellido}}</a>
                         </div>
                         <div class="modal-footer">
                             <slot name="footer">default footer
@@ -68,7 +69,7 @@
         <div class=" mujeres row">
         @foreach($Mujeres as $obj)
             <!-- Para abrir el modal al elegir carta-->
-            <div id="{{$obj->Mujeres_Id}}" id="show-modal" @click="showModal = true;" class="col-md-3">
+            <div id="{{$obj->Mujeres_Id}}" id="show-modal" @click="showModal = true;" href="{{route('mujer',['id'=>$obj->Mujeres_Id])}}" class="col-md-3">
                 <div class="card card-blog" style="background:{{$obj->Cod_Color}};">
                     <div id="{{$obj->Ambito_Id}}" class="card-image" >
                         <a href="#"> <img class="img" src="images/fotos de mujeres/{{$obj->Img_Ruta}}"> </a>

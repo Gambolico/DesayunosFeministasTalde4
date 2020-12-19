@@ -20,4 +20,11 @@ class MujeresController extends Controller
 
         
     }
+    public function biografia($id)
+    {
+        $mujeresBiografia=Mujeres::first()->getMujeresBiografia($id);
+        return view('components.coleccion',['Mujeres'=> $mujeresBiografia]);
+
+        
+    }
 }
