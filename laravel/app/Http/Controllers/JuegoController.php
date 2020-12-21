@@ -29,11 +29,19 @@ class JuegoController extends Controller
         return view('components.elegirModo');
     }
 
-    public function parejas()
+    public function parejas($modo)
     {
-        $mujeres=Mujeres::inRandomOrder()->limit(9)->get();
+        
+        if($modo == 'libre'){
+            $mujeres=Mujeres::inRandomOrder()->limit(9)->get();
     
-        return view('components.pareja', ['mujeres' => $mujeres]);
+            return view('components.pareja', ['mujeres' => $mujeres]);
+        }else{
+            echo "el juego de historia pa";
+            die();
+        }
+
+        
     }
 
     public function adivina()
