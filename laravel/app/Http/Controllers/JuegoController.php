@@ -59,6 +59,7 @@ class JuegoController extends Controller
 
                 $mujerDesbloqueada->Id_Usuario = $data['Id_Usuario'];
                 $mujerDesbloqueada->Id_Mujeres = $data['Id_Mujeres'];
+                $mujerDesbloqueada->save();
 
             }catch(Exception $e){
                 

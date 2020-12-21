@@ -18,7 +18,7 @@ class Mujeresdesbloqueadas extends Model
     public function checkDesbloqueadas($user, $mujer)
     {
         $desbloqueada = mujeresdesbloqueadas::select('Id_Usuario','Id_Mujeres')
-        ->where('Id_Usuario','=', $use, 'AND','Id_Mujeres','=', 'Id_Mujeres')
+        ->where('Id_Usuario','=', $user, 'AND','Id_Mujeres','=', $mujer)
         ->get();
         return $desbloqueada;
     }
