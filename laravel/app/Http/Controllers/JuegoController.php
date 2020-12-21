@@ -16,7 +16,23 @@ class JuegoController extends Controller
 
     public function iniciojuego($modo)
     {
-        return view('components.inicioJuego', ['modo' => $modo]);
+        //* Si el modo de juego es historia, tiene que estar logeado
+        if($modo == 'historia'){
+
+            if(auth()->check()){
+                //* El susuario esta logeado
+                return view('components.inicioJuego', ['modo' => $modo]);
+
+            }else{
+                //* No esta logeado, redirige a login
+
+                return redirect('/login')->with('error', 'Tienes que estar logeado');
+            }
+
+        }else{
+            return view('components.inicioJuego', ['modo' => $modo]);
+        }
+
     }
 
     public function elegirJuego()
@@ -35,10 +51,17 @@ class JuegoController extends Controller
         if($modo == 'libre'){
             $mujeres=Mujeres::inRandomOrder()->limit(9)->get();
     
-            return view('components.pareja', ['mujeres' => $mujeres]);
-        }else{
-            echo "el juego de historia pa";
-            die();
+            return view('components.pareja', ['modo' => $modo,'mujeres' => $mujeres]);
+        }elseif ($modo == 'historia') {
+            if(auth()->check()){
+                //* El susuario esta logeado
+
+            }else{
+                //* No esta logeado, redirige a login
+
+                return view('components.login');
+            }
+
         }
 
         

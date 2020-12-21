@@ -7,7 +7,14 @@
 <!-- CSS -->
 <link href="{{ asset('CSS/login.css') }}" rel="stylesheet">
 
+
+
 <div class="wrapper fadeInDown">
+@if (session('error'))
+    <div class="alert alert-success">
+        {{ session('error') }}
+    </div>
+@endif
     <div id="formContent">
         <h3>INICIAR SESION</h3>
         <hr>
