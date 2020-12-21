@@ -20,10 +20,16 @@
                 <img class="back-face" src="{{url('/images/Card2.png')}}" alt="Carta"/>
             </div>
         @endforeach
+        
             
         </section>
     <div>
         
     <!-- JS -->
     <script src="{{ asset('JS/Parejas.js') }}"></script>
+    @foreach ($mujeres as $obj)
+        <?php
+            App\Http\Controllers\JuegoController::saveMujer(auth()->user()->id, $obj->Mujeres_Id);
+        ?>   
+        @endforeach
 @stop

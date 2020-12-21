@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 use App\Models\Mujeres;
 use App\Models\Mujeresdesbloqueadas;
-use App\Models\USuarios;
+use App\Models\Usuarios;
 use Illuminate\Http\Request;
+use Log;
 
 class JuegoController extends Controller
 {
@@ -72,16 +73,22 @@ class JuegoController extends Controller
         return view('components.adivina');
     }
 
-    public function saveMujer(Request $request)
+    public static function saveMujer($idUsuario, $idMujer)
     {   
+        $desbloqueada = Mujeresdesbloqueadas::checkDesbloqueadas($idUsuario, $idMujer);
+
+        
+
         if(empty($desbloqueada)){
-            $data = $request->input();
 
             try{
-                $mujerDesbloqueada = new mujerDesbloqueada;
+                $mujerDesbloqueada = new Mujeresdesbloqueadas;
 
-                $mujerDesbloqueada->Id_Usuario = $data['Id_Usuario'];
-                $mujerDesbloqueada->Id_Mujeres = $data['Id_Mujeres'];
+                $mujerDesbloqueada->Id_Usuario = $idUsuario;
+                $mujerDesbloqueada->Id_Mujeres = $idMujer;
+
+
+
                 $mujerDesbloqueada->save();
 
             }catch(Exception $e){
