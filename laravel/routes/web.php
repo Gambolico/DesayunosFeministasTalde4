@@ -63,11 +63,11 @@ Route::get('/elegirModo', [JuegoController::class, 'elegirModo']);
 
 //* Vista parejas (libre)
 
-Route::get('/parejas/{modo}', [JuegoController::class, 'parejas']);
+Route::get('/parejas/{modo}', [JuegoController::class, 'parejas'])->name('empezarParejas');
 
 //* Vista adivina (libre)
 
-Route::get('/adivina/{modo}', [JuegoController::class, 'adivina']);
+Route::get('/adivina/{modo}', [JuegoController::class, 'adivina'])->name('empezarAdivina');
 
 //* Vista coleccion
 
