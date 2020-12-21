@@ -2,6 +2,7 @@
 
 namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
+use Log;
 
 class Mujeresdesbloqueadas extends Model
 {
@@ -17,8 +18,11 @@ class Mujeresdesbloqueadas extends Model
 
     public static function checkDesbloqueadas($user, $mujer)
     {
+        log::debug('checkDesbloqueadas ' . $mujer);
+
         $desbloqueada = mujeresdesbloqueadas::select('Id_Usuario','Id_Mujeres')
-        ->where('Id_Usuario','=', $user, 'AND','Id_Mujeres','=', $mujer)
+        ->where('Id_Usuario','=', $user)
+        ->where('Id_Mujeres','=', $mujer)
         ->get();
         return $desbloqueada;
     }

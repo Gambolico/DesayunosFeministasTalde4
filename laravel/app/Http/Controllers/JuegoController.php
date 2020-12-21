@@ -77,16 +77,17 @@ class JuegoController extends Controller
     {   
         $desbloqueada = Mujeresdesbloqueadas::checkDesbloqueadas($idUsuario, $idMujer);
 
+        log::debug('saveMujer ' . $idMujer);
+        log::debug($desbloqueada->count());
+        
         
 
-        if(empty($desbloqueada)){
-
+        if($desbloqueada->count()==0){
             try{
                 $mujerDesbloqueada = new Mujeresdesbloqueadas;
 
                 $mujerDesbloqueada->Id_Usuario = $idUsuario;
                 $mujerDesbloqueada->Id_Mujeres = $idMujer;
-
 
 
                 $mujerDesbloqueada->save();
