@@ -52,7 +52,7 @@ document.body.onload = startGame();
 
 // @description function to start a new play 
 function startGame(){
- 
+
     // empty the openCards array
     openedCards = [];
 
@@ -161,21 +161,6 @@ function moveCounter(){
         hour = 0;
         startTimer();
     }
-    // setting rates based on moves
-    if (moves > 8 && moves < 12){
-        for( i= 0; i < 3; i++){
-            if(i > 1){
-                stars[i].style.visibility = "collapse";
-            }
-        }
-    }
-    else if (moves > 13){
-        for( i= 0; i < 3; i++){
-            if(i > 0){
-                stars[i].style.visibility = "collapse";
-            }
-        }
-    }
 }
 
 
@@ -185,7 +170,7 @@ var timer = document.querySelector(".timer");
 var interval;
 function startTimer(){
     interval = setInterval(function(){
-        timer.innerHTML = minute+"mins "+second+"secs";
+        timer.innerHTML = minute+" mins "+second+" secs";
         second++;
         if(second == 60){
             minute++;
@@ -208,12 +193,8 @@ function congratulations(){
         // show congratulations modal
         modal.classList.add("show");
 
-        // declare star rating variable
-        var starRating = document.querySelector(".stars").innerHTML;
-
         //showing move, rating, time on modal
         document.getElementById("finalMove").innerHTML = moves;
-        document.getElementById("starRating").innerHTML = starRating;
         document.getElementById("totalTime").innerHTML = finalTime;
 
         //closeicon on modal

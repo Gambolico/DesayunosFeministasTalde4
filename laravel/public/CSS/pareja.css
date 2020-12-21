@@ -46,6 +46,9 @@ html {
 	align-items: center;
 	box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
 }
+.deck .card img{
+	visibility: hidden;
+}
 
 .deck .card.open {
 	transform: rotateY(0);
@@ -56,8 +59,8 @@ html {
 	animation-duration: .75s;
 }
 
-.deck .card.show {
-	font-size: 33px;
+.deck .card.show img{
+	visibility: visible;
 }
 
 .deck .card.match {
@@ -68,6 +71,9 @@ html {
 	-webkit-backface-visibility: visible !important;
 	backface-visibility: visible !important;
 	animation-duration: .75s;
+}
+.deck .card.match img{
+	visibility: visible;
 }
 
 .deck .card.unmatched {
@@ -84,11 +90,7 @@ html {
 }
 
 
-/*
- * Styles for the Score Panel
- */
-
-
+/* Styles for the Score Panel */
 .score-panel {
 	text-align: left;
 	margin-bottom: 10px;
@@ -307,8 +309,6 @@ html {
 		width: 60%;
 	}
 }
-
-
 
 .backgroundGeneral{
     background-image: url('https://desayunosfeministascantabria.files.wordpress.com/2018/10/cropped-logotipo-2.jpg');
