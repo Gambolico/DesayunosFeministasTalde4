@@ -62,4 +62,9 @@
         
     <!-- JS -->
     <script src="{{ asset('JS/Parejas.js') }}"></script>
+    @foreach ($mujeres as $obj)
+        <?php
+            App\Http\Controllers\JuegoController::saveMujer(auth()->user()->id, $obj->Mujeres_Id);
+        ?>   
+        @endforeach
 @stop
