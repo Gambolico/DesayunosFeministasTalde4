@@ -40,7 +40,19 @@ class JuegoController extends Controller
     }
 
     public function saveMujer(Request $request)
-    {
+    {   
+        if(empty($desbloqueada)){
+            $data = $request->input();
 
+            try{
+                $mujerDesbloqueada = new mujerDesbloqueada;
+
+                $mujerDesbloqueada->Id_Usuario = $data['Id_Usuario'];
+                $mujerDesbloqueada->Id_Mujeres = $data['Id_Mujeres'];
+
+            }catch(Exception $e){
+                
+            }
+        }
     }
 }
