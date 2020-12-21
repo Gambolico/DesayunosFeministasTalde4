@@ -40,4 +40,9 @@ class JuegoController extends Controller
     {
         return view('components.adivina');
     }
+
+    public function saveMujer(Request $request)
+    {
+
+    }
 }
