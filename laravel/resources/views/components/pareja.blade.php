@@ -56,15 +56,16 @@
                     <p>en <span id=totalTime> </span> </p>
                     <p><span id=starRating></span></p>
                 </div>
-                <a class="underlineHover" href="{{ route('empezarParejas', ['modo'=>$modo])}}">¿Ya tienes cuenta?</a>
+                <a class="underlineHover" href="{{ route('empezarParejas', ['modo'=>$modo])}}">Desbloquear las mujeres de esta partida</a>
             </div>
+            @foreach ($mujeres as $obj)
+                <?php
+                    App\Http\Controllers\JuegoController::saveMujer(auth()->user()->id, $obj->Mujeres_Id);
+                ?>   
+            @endforeach
         </div>
         
     <!-- JS -->
     <script src="{{ asset('JS/Parejas.js') }}"></script>
-    @foreach ($mujeres as $obj)
-        <?php
-            App\Http\Controllers\JuegoController::saveMujer(auth()->user()->id, $obj->Mujeres_Id);
-        ?>   
-        @endforeach
+    
 @stop

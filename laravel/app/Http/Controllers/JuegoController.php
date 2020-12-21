@@ -97,4 +97,29 @@ class JuegoController extends Controller
             }
         }
     }
+
+    public static function desbloquearMujeres($postData)
+    {   
+        $desbloqueada = Mujeresdesbloqueadas::checkDesbloqueadas($idUsuario, $idMujer);
+
+        log::debug('saveMujer ' . $idMujer);
+        log::debug($desbloqueada->count());
+        
+        
+
+        if($desbloqueada->count()==0){
+            try{
+                $mujerDesbloqueada = new Mujeresdesbloqueadas;
+
+                $mujerDesbloqueada->Id_Usuario = $idUsuario;
+                $mujerDesbloqueada->Id_Mujeres = $idMujer;
+
+
+                $mujerDesbloqueada->save();
+
+            }catch(Exception $e){
+                
+            }
+        }
+    }
 }

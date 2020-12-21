@@ -114,6 +114,7 @@ function matched(){
     openedCards[0].classList.remove("show", "open", "no-event");
     openedCards[1].classList.remove("show", "open", "no-event");
     openedCards = [];
+
 }
 
 
@@ -215,6 +216,14 @@ function congratulations(){
         document.getElementById("finalMove").innerHTML = moves;
         document.getElementById("starRating").innerHTML = starRating;
         document.getElementById("totalTime").innerHTML = finalTime;
+
+        $.ajax({
+            type: "POST",
+            url: '/parejas/libre', 
+            data: { id: 7 }
+        }).done(function( msg ) {
+            alert( msg );
+        });
 
         //closeicon on modal
         closeModal();
