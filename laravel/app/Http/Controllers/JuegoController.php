@@ -50,7 +50,7 @@ class JuegoController extends Controller
     {
         
         if($modo == 'libre'){
-            $mujeres=Mujeres::inRandomOrder()->limit(9)->get();
+            $mujeres=Mujeres::inRandomOrder()->limit(8)->get();
     
             return view('components.pareja', ['modo' => $modo,'mujeres' => $mujeres]);
         }elseif ($modo == 'historia') {
