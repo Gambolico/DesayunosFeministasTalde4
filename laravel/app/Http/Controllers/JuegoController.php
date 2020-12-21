@@ -31,7 +31,9 @@ class JuegoController extends Controller
 
     public function parejas()
     {
-        return view('components.pareja');
+        $mujeres=Mujeres::inRandomOrder()->limit(9)->get();
+    
+        return view('components.pareja', ['mujeres' => $mujeres]);
     }
 
     public function adivina()
