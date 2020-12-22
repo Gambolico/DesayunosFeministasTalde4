@@ -24,9 +24,7 @@ class MujeresController extends Controller
     public function biografia($id)
     {
         $mujeresBiografia=Mujeres::first()->getMujeresBiografia($id);
-        return view('components.coleccion',['Mujeres'=> $mujeresBiografia]);
-
-        
+        return view('components.coleccion',['Mujeres'=> $mujeresBiografia]);        
     }
     public function search(Request $request) {
         if($request->ajax()){

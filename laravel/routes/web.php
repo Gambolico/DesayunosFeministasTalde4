@@ -49,10 +49,6 @@ Route::get('/recuperar', [LoginController::class, 'recuperarContraseña']);
 
 Route::get('/comoJugar', [JuegoController::class, 'comoJugar']);
 
-//* Vista inicio juego
-
-Route::get('/inicioJuego', [JuegoController::class, 'inicioJuego']);
-
 //* Vista inicio juego (cambiar modo)
 
 Route::get('/inicioJuego/{modo}', [JuegoController::class, 'inicioJuego'])->name('elegirModoJuego');
@@ -65,13 +61,15 @@ Route::get('/elegirJuego', [JuegoController::class, 'elegirJuego']);
 
 Route::get('/elegirModo', [JuegoController::class, 'elegirModo']);
 
-//* Vista parejas
+//* Vista parejas (libre)
 
-Route::get('/parejas', [JuegoController::class, 'parejas']);
+Route::get('/parejas/{modo}', [JuegoController::class, 'parejas'])->name('empezarParejas');
 
-//* Vista adivina
+Route::post('/parejas/libre', [JuegoController::class, 'desbloquearMujeres']);
 
-Route::get('/adivina', [JuegoController::class, 'adivina']);
+//* Vista adivina (libre)
+
+Route::get('/adivina/{modo}', [JuegoController::class, 'adivina'])->name('empezarAdivina');
 
 //* Vista coleccion
 
