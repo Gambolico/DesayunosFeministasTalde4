@@ -1,10 +1,17 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Users;
+use App\Models\Mujeres;
 use Illuminate\Http\Request;
 
-class Controller extends BaseController
+class AdminController extends Controller
 {
-    use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+    public function index(Request $request)
+    {
+        $nombre = $request->get('buscarpor');
+        $tipo = $request->get('tipo');
+       
+        return view('components.admin', compact('Mujeres'));
+
+    }
 }

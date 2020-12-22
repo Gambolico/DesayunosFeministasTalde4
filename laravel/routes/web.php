@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MujeresController;
 use App\Http\Controllers\JuegoController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -78,3 +79,5 @@ Route::get('/coleccion/{id}', [MujeresController::class, 'coleccion'])->name('mu
 //Vista Carta Biografia
 Route::get('/biografia', [MujeresController::class, 'biografia']);
 Route::get('/coleccion/search', 'ColeccionController@search')->name('MujeresController.search');
+
+Route::get('/areaAdmin', [AdminController::class, 'index'])->name('areaAdmin');

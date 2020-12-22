@@ -79,6 +79,10 @@
         <div class="cFooter text-center">
             <small>Copyright &copy; Desayunos Feministas</small>
         </div>
+        <div class="adminArea text-center">
+            <small><a href="{{ url('/areaAdmin') }}"><b>Area del administrador</b></a></small>
+        </div>
+
     </footer>
 
     </body>

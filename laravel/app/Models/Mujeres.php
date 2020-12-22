@@ -26,4 +26,18 @@ class Mujeres extends Model
             ->get();
             return $mujeres;
         }
+
+        public function scopeNombres($query, $nombres) {
+            if ($nombres) {
+                return $query->where('nombre','like',"%$nombres%");
+            }
+        }
+    
+    
+    
+        public function scopeApellidos($query, $apellidos) {
+            if ($apellidos) {
+                return $query->where('apellido','like',"%$apellidos%");
+            }
+        }
 }    
