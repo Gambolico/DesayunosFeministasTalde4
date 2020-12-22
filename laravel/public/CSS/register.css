@@ -89,6 +89,8 @@ input[type=password]:placeholder {color: #cccccc;}
     outline: none;
 } 
 
+/* SELECCIONAR IMAGENES */
+
 .backgroundGeneral{
     background-image: url('https://desayunosfeministascantabria.files.wordpress.com/2018/10/cropped-logotipo-2.jpg');
     background-repeat: no-repeat;

@@ -48,13 +48,12 @@
     <div id="popup1" class="overlay">
             <div class="popup">
                 <a class="close" href=# >×</a>
+                <h1>ENHORABUENA</h1>
                 <div class="content-1">
-                    Enhorabuena, has terminado el juego.
+                    Has conseguido acabar el juego en
                 </div>
                 <div class="content-2">
-                    <p>Has hecho <span id=finalMove> </span> movimientos </p>
-                    <p>en <span id=totalTime> </span> </p>
-                    <p><span id=starRating></span></p>
+                    <p><span id=finalMove> </span> movimientos y <span id=totalTime> </span> </p>
                 </div>
                 <a class="underlineHover" href="{{ route('empezarParejas', ['modo'=>$modo])}}">Desbloquear las mujeres de esta partida</a>
             </div>

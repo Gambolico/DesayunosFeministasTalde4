@@ -3,7 +3,7 @@
 @section('title', 'Registro')
 
 <!-- CSS -->
-<link href="{{ asset('CSS/register.css') }}" rel="stylesheet">
+<link href="{{ asset('css/register.css') }}" rel="stylesheet">
 
 @section('content')
 
@@ -28,10 +28,29 @@
         <!-- Login Form -->
         <form action="/register" method="POST">
             @csrf
+            <!-- Elegir Avatar -->
+            
+
             <input type="text" class="fadeIn second" name="email" placeholder="Correo Electronico">
             <input type="text" class="fadeIn second" name="username" placeholder="Usuario">
             <input type="password" class="fadeIn third" name="password" placeholder="Contraseña">
-            <input type="password" class="fadeIn third" name="password_confirmation" placeholder="Repita la contraseña">
+            <input type="password" class="fadeIn third" name="password_confirmation" placeholder="Repita la contraseña"><br>
+            <a>Genero:</a><br>
+            <!-- checkbox -->
+            <div class="form-check-inline">
+            <input class="form-check-input" type="radio" name="genero" id="hombre" required/>
+            <label class="form-check-label" for="flexCheckDefault">Hombre</label>
+            </div>
+            <!-- checkbox -->
+            <div class="form-check-inline">
+            <input class="form-check-input" type="radio" name="genero" id="mujer"/>
+            <label class="form-check-label" for="flexCheckDefault">Mujer</label>
+            </div>
+            <!-- checkbox -->
+            <div class="form-check-inline">
+            <input class="form-check-input" type="radio" name="genero" id="otro"/>
+            <label class="form-check-label" for="flexCheckDefault">Otro</label>
+            </div>
             <input type="submit" class="fadeIn fourth" value="Registrarme">
         </form>
 
