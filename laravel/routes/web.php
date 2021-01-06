@@ -74,10 +74,7 @@ Route::get('/adivina/{modo}', [JuegoController::class, 'adivina'])->name('empeza
 
 //* Vista coleccion
 
-Route::get('/coleccion', [MujeresController::class, 'coleccion']);
-Route::get('/coleccion/{id}', [MujeresController::class, 'coleccion'])->name('mujer');
-//Vista Carta Biografia
-Route::get('/biografia', [MujeresController::class, 'biografia']);
-Route::get('/coleccion/search', 'ColeccionController@search')->name('MujeresController.search');
+Route::get('/coleccion', [MujeresController::class, 'coleccion'])->name('coleccion');
+Route::get('/coleccionSearch', [MujeresController::class, 'search'])->name('coleccionSearch');
 
 Route::get('/areaAdmin', [AdminController::class, 'index'])->name('areaAdmin');

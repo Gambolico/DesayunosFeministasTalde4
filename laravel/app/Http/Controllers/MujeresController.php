@@ -4,56 +4,58 @@ namespace App\Http\Controllers;
 use App\Models\Mujeres;
 use App\Models\Ambitos;
 use Illuminate\Http\Request;
-use DB;
 
 class MujeresController extends Controller
 {
     //
     public function coleccion()
     {
-        $mujeres=Mujeres::first()->getMujeresInf();
-        $ambitos=Ambitos::first()->getAmbitos();
+
         /* 
         Tambien se puede hacer asi
         return view('components.coleccion')->with('Mujeres', $mujeres); 
         */
-        return view('components.coleccion',['Mujeres'=> $mujeres,'Ambitos'=> $ambitos]);
+        return view('components.coleccion');
 
-        
-    }
-    public function biografia($id)
-    {
-        $mujeresBiografia=Mujeres::first()->getMujeresBiografia($id);
-        return view('components.coleccion',['Mujeres'=> $mujeresBiografia]);        
-    }
-    public function search(Request $request) {
-        if($request->ajax()){
+    }/* 
+    public function search(Request $request){
             // get the search term
-            $query = $request->get('query');
-            if($query != ''){
-                $data= DB::table('mujeres')
-                ->where('Nombre', 'Like','%'. $query.'%')
-                ->orWhere('Apellido', 'Like','%'. $query.'%')
-                ->orWhere('Nombre_Ambito', 'Like','%'. $query.'%')
-                ->join('ambitos', 'ambitos.Id_Ambito', '=', 'mujeres.Ambito_Id') 
-                ->get();
-            }
-            else{
-                $data= DB::table('mujeres')
-                ->orderBy('Mujeres_Id','asc')
-                ->get();
-            }
+            if($request->ajax()){
+                  $output = '';
+                  $query = $request->get('query');
+                  if($query != ''){
+                    $data= Mujeres::getMujeresInf()->get();
+                    }
+                else if($query == ''){
+                    $data= Mujeres::orderBy('Mujeres_Id','asc')
+                    ->get();
+                }
+
             $total_row=$data->count();
             if($total_row > 0)
             {
                 foreach($data as $row)
                 {
                     $output='
-                    <tr>
-                        <td>'.$row->Nombre.'</td>
-                        <td>'.$row->Apellido.'</td>
-                        <td>'.$row->Nombre_Ambito.'</td>
-                    </tr>
+                    <div id="" id="show-modal" @click="showModal = true;" href="" class="col-md-3">
+                        <div class="card card-blog" style="background:'.$row->Cod_color.';">
+                            <div id="'.$row->Mujeres_Id.'" class="card-image">
+                                <a href="#"> <img class="img" src="images/fotos de mujeres/'.$row->Img_ruta.'"> </a>
+                                <div class="ripple-cont"></div>
+                            </div>
+                                <div class="table">
+                                    <p lass="category text-warning">
+                                        <i class="fa fa-soundcloud"></i> 
+                                    </p>
+                                    <h6 class="card-caption">
+                                        <a href="#">'.$row->Nombre.' '.$row->Apellido.'</a>
+                                    </h6>
+                                    <div class="ftr">
+                                        <div class="stats"> <i class="fa fa-clock-o">'.$row->Nombre_Ambito.'</i></div>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
                     ';
                 }
             }
@@ -70,8 +72,9 @@ class MujeresController extends Controller
             );
     
         // return the results
-            echo json_decode($data);
+            return json_decode($data);
         }
-        
-    }
+    } 
+         */
 }
+

@@ -14,7 +14,7 @@
 <!-- Compiled and minified CSS -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
 <script src="https://cdn.jsdelivr.net/vue.resource/1.3.1/vue-resource.min.js"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.2.0/vue.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-resource/1.3.1/vue-resource.min.js"></script>
 
@@ -25,9 +25,8 @@
                 <option value="" disabled selected>Seleccionar categorias</option>
                 <option value="0">Todas</option>
                 <!-- Apartado bd -->
-                @foreach($Ambitos as $obj)
-                <option value="{{$obj->Id_Ambito}}">{{ $obj->Nombre_Ambito}}</option>
-                @endforeach
+                
+                <option value=""></option>
             </select>
             <form method="get" action="">
                 <div class="input-group stylish-input-group">
@@ -49,7 +48,6 @@
     <!-- Composicion del modal de biografia-->
     
     <script type="text/x-template" id="modal-template">
-    @foreach($Mujeres as $obj)
         <div name="modal">
             <div class="modal-mask">
                 <div class="modal-wrapper">
@@ -58,9 +56,8 @@
                             <slot name="header"></slot>
                         </div>
                         <div class="modal-body">
-                        <img class="img" src="images/fotos de mujeres/{{$obj->Img_Ruta}}">
-
-                            <a href="#">{{ $obj->Nombre}} {{ $obj->Apellido}}</a>
+                        <img class="img" src="">
+                            <a href="#"></a>
                         </div>
                         <div class="modal-footer">
                             <slot name="footer">default footer
@@ -71,48 +68,16 @@
                 </div>
             </div>
             </div>
-</div>
-@endforeach
+    </div>
     </script>
-    <div class="input-group stylish-input-group">
-        <input type="text" id="search" name="search" class="form-control"  placeholder="Search..." >
-        <span class="input-group-addon">
-            <button type="submit">
-                <span class="glyphicon glyphicon-search"></span>
-            </button>  
-        </span>
-    </div>
-    <div class="table">
-    <h3>Total data: <span id=total_records></span></h3>
-        <tbody></tbody>
-    </div>
     <!-- app para el vue -->
     <div id="app">
     <!-- Seccion de las cartas -->
-    <div class="mujeres">   
-        <div class=" mujeres row">
-        @foreach($Mujeres as $obj)
+    <div class="mujeres">
+        <a  id='cantidad'></a>  
+        <div class=" mujeres row" id='carta'>
             <!-- Para abrir el modal al elegir carta-->
-            <div id="{{$obj->Mujeres_Id}}" id="show-modal" @click="showModal = true;" href="{{route('mujer',['id'=>$obj->Mujeres_Id])}}" class="col-md-3">
-                <div class="card card-blog" style="background:{{$obj->Cod_Color}};">
-                    <div id="{{$obj->Ambito_Id}}" class="card-image" >
-                        <a href="#"> <img class="img" src="images/fotos de mujeres/{{$obj->Img_Ruta}}"> </a>
-                        <div class="ripple-cont"></div>
-                    </div>
-                    <div class="table">
-                        <p lass="category text-warning">
-                            <i class="fa fa-soundcloud"></i> {{$obj->Nombre_Ambito}}
-                        </p>
-                        <h6 class="card-caption">
-                            <a href="#">{{ $obj->Nombre}} {{ $obj->Apellido}}</a>
-                        </h6>
-                        <div class="ftr">
-                            <div class="stats"> <i class="fa fa-clock-o"></i> {{ $obj->Fecha_Nacimiento}} </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        @endforeach 
+            
         </div>
     </div>
     <!-- Para cerrar el modal -->
@@ -125,26 +90,33 @@
             <h3 slot="header">custom header</h3>
         </modal>
     </div>
-    <script type="application/javascript">
-        $(document).ready(function(){
-                fetch_mujeres_data();
-                function fetch_mujeres_data(query= ''){
-                    $.ajax({
-                        url: "{{('coleccion.search')}}",
-                        method:'GET',
-                        data:{query:query},
-                        dataType:'json',
-                        success: function(data) {
-                                $('tbody').html(data.table_data);
-                                $('#total_records').text(data.total_data);
-                            },
-                        error: function(data){
-                            alert("fail");
-                        }
-                    });
-                }
-    });
-    </script>
 
+    <script>
+        $(document).ready(function(){
+            fetch_customer_data();
+         
+            
+        });
+        function fetch_customer_data(query = ''){
+                $.ajax({
+                    url: "coleccionSearch",
+                    method: 'GET',
+                    data: {query:query},
+                    dataType: 'json',
+                    success:function(data)
+                    {
+                        $('#carta').html(data.table_data);
+                        $('#cantidad').text(data.total_data);
+                    },
+                    error:function(jqXHR, status, err){
+                        alert(jqXHR.responseText);
+                    }
+                });
+             }
+             $(document).on('keyup','#txtSearch',function(){
+               var query = $(this).val();
+               fetch_customer_data(query);
+             });
+    </script>
 
 @stop
