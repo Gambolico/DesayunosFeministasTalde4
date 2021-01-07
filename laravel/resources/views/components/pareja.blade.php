@@ -57,11 +57,6 @@
                 </div>
                 <a class="underlineHover" href="{{ route('empezarParejas', ['modo'=>$modo])}}">Desbloquear las mujeres de esta partida</a>
             </div>
-            @foreach ($mujeres as $obj)
-                <?php
-                    App\Http\Controllers\JuegoController::saveMujer(auth()->user()->id, $obj->Mujeres_Id);
-                ?>   
-            @endforeach
         </div>
         
     <!-- JS -->

@@ -7,7 +7,7 @@
 <!-- CSS -->
 <link href="{{ asset('CSS/comoJugar.css') }}" rel="stylesheet">
 
-<div class="container" class="slideshow-container">
+<div class="slideshow-container">
     <div>
         <h1>COMO JUGAR</h1><br><br>
     </div>
@@ -17,7 +17,8 @@
             <div class="text">
                 Elige el modo de juego que quieras!
             </div>
-        </div><br><br>
+        </div>
     </div>
+    
 </div>
 @stop
