@@ -33,14 +33,14 @@
                 @endforeach
             </select>
             
-                <div class="input-group stylish-input-group">
+                <!-- <div class="input-group stylish-input-group">
                     <input type="text" id="search" name="search" class="form-control"  placeholder="Search..." >
                     <span class="input-group-addon">
                         <button type="submit">
                             <span class="glyphicon glyphicon-search"></span>
                         </button>  
                     </span>
-                </div>
+                </div> -->
         </div>
         <div class="col-md-6 my-3">
             <button class="btn-save btn btn-primary btn-sm">Save</button>
