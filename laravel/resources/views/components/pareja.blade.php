@@ -10,7 +10,7 @@
     <div class="container">
 
     <h1>Encuentra las Parejas</h1>
-    
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
     <section class="score-panel">
         <ul class="stars">
             <li><i class="fa fa-star"></i></li>

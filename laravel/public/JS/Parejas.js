@@ -114,11 +114,20 @@ function matched($idMujer){
     openedCards[1].classList.remove("show", "open", "no-event");
     openedCards = [];
 
+    let idMujer = $idMujer;
+    let _token  = $('meta[name="csrf-token"]').attr('content');
+
+    console.log($idMujer);
+    console.log($('meta[name="csrf-token"]').attr('content'));
+
     $.ajax({
         type: "POST",
-        url: '/parejas/libre', 
-        data: $idMujer
-    }).done(function( msg ) {
+        url: "/parejas/desbloquear", 
+        data:{
+            idMujer:idMujer,
+            _token: _token
+        }
+    }).success(function( msg ) {
         alert( msg );
     });
 

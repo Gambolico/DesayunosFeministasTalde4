@@ -73,10 +73,11 @@ class JuegoController extends Controller
         return view('components.adivina');
     }
 
-    public static function saveMujer($idMujer)
+    public function saveMujer(Request $request)
     {   
+        $idMujer=$_POST['idMujer'] ;
         $idUsuario = auth()->user()->id;
-        log::debug('se guarda la mujer '. $idMujer);
+        log::debug('se guarda la mujer ' . $idMujer);
         $desbloqueada = Mujeresdesbloqueadas::checkDesbloqueadas($idUsuario, $idMujer);
 
         if($desbloqueada->count()==0){
