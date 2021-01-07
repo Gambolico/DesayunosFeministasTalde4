@@ -17,8 +17,9 @@ class Usuarios extends Authenticatable
         ];
 
         protected $hidden = [
-                'Contraseña', 'remember_token',
-            ];
+                'Contraseña',
+                'remember_token',
+        ];
 
         public $timestamps = false;
 
