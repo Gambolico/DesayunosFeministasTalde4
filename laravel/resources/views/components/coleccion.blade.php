@@ -4,6 +4,8 @@
 
 @section('content')
 
+<meta name="csrf-token" content="{{ csrf_token() }}" />
+  
 <!-- Biografia -->
 <link href="{{ asset('CSS/biografia.css') }}" rel="stylesheet">
 <!-- JS filter -->
@@ -28,16 +30,16 @@
                 
                 <option value=""></option>
             </select>
-            <form method="get" action="">
+            <form >
                 <div class="input-group stylish-input-group">
-                    <input type="text" id="txtSearch" name="txtSearch" class="form-control"  placeholder="Search..." >
+                    <input type="text" id="search" name="search" class="form-control"  placeholder="Search..." >
                     <span class="input-group-addon">
                         <button type="submit">
                             <span class="glyphicon glyphicon-search"></span>
                         </button>  
                     </span>
                 </div>
-            </form> 
+           
         </div>
         <div class="col-md-6 my-3">
             <button class="btn-save btn btn-primary btn-sm">Save</button>
@@ -74,10 +76,10 @@
     <div id="app">
     <!-- Seccion de las cartas -->
     <div class="mujeres">
-        <a  id='cantidad'></a>  
+        <a  id='cantidad'></a> <br> 
         <div class=" mujeres row" id='carta'>
             <!-- Para abrir el modal al elegir carta-->
-            
+            <!-- Aqui vn las cartas -->
         </div>
     </div>
     <!-- Para cerrar el modal -->
@@ -92,20 +94,30 @@
     </div>
 
     <script>
+        let _token = $('meta[name="csrf-token"]').attr('content');
         $(document).ready(function(){
-            fetch_customer_data();
-         
-            
+            fetch_customer_data(query ='');
+            $('#search').on('keyup',function(){
+                var query = $(this).val();
+                console.log(query)
+                fetch_customer_data(query);
+            }); 
         });
-        function fetch_customer_data(query = ''){
+        function fetch_customer_data(query){
+                
                 $.ajax({
-                    url: "coleccionSearch",
-                    method: 'GET',
-                    data: {query:query},
+                    url: 'coleccionFiltrar',
+                    method: 'post',
+                    data: {
+                        query:query,
+                        _token:_token
+                        
+                        },
                     dataType: 'json',
+                    traditional: true,
                     success:function(data)
                     {
-                        $('#carta').html(data.table_data);
+                        $('#carta').html(data.cartas_data);
                         $('#cantidad').text(data.total_data);
                     },
                     error:function(jqXHR, status, err){
@@ -113,10 +125,9 @@
                     }
                 });
              }
-             $(document).on('keyup','#txtSearch',function(){
-               var query = $(this).val();
-               fetch_customer_data(query);
-             });
+
     </script>
+    
+ 
 
 @stop
