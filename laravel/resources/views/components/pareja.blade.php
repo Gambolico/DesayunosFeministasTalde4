@@ -31,14 +31,14 @@
         <ul class="deck" id="card-deck">
         @foreach ($mujeres as $obj)
             <li class="card" type="{{$obj->Mujeres_Id}}">
-                <i class="">
+                
                 <img src="../images/fotos_de_mujeres/{{$obj->Img_Ruta}}">
-                </i>
+                
             </li>
             <li class="card" type="{{$obj->Mujeres_Id}}">
-                <i class="">
+                
                 <img src="../images/fotos_de_mujeres/{{$obj->Img_Ruta}}">
-                </i>
+                
             </li>
         @endforeach
         </ul>  
