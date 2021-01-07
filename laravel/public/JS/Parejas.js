@@ -27,7 +27,6 @@ let matchedCard = document.getElementsByClassName("match");
  // array for opened cards
 var openedCards = [];
 
-
 // @description shuffles cards
 // @param {array}
 // @returns shuffledarray
@@ -99,7 +98,7 @@ function cardOpen() {
     if(len === 2){
         moveCounter();
         if(openedCards[0].type === openedCards[1].type){
-            matched();
+            matched(openedCards[0].type);
         } else {
             unmatched();
         }
@@ -108,12 +107,29 @@ function cardOpen() {
 
 
 // @description when cards match
-function matched(){
+function matched($idMujer){
     openedCards[0].classList.add("match", "disabled");
     openedCards[1].classList.add("match", "disabled");
     openedCards[0].classList.remove("show", "open", "no-event");
     openedCards[1].classList.remove("show", "open", "no-event");
     openedCards = [];
+
+    let idMujer = $idMujer;
+    let _token  = $('meta[name="csrf-token"]').attr('content');
+
+    console.log($idMujer);
+    console.log($('meta[name="csrf-token"]').attr('content'));
+
+    $.ajax({
+        type: "POST",
+        url: "/parejas/desbloquear", 
+        data:{
+            idMujer:idMujer,
+            _token: _token
+        }
+    }).success(function( msg ) {
+        alert( msg );
+    });
 
 }
 
@@ -197,14 +213,6 @@ function congratulations(){
         //showing move, rating, time on modal
         document.getElementById("finalMove").innerHTML = moves;
         document.getElementById("totalTime").innerHTML = finalTime;
-
-        $.ajax({
-            type: "POST",
-            url: '/parejas/libre', 
-            data: { id: 7 }
-        }).done(function( msg ) {
-            alert( msg );
-        });
 
         //closeicon on modal
         closeModal();
