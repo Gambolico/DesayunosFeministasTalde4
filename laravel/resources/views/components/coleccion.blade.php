@@ -110,7 +110,6 @@
                     data: {
                         query:query,
                         _token:_token
-                        
                         },
                     dataType: 'json',
                     traditional: true,
