@@ -24,8 +24,8 @@ class LoginController extends Controller
     {
         
         $validated = $request->validate([
-             'name' => 'required',
-             'password' => 'required',
+            'name' => 'required',
+            'password' => 'required',
         ]);
 
         //* Se cogen los input (nombre y contraseña)

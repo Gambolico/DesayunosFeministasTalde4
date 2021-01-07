@@ -11,17 +11,18 @@ class MujeresController extends Controller
     //
     public function coleccion()
     {
-
+        $Ambitos=Ambitos::getAmbitos();
         /* 
         Tambien se puede hacer asi
         return view('components.coleccion')->with('Mujeres', $mujeres); 
         */
-        return view('components.coleccion');
-
+        return view('components.coleccion')->with('Ambitos', $Ambitos);
     }
+    
     public function filtrarMujeres(Request $request){
         // get the search term
         if($request->ajax()){
+                
                 $output='';
                 $respuesta=$request->post('query');
                 if(!empty($respuesta)){

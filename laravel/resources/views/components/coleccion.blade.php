@@ -23,14 +23,16 @@
 <!-- Filtro de cartas -->
     <div class="filtro row">
         <div class="col-md-4 my-3">
+        <form>
             <select name="ambito_id" id="sel-bs" class="mdb-select md-form" multiple searchable="Search for...">
                 <option value="" disabled selected>Seleccionar categorias</option>
                 <option value="0">Todas</option>
                 <!-- Apartado bd -->
-                
-                <option value=""></option>
+                @foreach($Ambitos as $obj)
+                <<option value="{{$obj->Id_Ambito}}">{{ $obj->Nombre_Ambito}}</option>
+                @endforeach
             </select>
-            <form >
+            
                 <div class="input-group stylish-input-group">
                     <input type="text" id="search" name="search" class="form-control"  placeholder="Search..." >
                     <span class="input-group-addon">
@@ -39,7 +41,6 @@
                         </button>  
                     </span>
                 </div>
-           
         </div>
         <div class="col-md-6 my-3">
             <button class="btn-save btn btn-primary btn-sm">Save</button>
@@ -92,42 +93,6 @@
             <h3 slot="header">custom header</h3>
         </modal>
     </div>
-
-    <script>
-        let _token = $('meta[name="csrf-token"]').attr('content');
-        $(document).ready(function(){
-            fetch_customer_data(query ='');
-            $('#search').on('keyup',function(){
-                var query = $(this).val();
-                console.log(query)
-                fetch_customer_data(query);
-            }); 
-        });
-        function fetch_customer_data(query){
-                
-                $.ajax({
-                    url: 'coleccionFiltrar',
-                    method: 'post',
-                    data: {
-                        query:query,
-                        _token:_token
-                        
-                        },
-                    dataType: 'json',
-                    traditional: true,
-                    success:function(data)
-                    {
-                        $('#carta').html(data.cartas_data);
-                        $('#cantidad').text(data.total_data);
-                    },
-                    error:function(jqXHR, status, err){
-                        alert(jqXHR.responseText);
-                    }
-                });
-             }
-
-    </script>
-    
- 
+    <script src="JS/Coleccion.js"></script>
 
 @stop
