@@ -26,6 +26,10 @@ Route::get('/', function () {
 
 Route::get('/login', [LoginController::class, 'viewLogin']);
 
+//* Login administrador
+
+Route::get('/areaAdmin', [AdminController::class, 'index'])->name('areaAdmin')->middleware('is_admin');
+
 //* Intentar iniciar sesion
 
 Route::post('/login', [LoginController::class, 'tryLogin']);

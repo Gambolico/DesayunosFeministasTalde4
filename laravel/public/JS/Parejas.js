@@ -27,6 +27,7 @@ let matchedCard = document.getElementsByClassName("match");
  // array for opened cards
 var openedCards = [];
 
+
 // @description shuffles cards
 // @param {array}
 // @returns shuffledarray
@@ -116,16 +117,16 @@ function matched($idMujer){
 
     let idMujer = $idMujer;
     let _token  = $('meta[name="csrf-token"]').attr('content');
+    let modo  = $('meta[name="modo"]').attr('content');
 
     $.ajax({
         type: "POST",
         url: "/parejas/desbloquear", 
         data:{
             idMujer:idMujer,
+            modo:modo,
             _token: _token
         }
-    }).success(function( msg ) {
-        alert( msg );
     });
 
 }

@@ -45,8 +45,8 @@
             <ul class="navbar-nav navbar-right mr-auto nav-flex-icons">
                 <li class="nav navbar-nav navbar-right">
                 @if (auth()->check())
-                    <a class="nav-link" href="{{ url('/logout') }}">Cerrar Sesion (<?php echo auth()->user()->name; ?>)
-                    </a>
+                    <a class="nav-link" href="{{ url('/logout') }}">Cerrar Sesion (<?php echo auth()->user()->name; ?>)</a>
+                    
                 @else
                     <a class="nav-link" href="{{ url('/login') }}">Iniciar Sesion
                     </a>
@@ -77,7 +77,7 @@
         <div class="cFooter text-center">
             <small>Copyright &copy; Desayunos Feministas</small>
         </div>
-        @if (auth()->check())
+        @if (auth()->check() && auth()->user()->is_admin == 1)
             <div class="adminArea text-center">
                 <small><a href="{{ url('/areaAdmin') }}"><b>Area del administrador</b> (<?php echo auth()->user()->name; ?>)
                 </a></small>

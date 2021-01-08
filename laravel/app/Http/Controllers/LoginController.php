@@ -9,8 +9,10 @@ use Illuminate\Support\Facades\Auth;
 use Log;
 use App\User;
 
+
 class LoginController extends Controller
 {
+
     //
     public function viewLogin()
     {
@@ -34,16 +36,14 @@ class LoginController extends Controller
         //* Intenta logearse con los datos dados
         if (Auth::attempt(['name' => request(['name']), 'password' => request(['password'][0])])) 
         {
-            //* Se logea
-            $user = auth()->user()->name;
-            
-            return redirect('/');
+                $user = auth()->user()->name;
+                return redirect('/'); 
             
         }
         else
         {
-            //* No se ha logeado
-            return back();
+            return redirect()->back()
+                ->with('error','Las creedenciales no coinciden.');
         }
 
     }
