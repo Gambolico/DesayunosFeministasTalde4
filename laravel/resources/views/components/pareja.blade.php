@@ -9,9 +9,11 @@
 
     <div class="container">
 
-    <h1>Encuentra las Parejas</h1>
     <meta name="csrf-token" content="{{ csrf_token() }}" />
-    <meta name="modo" content="{{ modo }} " >
+    <div id="modo" data-modo="{{ $modo }}"></div>
+
+    <h1>Encuentra las Parejas</h1>
+    
     <section class="score-panel">
         <ul class="stars">
             <li><i class="fa fa-star"></i></li>
