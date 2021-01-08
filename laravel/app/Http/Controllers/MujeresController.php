@@ -22,30 +22,33 @@ class MujeresController extends Controller
     public function filtrarMujeres(Request $request){
         // get the search term
         if($request->ajax()){
-                
                 $output='';
                 $respuesta=$request->post('query');
-                if(!empty($respuesta)){
-                    $data = Mujeres::where('Mujeres_Id', 'like', '%'.$respuesta.'%')
-                    ->orWhere('Nombre', 'like', '%'.$respuesta.'%')
-                    ->orWhere('Apellido', 'like', '%'.$respuesta.'%')
-                    ->orWhere('Fecha_Nacimiento', 'like', '%'.$respuesta.'%')
-                    ->orWhere('Zona_Geografica', 'like', '%'.$respuesta.'%')
-                    ->orderBy('Mujeres_Id','desc')
-                    ->get();
-
+                $ambitos=$request->post('ambitos');
+                if(!empty($respuesta) && !empty($ambitos)){
+                   
+                        Log::debug('entra');
+                        /* Funcion de filtrar */
+                        $data=Mujeres::FiltrarMujeresInf($respuesta,$ambitos);
+                    
+                    /* Funcion de filtrar solo con respuesta*/
+                        //$data=Mujeres::FiltrarMujeresInfRes($respuesta);
                 }
-                else{
-                    $data =Mujeres::select('Mujeres_Id', 'Nombre','Apellido','Fecha_Nacimiento','Fecha_Muerte','Lore_Esp','Zona_Geografica','continentes.Nombre_Continente','Img_Ruta','Enlace_Referencia','ambitos.Nombre_Ambito','Ambito_Id','Cod_Color')
-                    ->join('ambitos', 'ambitos.Id_Ambito', '=', 'mujeres.Ambito_Id') ->join('continentes','continentes.Id_Continente', '=', 'mujeres.Continente_Id')
-                    ->orderBy('Mujeres_Id', 'asc')
-                    ->get();
+                else if(empty($respuesta)){
+                    if(!empty($ambitos)){
+                        $data =Mujeres::FiltrarMujeresInfAmbito($ambitos);
+                    }
+                    if(empty($ambitos)){
+                        $data =Mujeres::getMujeresInf();
+                    }
+                   
                 }
                 $total_row=$data->count(); 
                 if($total_row > 0)
                 {
                     foreach($data as $row)
                     {
+                        /* COmo ueremos que salga por el html esto se guarda en output, array. El punto .=' sirve como un push.*/
                         $output .='
                         <div id="'.$row->Mujeres_Id.'" id="show-modal" @click="showModal = true;" href="{{route(mujer,[id=>'.$row->Mujeres_Id.'])}}" class="col-md-3">
                             <div class="card card-blog" style="background:'.$row->Cod_color.';">

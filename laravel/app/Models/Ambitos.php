@@ -9,7 +9,7 @@ class Ambitos extends Model
         //La tabla que vamos a usar
         protected $table = 'ambitos';
 
-        public function getAmbitos()
+        public static function getAmbitos()
         {   
             $ambitos = Ambitos::select('Id_Ambito','Nombre_Ambito')
             ->get();
