@@ -31,29 +31,27 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent-555">
-            <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="{{ url('/elegirModo') }}">Juegos</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{ url('/coleccion') }}">Mujeres</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{ url('/comoJugar') }}">Como Jugar</a>
-            </li>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="{{ url('/elegirModo') }}">Juegos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url('/coleccion') }}">Mujeres</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url('/comoJugar') }}">Como Jugar</a>
+                </li>
             </ul>
-            <ul class="navbar-nav navbar-right ml-auto nav-flex-icons">
-            <li class="nav-item avatar" style="position: absolute; right: 0; margin-right:1%;">
-            @if (auth()->check())
-                <a class="nav-link p-0" href="{{ url('/logout') }}">Cerrar Sesion (<?php echo auth()->user()->name; ?>)
-                <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-5.jpg" class="rounded-circle z-depth-0" alt="avatar image" height="35">
-                </a>
-            @else
-                <a class="nav-link p-0" href="{{ url('/login') }}">Iniciar Sesion
-                <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-5.jpg" class="rounded-circle z-depth-0" alt="avatar image" height="35">
-                </a>
-            @endif
-            </li>
+            <ul class="navbar-nav navbar-right mr-auto nav-flex-icons">
+                <li class="nav navbar-nav navbar-right">
+                @if (auth()->check())
+                    <a class="nav-link" href="{{ url('/logout') }}">Cerrar Sesion (<?php echo auth()->user()->name; ?>)
+                    </a>
+                @else
+                    <a class="nav-link" href="{{ url('/login') }}">Iniciar Sesion
+                    </a>
+                @endif
+                </li>
             </ul>
         </div>
         
@@ -79,10 +77,12 @@
         <div class="cFooter text-center">
             <small>Copyright &copy; Desayunos Feministas</small>
         </div>
-        <div class="adminArea text-center">
-            <small><a href="{{ url('/areaAdmin') }}"><b>Area del administrador</b></a></small>
-        </div>
-
+        @if (auth()->check())
+            <div class="adminArea text-center">
+                <small><a href="{{ url('/areaAdmin') }}"><b>Area del administrador</b> (<?php echo auth()->user()->name; ?>)
+                </a></small>
+            </div>
+        @endif   
     </footer>
 
     </body>
