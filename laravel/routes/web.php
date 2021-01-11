@@ -26,6 +26,10 @@ Route::get('/', function () {
 
 Route::get('/login', [LoginController::class, 'viewLogin']);
 
+//* Login administrador
+
+Route::get('/areaAdmin', [AdminController::class, 'index'])->name('areaAdmin')->middleware('is_admin');
+
 //* Intentar iniciar sesion
 
 Route::post('/login', [LoginController::class, 'tryLogin']);
@@ -75,6 +79,6 @@ Route::get('/adivina/{modo}', [JuegoController::class, 'adivina'])->name('empeza
 //* Vista coleccion
 
 Route::get('/coleccion', [MujeresController::class, 'coleccion'])->name('coleccion');
-Route::get('/coleccionSearch', [MujeresController::class, 'search'])->name('coleccionSearch');
+Route::post('/coleccionFiltrar', [MujeresController::class, 'filtrarMujeres'])->name('coleccionFiltrar');
 
 Route::get('/areaAdmin', [AdminController::class, 'index'])->name('areaAdmin');

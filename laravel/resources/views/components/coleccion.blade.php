@@ -4,13 +4,15 @@
 
 @section('content')
 
+<meta name="csrf-token" content="{{ csrf_token() }}" />
+  
 <!-- Biografia -->
 <link href="{{ asset('CSS/biografia.css') }}" rel="stylesheet">
 <!-- JS filter -->
 <script src="{{ asset('JS/Biografia.js') }}"></script>
 <script src="{{ asset('JS/Cartas.js') }}"></script>
 <!-- CSS -->
-<link href="{{ asset('css/coleccion.css') }}" rel="stylesheet">
+<link href="{{ asset('CSS/coleccion.css') }}" rel="stylesheet">
 <!-- Compiled and minified CSS -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
 <script src="https://cdn.jsdelivr.net/vue.resource/1.3.1/vue-resource.min.js"></script>
@@ -20,27 +22,21 @@
 
 <!-- Filtro de cartas -->
     <div class="filtro row">
+        
         <div class="col-md-4 my-3">
-            <select name="ambito_id" id="sel-bs" class="mdb-select md-form" multiple searchable="Search for...">
-                <option value="" disabled selected>Seleccionar categorias</option>
-                <option value="0">Todas</option>
-                <!-- Apartado bd -->
-                
-                <option value=""></option>
-            </select>
-            <form method="get" action="">
-                <div class="input-group stylish-input-group">
-                    <input type="text" id="txtSearch" name="txtSearch" class="form-control"  placeholder="Search..." >
-                    <span class="input-group-addon">
-                        <button type="submit">
-                            <span class="glyphicon glyphicon-search"></span>
-                        </button>  
-                    </span>
-                </div>
-            </form> 
+        <select class="mdb-select colorful-select dropdown-primary md-form" id="select" multiple searchable="Search here..">
+            <option value="" disabled selected>Seleccione ámbito</option>d
+            @foreach($Ambitos as $obj)
+            <option value="{{$obj->Id_Ambito}}">{{$obj->Nombre_Ambito}}</option>
+            @endforeachç
+        </select>
         </div>
         <div class="col-md-6 my-3">
-            <button class="btn-save btn btn-primary btn-sm">Save</button>
+                <div class="input-group stylish-input-group">
+                    <input type="text" id="search" name="search" class="form-control"  placeholder="Search..." >
+                    
+                </div>
+                
         </div>
     </div>
 
@@ -74,10 +70,10 @@
     <div id="app">
     <!-- Seccion de las cartas -->
     <div class="mujeres">
-        <a  id='cantidad'></a>  
+        <a  id='cantidad'></a> <br> 
         <div class=" mujeres row" id='carta'>
             <!-- Para abrir el modal al elegir carta-->
-            
+            <!-- Aqui vn las cartas -->
         </div>
     </div>
     <!-- Para cerrar el modal -->
@@ -90,33 +86,10 @@
             <h3 slot="header">custom header</h3>
         </modal>
     </div>
-
-    <script>
-        $(document).ready(function(){
-            fetch_customer_data();
-         
-            
-        });
-        function fetch_customer_data(query = ''){
-                $.ajax({
-                    url: "coleccionSearch",
-                    method: 'GET',
-                    data: {query:query},
-                    dataType: 'json',
-                    success:function(data)
-                    {
-                        $('#carta').html(data.table_data);
-                        $('#cantidad').text(data.total_data);
-                    },
-                    error:function(jqXHR, status, err){
-                        alert(jqXHR.responseText);
-                    }
-                });
-             }
-             $(document).on('keyup','#txtSearch',function(){
-               var query = $(this).val();
-               fetch_customer_data(query);
-             });
-    </script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="JS/Coleccion.js"></script>
 
 @stop

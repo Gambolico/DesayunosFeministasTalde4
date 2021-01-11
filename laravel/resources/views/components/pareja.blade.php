@@ -9,8 +9,11 @@
 
     <div class="container">
 
-    <h1>Encuentra las Parejas</h1>
     <meta name="csrf-token" content="{{ csrf_token() }}" />
+    <div id="modo" data-modo="{{ $modo }}"></div>
+
+    <h1>Encuentra las Parejas</h1>
+    
     <section class="score-panel">
         <ul class="stars">
             <li><i class="fa fa-star"></i></li>
@@ -31,14 +34,14 @@
         <ul class="deck" id="card-deck">
         @foreach ($mujeres as $obj)
             <li class="card" type="{{$obj->Mujeres_Id}}">
-                <i class="">
+                
                 <img src="../images/fotos_de_mujeres/{{$obj->Img_Ruta}}">
-                </i>
+                
             </li>
             <li class="card" type="{{$obj->Mujeres_Id}}">
-                <i class="">
+                
                 <img src="../images/fotos_de_mujeres/{{$obj->Img_Ruta}}">
-                </i>
+                
             </li>
         @endforeach
         </ul>  

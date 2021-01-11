@@ -75,25 +75,34 @@ class JuegoController extends Controller
 
     public function saveMujer(Request $request)
     {   
-        $idMujer=$_POST['idMujer'] ;
+        var_dump($_POST);die();
+        $idMujer=$_POST['idMujer'];
+        $modo=$_POST['modo'];
         $idUsuario = auth()->user()->id;
         log::debug('se guarda la mujer ' . $idMujer);
-        $desbloqueada = Mujeresdesbloqueadas::checkDesbloqueadas($idUsuario, $idMujer);
+        log::debug("modo = " . $modo);
 
-        if($desbloqueada->count()==0){
-            try{
-                $mujerDesbloqueada = new Mujeresdesbloqueadas;
+        if($modo == "historia"){
 
-                $mujerDesbloqueada->Id_Usuario = $idUsuario;
-                $mujerDesbloqueada->Id_Mujeres = $idMujer;
+            $desbloqueada = Mujeresdesbloqueadas::checkDesbloqueadas($idUsuario, $idMujer);
+
+            if($desbloqueada->count()==0){
+                try{
+                    $mujerDesbloqueada = new Mujeresdesbloqueadas;
+
+                    $mujerDesbloqueada->Id_Usuario = $idUsuario;
+                    $mujerDesbloqueada->Id_Mujeres = $idMujer;
 
 
-                $mujerDesbloqueada->save();
+                    $mujerDesbloqueada->save();
 
-            }catch(Exception $e){
-                
+                }catch(Exception $e){
+                    
+                }
             }
         }
+
+        
     }
 
     public static function desbloquearMujeres($postData)
