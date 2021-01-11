@@ -117,9 +117,6 @@ function matched($idMujer){
     let idMujer = $idMujer;
     let _token  = $('meta[name="csrf-token"]').attr('content');
 
-    console.log($idMujer);
-    console.log($('meta[name="csrf-token"]').attr('content'));
-
     $.ajax({
         type: "POST",
         url: "/parejas/desbloquear", 
@@ -127,8 +124,6 @@ function matched($idMujer){
             idMujer:idMujer,
             _token: _token
         }
-    }).success(function( msg ) {
-        alert( msg );
     });
 
 }
