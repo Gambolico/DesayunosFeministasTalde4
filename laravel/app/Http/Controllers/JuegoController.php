@@ -49,20 +49,23 @@ class JuegoController extends Controller
     public function parejas($modo)
     {
         
-        if($modo == 'libre'){
-            $mujeres=Mujeres::inRandomOrder()->limit(8)->get();
-    
-            return view('components.pareja', ['modo' => $modo,'mujeres' => $mujeres]);
-        }elseif ($modo == 'historia') {
+        if ($modo == 'historia') {
             if(auth()->check()){
                 //* El susuario esta logeado
-
+                $mujeres=Mujeres::inRandomOrder()->limit(8)->get();
+    
+                return view('components.pareja', ['modo' => $modo,'mujeres' => $mujeres]);
             }else{
                 //* No esta logeado, redirige a login
 
-                return view('components.login');
+                return view('components.login')->with('error', 'Tienes que estas logeado para jugar al modo historia.');
             }
 
+        }
+        else
+        {
+            $mujeres=Mujeres::inRandomOrder()->limit(8)->get();
+            return view('components.pareja', ['modo' => $modo,'mujeres' => $mujeres]);
         }
 
         
@@ -75,14 +78,10 @@ class JuegoController extends Controller
 
     public function saveMujer(Request $request)
     {   
-        var_dump($_POST);die();
-        $idMujer=$_POST['idMujer'];
-        $modo=$_POST['modo'];
-        $idUsuario = auth()->user()->id;
-        log::debug('se guarda la mujer ' . $idMujer);
-        log::debug("modo = " . $modo);
-
-        if($modo == "historia"){
+        if($request['modo']=='historia')
+        {
+            $idMujer=$_POST['idMujer'];
+            $idUsuario = auth()->user()->id;
 
             $desbloqueada = Mujeresdesbloqueadas::checkDesbloqueadas($idUsuario, $idMujer);
 
@@ -93,15 +92,14 @@ class JuegoController extends Controller
                     $mujerDesbloqueada->Id_Usuario = $idUsuario;
                     $mujerDesbloqueada->Id_Mujeres = $idMujer;
 
-
                     $mujerDesbloqueada->save();
 
                 }catch(Exception $e){
                     
                 }
             }
+            
         }
-
         
     }
 

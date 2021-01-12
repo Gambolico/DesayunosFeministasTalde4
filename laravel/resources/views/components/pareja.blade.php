@@ -10,7 +10,8 @@
     <div class="container">
 
     <meta name="csrf-token" content="{{ csrf_token() }}" />
-    <div id="modo" data-modo="{{ $modo }}"></div>
+    <meta name="modo" content="{{ $modo }}" />
+    
 
     <h1>Encuentra las Parejas</h1>
     

@@ -36,9 +36,13 @@ class LoginController extends Controller
         //* Intenta logearse con los datos dados
         if (Auth::attempt(['name' => request(['name']), 'password' => request(['password'][0])])) 
         {
-                $user = auth()->user()->name;
-                return redirect('/'); 
+
+            return redirect('/'); 
             
+        }
+        elseif(Auth::attempt(['name' => request(['name']), 'password' => request(['password'][0])]))
+        {
+
         }
         else
         {
@@ -95,12 +99,12 @@ class LoginController extends Controller
             $usuario->name = cleanInput($nombreUsuario);
             $usuario->password = $passwordUsuario;
             $usuario->email = cleanInput($emailUsuario);
+            $usuario->is_admin=0;
             $usuario->save();
-
-            return view('components.login');
-
             
-            
+            Auth::loginUsingId($usuario->id);
+            return redirect('/');
+
         //}
             
     }

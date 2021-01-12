@@ -32,7 +32,7 @@ Route::get('/areaAdmin', [AdminController::class, 'index'])->name('areaAdmin')->
 
 //* Intentar iniciar sesion
 
-Route::post('/login', [LoginController::class, 'tryLogin']);
+Route::post('/login', [LoginController::class, 'tryLogin'])->name('tryLogIn');
 
 //* Intentar iniciar sesion
 
