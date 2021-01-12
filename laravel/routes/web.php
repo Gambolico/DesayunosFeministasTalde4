@@ -80,5 +80,3 @@ Route::get('/adivina/{modo}', [JuegoController::class, 'adivina'])->name('empeza
 
 Route::get('/coleccion', [MujeresController::class, 'coleccion'])->name('coleccion');
 Route::post('/coleccionFiltrar', [MujeresController::class, 'filtrarMujeres'])->name('coleccionFiltrar');
-
-Route::get('/areaAdmin', [AdminController::class, 'index'])->name('areaAdmin');

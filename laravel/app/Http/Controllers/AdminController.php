@@ -16,7 +16,7 @@ class AdminController extends Controller
     {
         $nombre = $request->get('buscarpor');
         $tipo = $request->get('tipo');
-       
+
         return view('components.admin', compact('Mujeres'));
 
     }
