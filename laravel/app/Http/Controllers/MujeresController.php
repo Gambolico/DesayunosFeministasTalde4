@@ -25,23 +25,26 @@ class MujeresController extends Controller
                 $output='';
                 $respuesta=$request->post('query');
                 $ambitos=$request->post('ambitos');
-                if(!empty($respuesta) && !empty($ambitos)){
-                   
-                        Log::debug('entra');
-                        /* Funcion de filtrar */
-                        $data=Mujeres::FiltrarMujeresInf($respuesta,$ambitos);
-                    
-                    /* Funcion de filtrar solo con respuesta*/
-                        //$data=Mujeres::FiltrarMujeresInfRes($respuesta);
-                }
-                else if(empty($respuesta)){
+                if(empty($respuesta)){
                     if(!empty($ambitos)){
-                        $data =Mujeres::FiltrarMujeresInfAmbito($ambitos);
+                        $data =Mujeres::FiltrarMujeresInfAmbitos($ambitos);
+                        
                     }
-                    if(empty($ambitos)){
+                   else{
+                        
                         $data =Mujeres::getMujeresInf();
                     }
                    
+                }
+                else if(!empty($respuesta)){
+                    if(empty($ambitos)){
+                        $data =Mujeres::FiltrarMujeresInfRes($respuesta);
+                    }
+                    else if(!empty($ambitos)){
+                        
+                        $data =Mujeres::FiltrarMujeresInf($respuesta,$ambitos);
+                        
+                    }
                 }
                 $total_row=$data->count(); 
                 if($total_row > 0)
@@ -51,9 +54,9 @@ class MujeresController extends Controller
                         /* COmo ueremos que salga por el html esto se guarda en output, array. El punto .=' sirve como un push.*/
                         $output .='
                         <div id="'.$row->Mujeres_Id.'" id="show-modal" @click="showModal = true;" href="{{route(mujer,[id=>'.$row->Mujeres_Id.'])}}" class="col-md-3">
-                            <div class="card card-blog" style="background:'.$row->Cod_color.';">
+                            <div class="card card-blog" style="background-color:'.$row->Cod_Color.';">
                                 <div id="'.$row->Mujeres_Id.'" class="card-image">
-                                    <a href="#"> <img class="img" src="images/fotos de mujeres/'.$row->Img_Ruta.'"> </a>
+                                    <a href="#"> <img class="img" src="images/fotos_de_mujeres/'.$row->Img_Ruta.'"> </a>
                                     <div class="ripple-cont"></div>
                                 </div>
                                     <div class="table">

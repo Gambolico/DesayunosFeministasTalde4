@@ -1,18 +1,18 @@
-/* apartado ajax */
-let _token = $('meta[name="csrf-token"]').attr('content');
+var _token = $('meta[name="csrf-token"]').attr('content');
     $(document).ready(function(){
-        fetch_customer_data(query ='',ambitos='');
+        fetch_customer_data(query ='',ambitos=null);
         $('#search').on('keyup',function(){
         var ambitos=document.getElementById('select').value;
         var query = $(this).val();
-        console.log(query)
         fetch_customer_data(query,ambitos);
         }); 
+
         $('select').on('change',function(){
-                var query = document.getElementById('search').text;
-                ambitos= $(this).val();
+                var query = document.getElementById('search').value;
+                console.log(query);
+                ambitos=Number($(this).val());
                 fetch_customer_data(query,ambitos);
-                }); 
+                });
             });
     function fetch_customer_data(query,ambitos){
         console.log(ambitos)
@@ -21,7 +21,6 @@ let _token = $('meta[name="csrf-token"]').attr('content');
             url: 'coleccionFiltrar',
             method: 'post',
             data: {
-                /* QUery lo que coje */
                 query:query,
                 ambitos:ambitos,
                 /* token necesario para el post */

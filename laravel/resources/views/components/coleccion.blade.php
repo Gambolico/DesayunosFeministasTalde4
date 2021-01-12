@@ -4,8 +4,7 @@
 
 @section('content')
 
-<meta name="csrf-token" content="{{ csrf_token() }}" />
-  
+<meta name="csrf-token" content="{{ csrf_token() }}">
 <!-- Biografia -->
 <link href="{{ asset('CSS/biografia.css') }}" rel="stylesheet">
 <!-- JS filter -->
@@ -28,8 +27,21 @@
             <option value="" disabled selected>Seleccione ámbito</option>d
             @foreach($Ambitos as $obj)
             <option value="{{$obj->Id_Ambito}}">{{$obj->Nombre_Ambito}}</option>
-            @endforeachç
+            @endforeach
         </select>
+        <!-- <div class="row-md-2 my-2">
+        <div class="col-md-5 my-3">
+        <select class="mdb-select colorful-select dropdown-primary md-form w-10" >
+                <option value="" disabled selected>Elementos</options>
+                <option value="3">3</options>
+                <option value="6">6</options>
+                <option value="9">9</options>
+                <option value="12">12</options>
+            </select>
+        </div>
+            
+        </div> -->
+        
         </div>
         <div class="col-md-6 my-3">
                 <div class="input-group stylish-input-group">
