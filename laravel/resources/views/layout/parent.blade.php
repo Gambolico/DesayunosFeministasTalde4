@@ -62,7 +62,7 @@
     <!--Main Layout-->
     <!-- La clase main la llamarán solo las view que tengas ese css -->
     <main >
-        <div class="container">
+        <div class="container marginComoJugar">
             @yield('content')
         </div>
     </main>
