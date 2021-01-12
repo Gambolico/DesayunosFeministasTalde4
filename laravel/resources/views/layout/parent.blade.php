@@ -75,7 +75,7 @@
     <!-- Footer -->
     <footer id="sticky-footer" class="py-4 bg-dark text-white-50">
         <div class="cFooter text-center">
-            <small>Copyright &copy; Desayunos Feministas</small>
+            <small>Copyright &copy; Desayunos Feministas | <script>document.write(new Date().getFullYear());</script></small>
         </div>
         @if (auth()->check() && auth()->user()->is_admin == 1)
             <div class="adminArea text-center">
