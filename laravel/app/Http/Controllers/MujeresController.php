@@ -25,27 +25,7 @@ class MujeresController extends Controller
                 $output='';
                 $respuesta=$request->post('query');
                 $ambitos=$request->post('ambitos');
-                if(empty($respuesta)){
-                    if(!empty($ambitos)){
-                        $data =Mujeres::FiltrarMujeresInfAmbitos($ambitos);
-                        
-                    }
-                   else{
-                        
-                        $data =Mujeres::getMujeresInf();
-                    }
-                   
-                }
-                else if(!empty($respuesta)){
-                    if(empty($ambitos)){
-                        $data =Mujeres::FiltrarMujeresInfRes($respuesta);
-                    }
-                    else if(!empty($ambitos)){
-                        
-                        $data =Mujeres::FiltrarMujeresInf($respuesta,$ambitos);
-                        
-                    }
-                }
+                $data =Mujeres::FiltrarMujeresInf($respuesta,$ambitos);
                 $total_row=$data->count(); 
                 if($total_row > 0)
                 {
