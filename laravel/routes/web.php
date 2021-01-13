@@ -30,6 +30,10 @@ Route::get('/login', [LoginController::class, 'viewLogin']);
 
 Route::get('/areaAdmin', [AdminController::class, 'index'])->name('areaAdmin')->middleware('is_admin');
 
+//* Añadir Mujeres
+
+Route::get('/areaAdmin/AñadirMujeres', [AdminController::class, 'añadirMujeres'])->name('AñadirMujeres');
+
 //* Intentar iniciar sesion
 
 Route::post('/login', [LoginController::class, 'tryLogin'])->name('tryLogIn');

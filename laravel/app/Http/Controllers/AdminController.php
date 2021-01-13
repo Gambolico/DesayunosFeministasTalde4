@@ -31,4 +31,8 @@ class AdminController extends Controller
         return view('components.AdminArea.admin');
 
     }
+
+    public function añadirMujeres(){
+        return view('components.AdminArea.añadirMujeres');
+    }
 }
