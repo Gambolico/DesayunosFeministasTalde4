@@ -1,5 +1,6 @@
 var _token = $('meta[name="csrf-token"]').attr('content');
     $(document).ready(function(){
+        
         fetch_customer_data(query ='',ambitos=null);
         $('#search').on('keyup',function(){
         var ambitos=document.getElementById('select').value;
