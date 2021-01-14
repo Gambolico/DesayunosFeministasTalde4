@@ -53,7 +53,7 @@ class MujeresController extends Controller
                     {
                         /* COmo ueremos que salga por el html esto se guarda en output, array. El punto .=' sirve como un push.*/
                         $output .='
-                        <div id="'.$row->Mujeres_Id.'" id="show-modal" @click="showModal = true;" href="{{route(mujer,[id=>'.$row->Mujeres_Id.'])}}" class="col-md-3">
+                        <div class="'.$row->Mujeres_Id.' col-md-3">
                             <div class="card card-blog" style="background-color:'.$row->Cod_Color.';">
                                 <div id="'.$row->Mujeres_Id.'" class="card-image">
                                     <a href="#"> <img class="img" src="images/fotos_de_mujeres/'.$row->Img_Ruta.'"> </a>
