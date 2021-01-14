@@ -5,7 +5,7 @@
 @section('content')
 
 <!-- CSS -->
-
+<link href="{{ asset('CSS/biografia.css') }}" rel="stylesheet">
 <div class="containerBiografia p-3 my-3 bg-light"> 
         @foreach($Mujer as $obj)
         <div class="row h-auto">
