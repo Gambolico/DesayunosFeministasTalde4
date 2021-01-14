@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 use App\Models\Mujeres;
+use App\Models\Usuarios;
+use App\Models\Ambitos;
 use Illuminate\Http\Request;
+use Log;
+
 
 class AdminController extends Controller
 {
@@ -31,4 +35,21 @@ class AdminController extends Controller
         return view('components.AdminArea.admin');
 
     }
+
+    public function añadirMujeres(){
+        return view('components.AdminArea.añadirMujeres');
+    }
+
+    public function eliminarMujeres() {
+        $Mujeres=Mujeres::getMujeresInf();
+
+        return view('components.AdminArea.eliminarMujeres')->with('Mujeres', $Mujeres);
+    }
+
+    public function editarUsuarios() {
+        $Users=Usuarios::getUsuariosInf();
+
+        return view('components.AdminArea.editarUsuarios')->with('Users', $Users);
+    }
+    
 }

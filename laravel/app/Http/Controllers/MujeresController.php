@@ -9,8 +9,7 @@ use Log;
 class MujeresController extends Controller
 {
     //
-    public function coleccion()
-    {
+    public function coleccion() {
         $Ambitos=Ambitos::getAmbitos();
         /* 
         Tambien se puede hacer asi
