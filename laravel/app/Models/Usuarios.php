@@ -8,29 +8,13 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class Usuarios extends Authenticatable
 {
         //La tabla que vamos a usar
-        protected $table = 'usuarios';
+        protected $table = 'users';
 
-        protected $fillable = [
-                'Usuario',
-                'Contraseña',
-                'Email'
-        ];
-
-        protected $hidden = [
-                'Contraseña',
-                'remember_token',
-        ];
-
-        public $timestamps = false;
-
-        public function checkUsername($username)
-        {
-                
-                $usuario = Usuarios::select('Usuario')
-                ->where('Usuario','=',$username)
+        public static function getUsuariosInf() {
+                $users = Usuarios::select('id', 'name','email','is_admin','created_at')
+                ->orderByRaw('id', 'asc')
                 ->get();
-                return $usuario;
-
+                return $users;
         }
 
 }

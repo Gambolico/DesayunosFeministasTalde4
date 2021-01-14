@@ -9,8 +9,7 @@ use Log;
 class MujeresController extends Controller
 {
     //
-    public function coleccion()
-    {
+    public function coleccion() {
         $Ambitos=Ambitos::getAmbitos();
         /* 
         Tambien se puede hacer asi
@@ -30,11 +29,10 @@ class MujeresController extends Controller
                         $data =Mujeres::FiltrarMujeresInfAmbitos($ambitos);
                         
                     }
-                   else{
+                    else{
                         
                         $data =Mujeres::getMujeresInf();
                     }
-                   
                 }
                 else if(!empty($respuesta)){
                     if(empty($ambitos)){

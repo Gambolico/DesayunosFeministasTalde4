@@ -34,6 +34,14 @@ Route::get('/areaAdmin', [AdminController::class, 'index'])->name('areaAdmin')->
 
 Route::get('/areaAdmin/AñadirMujeres', [AdminController::class, 'añadirMujeres'])->name('AñadirMujeres');
 
+//* Eliminar Mujeres
+
+Route::get('/areaAdmin/EliminarMujeres', [AdminController::class, 'eliminarMujeres'])->name('EliminarMujeres');
+
+//* Editar Usuarios
+
+Route::get('/areaAdmin/EditarUsuarios', [AdminController::class, 'editarUsuarios'])->name('EditarUsuarios');
+
 //* Intentar iniciar sesion
 
 Route::post('/login', [LoginController::class, 'tryLogin'])->name('tryLogIn');

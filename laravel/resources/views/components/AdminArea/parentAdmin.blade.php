@@ -33,12 +33,12 @@
                                     <a href="{{ route('AñadirMujeres') }}">Añadir Mujeres</a>
                                 </li>
                                 <li>
-                                    <a href="#">Eliminar Mujeres</a>
+                                    <a href="{{ route('EliminarMujeres') }}">Eliminar Mujeres</a>
                                 </li>
                             </ul>
 	                    </li>
                         <li>
-                            <a href="#">Usuarios</a>
+                            <a href="{{ route('EditarUsuarios') }}">Usuarios</a>
                         </li>
                         <li>
                             <a href="{{ url('/') }}">Pagina Principal</a>
