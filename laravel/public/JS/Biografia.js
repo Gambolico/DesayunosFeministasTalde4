@@ -2,8 +2,6 @@
 
 $(document).ready(function() {
 
-
-
     // start app
      new Vue({
         el: '#app',

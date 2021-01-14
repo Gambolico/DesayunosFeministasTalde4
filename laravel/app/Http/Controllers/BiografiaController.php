@@ -9,9 +9,7 @@ class BiografiaController extends Controller
 
     public function datosBiografia($id)
     {
-        
-            $data =Mujeres::filtrarId($id);
-            
-            return view('components.Biografia.biografia')->with('Mujeres', $data);
+            $Mujer =Mujeres::filtrarId($id);
+            return view('components.Biografia.biografia',['Mujer'=>$Mujer]);
     }
 }
