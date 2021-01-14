@@ -47,30 +47,34 @@ class MujeresController extends Controller
                     }
                 }
                 $total_row=$data->count(); 
+                $ruta="";
                 if($total_row > 0)
                 {
                     foreach($data as $row)
                     {
                         /* COmo ueremos que salga por el html esto se guarda en output, array. El punto .=' sirve como un push.*/
                         $output .='
-                        <div class="'.$row->Mujeres_Id.' col-md-3">
-                            <div class="card card-blog" style="background-color:'.$row->Cod_Color.';">
-                                <div id="'.$row->Mujeres_Id.'" class="card-image">
-                                    <a href="#"> <img class="img" src="images/fotos_de_mujeres/'.$row->Img_Ruta.'"> </a>
-                                    <div class="ripple-cont"></div>
-                                </div>
-                                    <div class="table">
-                                        <p lass="category text-warning">
-                                            <i class="fa fa-soundcloud"></i> 
-                                        </p>
-                                        <h6 class="card-caption">
-                                            <a href="#">'.$row->Nombre.' '.$row->Apellido.'</a>
-                                        </h6>
-                                        <div class="ftr">
-                                            <div class="stats"> <i class="fa fa-clock-o">'.$row->Nombre_Ambito.'</i></div>
-                                        </div>
+                        
+                        <div class="'.$row->Mujeres_Id.' col-md-3" >
+                            <a >
+                                <div class="card card-blog"  style="background-color:'.$row->Cod_Color.';">
+                                    <div id="'.$row->Mujeres_Id.'" class="card-image">
+                                        <a href="/coleccion/biografia/'.$row->Mujeres_Id.'"> <img class="img" src="images/fotos_de_mujeres/'.$row->Img_Ruta.'"> </a>
+                                        <div class="ripple-cont"></div>
                                     </div>
-                            </div>
+                                        <div class="table">
+                                            <p lass="category text-warning">
+                                                <i class="fa fa-soundcloud"></i> 
+                                            </p>
+                                            <h6 class="card-caption">
+                                                <a href="#">'.$row->Nombre.' '.$row->Apellido.'</a>
+                                            </h6>
+                                            <div class="ftr">
+                                                <div class="stats"> <i class="fa fa-clock-o">'.$row->Nombre_Ambito.'</i></div>
+                                            </div>
+                                        </div>
+                                </div>
+                            </a>
                         </div>
                         ';
                     }
