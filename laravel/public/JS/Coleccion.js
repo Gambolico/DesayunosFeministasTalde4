@@ -1,5 +1,6 @@
 var _token = $('meta[name="csrf-token"]').attr('content');
     $(document).ready(function(){
+        
         fetch_customer_data(query ='',ambitos=null);
         /* Al escribir en el buscador... */
         $('#search').on('keyup',function(){
