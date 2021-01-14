@@ -10,6 +10,7 @@
 <!-- JS filter -->
 <script src="{{ asset('JS/Biografia.js') }}"></script>
 <script src="{{ asset('JS/Cartas.js') }}"></script>
+<script src="{{ asset('JS/Biografia.js') }}"></script>
 <!-- CSS -->
 <link href="{{ asset('CSS/coleccion.css') }}" rel="stylesheet">
 <!-- Compiled and minified CSS -->
@@ -52,51 +53,18 @@
         </div>
     </div>
 
-    <!-- Modal para la biografia de la carta seleccionada -->
-    <!-- Composicion del modal de biografia-->
-    
-    <script type="text/x-template" id="modal-template">
-        <div name="modal">
-            <div class="modal-mask">
-                <div class="modal-wrapper">
-                    <div class="modal-container">
-                        <div class="modal-header">
-                            <slot name="header"></slot>
-                        </div>
-                        <div class="modal-body">
-                        <img class="img" src="">
-                            <a href="#"></a>
-                        </div>
-                        <div class="modal-footer">
-                            <slot name="footer">default footer
-                            <button class="modal-default-button" @click="$emit('close')">OK</button>
-                            </slot>
-                        </div>
-                    </div>
-                </div>
+        <!-- Seccion de las cartas -->
+        <div class="mujeres">
+            <div class="cantidad">
+                <a id='cantidad'></a> <br> 
             </div>
+            <div class=" mujeres row" id='carta'>
+                <!-- Para abrir el modal al elegir carta-->
+                <!-- Aqui vn las cartas -->
             </div>
-    </div>
-    </script>
-    <!-- app para el vue -->
-    <div id="app">
-    <!-- Seccion de las cartas -->
-    <div class="mujeres">
-        <a  id='cantidad'></a> <br> 
-        <div class=" mujeres row" id='carta'>
-            <!-- Para abrir el modal al elegir carta-->
-            <!-- Aqui vn las cartas -->
         </div>
-    </div>
-    <!-- Para cerrar el modal -->
-        <!-- use the modal component, pass in the prop -->
-        <modal v-if="showModal" @close="showModal = false">
-            <!--
-            you can use custom content here to overwrite
-            default content
-            -->
-            <h3 slot="header">custom header</h3>
-        </modal>
+        <!-- Para cerrar el modal -->
+            <!-- use the modal component, pass in the prop -->
     </div>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>

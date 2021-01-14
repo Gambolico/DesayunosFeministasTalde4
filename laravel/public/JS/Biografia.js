@@ -1,11 +1,11 @@
 // register modal component
+var _token = $('meta[name="csrf-token"]').attr('content');
 $(document).ready(function() {
-   Vue.component('modal', {
-    template: '#modal-template'
-    })
-    
+    fetch_woman_data();
+
+
     // start app
-    new Vue({
+    /* new Vue({
         el: '#app',
         data: {
         showModal: false,
@@ -38,4 +38,24 @@ $(document).ready(function() {
         }
     })
 
-}) 
+})  */
+
+function fetch_woman_data(mujerId){
+        $.ajax({
+        /* Direccion del web.php */
+            url: 'biografia',
+            method: 'post',
+            data: {
+            mujerId:mujerId,
+            /* token necesario para el post */
+            _token:_token
+            
+            },
+            dataType: 'json',
+            success:function(data)
+            {
+                $('.modal-container').html(data.biografia_data);
+            }
+        });
+    }
+)};
