@@ -6,7 +6,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MujeresController;
 use App\Http\Controllers\JuegoController;
 use App\Http\Controllers\AdminController;
-
+use App\Http\Controllers\BiografiaController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -80,4 +80,4 @@ Route::get('/adivina/{modo}', [JuegoController::class, 'adivina'])->name('empeza
 
 Route::get('/coleccion', [MujeresController::class, 'coleccion'])->name('coleccion');
 Route::post('/coleccionFiltrar', [MujeresController::class, 'filtrarMujeres'])->name('coleccionFiltrar');
-Route::post('/biografia', [BiografiaController::class, 'datosBiografia'])->name('biografia');
+Route::get('/coleccion/biografia/{id}', [BiografiaController::class, 'datosBiografia'])->name('biografia');
