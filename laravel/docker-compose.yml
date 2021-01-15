@@ -33,7 +33,3 @@ services:
       backend:
         aliases:
           - db
-
-networks:
-  backend:
-    name: backend-network
