@@ -14,22 +14,16 @@ services:
       - .:/var/www/html
     ports:
       - 8000:80
-    networks:
-      backend:
-        aliases:
-          - laravel-app
 
   mysql-db:
-    image: mysql:5.7
+    image: mysql
     container_name: mysql-db
     volumes:
       - ./run/var:/var/lib/mysql
     environment:
-      - MYSQL_ROOT_PASSWORD=2dw3
-      - MYSQL_DATABASE=desayunosfeministas
-      - MYSQL_USER=root
-      - MYSQL_PASSWORD=2dw3
-    networks:
-      backend:
-        aliases:
-          - db
+      - MYSQL_ROOT_PASSWORD=${DB_PASSWORD}
+      - MYSQL_DATABASE=${DB_DATABASE}
+      - MYSQL_USER=${DB_USERNAME}
+      - MYSQL_PASSWORD=${DB_PASSWORD}
+    ports:
+      - 3306:3306
