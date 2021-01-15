@@ -74,7 +74,7 @@
                                         <td>{{$obj->Nombre}} {{$obj->Apellido}}</td>
                                         <td>{{$obj->Zona_Geografica}}</td>
                                         <td>{{$obj->Nombre_Ambito}}</td>
-                                        <td><a class="btn btn-primary">ELIMINAR</a></td>
+                                        <td><a href="{{ route('EliminarMujer', ['id'=>$obj->Mujeres_Id])}}" class="btn btn-primary">ELIMINAR</a></td>
                                     </tr>
                                 @endforeach
                             </tbody>

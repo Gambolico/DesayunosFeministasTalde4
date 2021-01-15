@@ -36,20 +36,38 @@ class AdminController extends Controller
 
     }
 
-    public function añadirMujeres(){
+    public function viewAñadirMujeres(){
         return view('components.AdminArea.añadirMujeres');
     }
 
-    public function eliminarMujeres() {
+    public function viewEliminarMujeres() {
         $Mujeres=Mujeres::getMujeresInf();
 
         return view('components.AdminArea.eliminarMujeres')->with('Mujeres', $Mujeres);
     }
 
-    public function editarUsuarios() {
+        public function eliminarMujer($id) {
+            Mujeres::eliminarMujerporID($id);
+
+            return back();
+        }
+
+    public function viewEditarUsuarios() {
         $Users=User::getUsuariosInf();
 
         return view('components.AdminArea.editarUsuarios')->with('Users', $Users);
     }
+
+        public function editarUsuarios($id) {
+            User::hacerUsuarioAdmin($id);
+
+            return back();
+        }
+
+        public function eliminarUsuarios($id) {
+            User::eliminarUsuarioPorID($id);
+
+            return back();
+        }
     
 }

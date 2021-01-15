@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\DB;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -42,5 +43,13 @@ class User extends Authenticatable
             ->orderByRaw('id', 'asc')
             ->get();
             return $users;
+    }
+
+    public static function eliminarUsuarioPorID($id) {
+        User::select('*')->where('id', '=', $id)->delete(); 
+    }
+
+    public static function hacerUsuarioAdmin($id) {
+        User::select('*')->where('id', '=', $id)->update(['is_admin' => 1]);
     }
 }

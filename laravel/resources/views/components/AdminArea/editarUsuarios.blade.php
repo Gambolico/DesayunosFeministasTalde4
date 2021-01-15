@@ -73,15 +73,15 @@
                                         <th scope="row">{{$obj->name}}</th>
                                         <td>{{$obj->email}}</td>
                                         <td>{{$obj->created_at}}</td>
-                                        <td>
-                                            @if ({{$obj->is_admin == 1}})
-                                            SI
-                                            @else
-                                            NO
-                                            @endif
+                                        <td><?php if($obj->is_admin == 1){
+                                                echo "Si";
+                                                } else{
+                                                    echo "No";
+                                                }?>
                                         </td>
-                                        <td><a class="btn btn-primary">ADMIN</a> 
-                                            <a href = 'delete/{{ $obj->name }}'class="btn btn-primary">ELIMINAR</a>
+                                        <td>
+                                            <a href="{{ route('EditarUsuario', ['id'=>$obj->id])}}" class="btn btn-primary">ADMIN</a> 
+                                            <a href="{{ route('EliminarUsuario', ['id'=>$obj->id])}}" class="btn btn-primary">ELIMINAR</a>
                                         </td>
                                     </tr>
                                 @endforeach

@@ -32,15 +32,27 @@ Route::get('/areaAdmin', [AdminController::class, 'index'])->name('areaAdmin')->
 
 //* Añadir Mujeres
 
-Route::get('/areaAdmin/AñadirMujeres', [AdminController::class, 'añadirMujeres'])->name('AñadirMujeres');
+Route::get('/areaAdmin/AñadirMujeres', [AdminController::class, 'viewAñadirMujeres'])->name('AñadirMujeres');
 
-//* Eliminar Mujeres
+//* View Eliminar Mujeres
 
-Route::get('/areaAdmin/EliminarMujeres', [AdminController::class, 'eliminarMujeres'])->name('EliminarMujeres');
+Route::get('/areaAdmin/EliminarMujeres', [AdminController::class, 'viewEliminarMujeres'])->name('EliminarMujeres');
 
-//* Editar Usuarios
+    //* Eliminar Mujer
 
-Route::get('/areaAdmin/EditarUsuarios', [AdminController::class, 'editarUsuarios'])->name('EditarUsuarios');
+    Route::get('/areaAdmin/EliminarMujeres/{id}', [AdminController::class, 'eliminarMujer'])->name('EliminarMujer');
+
+//* View Editar Usuarios
+
+Route::get('/areaAdmin/EditarUsuarios', [AdminController::class, 'viewEditarUsuarios'])->name('EditarUsuarios');
+
+    //* Eliminar Usuario
+
+    Route::get('/areaAdmin/EditarUsuarios/{id}', [AdminController::class, 'eliminarUsuarios'])->name('EliminarUsuario');
+
+    //* Hacer Usuario Admin
+
+    Route::get('/areaAdmin/EditarUsuarios/{id}', [AdminController::class, 'editarUsuarios'])->name('EditarUsuario');
 
 //* Intentar iniciar sesion
 

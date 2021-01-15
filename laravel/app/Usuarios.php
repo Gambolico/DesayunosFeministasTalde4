@@ -9,11 +9,9 @@ class Usuarios extends Model
     //La tabla que vamos a usar
     protected $table = 'users';
 
-    public static function getUsuariosInf() {
-            $users = Usuarios::select('id', 'name','email','is_admin','created_at')
-            ->orderByRaw('id', 'asc')
-            ->get();
-            return $users;
+
+    public static function eliminarUsuarioPorID($id) {
+        DB::table('users')->where('id', '=', $id)->delete(); 
     }
 
 }
