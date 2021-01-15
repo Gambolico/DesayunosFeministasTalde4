@@ -48,7 +48,7 @@ Route::get('/areaAdmin/EditarUsuarios', [AdminController::class, 'viewEditarUsua
 
     //* Eliminar Usuario
 
-    Route::get('/areaAdmin/EditarUsuarios/{id}', [AdminController::class, 'eliminarUsuarios'])->name('EliminarUsuario');
+    Route::get('/areaAdmin/EliminarUsuario/{id}', [AdminController::class, 'eliminarUsuarios'])->name('EliminarUsuario');
 
     //* Hacer Usuario Admin
 
