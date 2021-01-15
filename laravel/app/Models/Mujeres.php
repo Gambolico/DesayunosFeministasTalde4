@@ -24,7 +24,7 @@ $mujeres = Mujeres::select('Mujeres_Id', 'Nombre','Apellido','Fecha_Nacimiento',
                              */
         /* Tola aa inf de las mujeres, select all */
         /* Funcion para la filtracion de las cartas*/
-        public static function FiltrarMujeresInf($respuesta, $ambitos){
+        public static function FiltrarMujeresInf($respuesta, $ambitos,$cant){
             /* HArtutako $ambitos, string bat da, array bihurtuko dugu -> */
             $myArray = explode(',', $ambitos);
             if(!empty($respuesta)){
@@ -40,7 +40,7 @@ $mujeres = Mujeres::select('Mujeres_Id', 'Nombre','Apellido','Fecha_Nacimiento',
                                     ->orWhere('Zona_Geografica','like', '%'.$respuesta.'%');
                             })
                             ->whereIn('Ambito_Id', $myArray)
-                            ->get();
+                            ->paginate($cant);
                 }
                 else{
                     $mujeres = Mujeres::select('Mujeres_Id', 'Nombre','Apellido','Fecha_Nacimiento','Fecha_Muerte','Lore_Esp','Zona_Geografica','continentes.Nombre_Continente','Img_Ruta','Enlace_Referencia','ambitos.Nombre_Ambito','Ambito_Id','Cod_Color')
@@ -49,7 +49,7 @@ $mujeres = Mujeres::select('Mujeres_Id', 'Nombre','Apellido','Fecha_Nacimiento',
                             ->where('Nombre','like', '%'.$respuesta.'%')
                             ->orWhere('Apellido','like', '%'.$respuesta.'%')
                             ->orWhere('Zona_Geografica','like', '%'.$respuesta.'%')
-                            ->get();
+                            ->paginate($cant);
                 }
             }
             else{
@@ -60,14 +60,14 @@ $mujeres = Mujeres::select('Mujeres_Id', 'Nombre','Apellido','Fecha_Nacimiento',
                             ->join('ambitos', 'ambitos.Id_Ambito', '=', 'mujeres.Ambito_Id') 
                             ->join('continentes','continentes.Id_Continente', '=', 'mujeres.Continente_Id')
                             ->whereIn('Ambito_Id', $myArray)
-                            ->get();
+                            ->paginate($cant);
                     }
                     else{
                         $mujeres = Mujeres::select('Mujeres_Id', 'Nombre','Apellido','Fecha_Nacimiento','Fecha_Muerte','Lore_Esp','Zona_Geografica','continentes.Nombre_Continente','Img_Ruta','Enlace_Referencia','ambitos.Nombre_Ambito','Ambito_Id','Cod_Color')
                             ->join('ambitos', 'ambitos.Id_Ambito', '=', 'mujeres.Ambito_Id') 
                             ->join('continentes','continentes.Id_Continente', '=', 'mujeres.Continente_Id')
                             ->where('Ambito_Id','like', '%'.$ambitos.'%')
-                            ->get();
+                            ->paginate($cant);
                     }
                     
                 }
@@ -76,14 +76,14 @@ $mujeres = Mujeres::select('Mujeres_Id', 'Nombre','Apellido','Fecha_Nacimiento',
                     ->join('ambitos', 'ambitos.Id_Ambito', '=', 'mujeres.Ambito_Id') 
                     ->join('continentes','continentes.Id_Continente', '=', 'mujeres.Continente_Id')
                     ->orderBy('Mujeres_Id', 'asc')
-                    ->get();
+                    ->paginate($cant);
                 }
             }
             return $mujeres;
                 
         }
         public static function filtrarId($id){
-            $mujeres = Mujeres::select('Mujeres_Id', 'Nombre','Apellido','Fecha_Nacimiento','Fecha_Muerte','Lore_Esp','Zona_Geografica','continentes.Nombre_Continente','Img_Ruta','Enlace_Referencia','ambitos.Nombre_Ambito','Ambito_Id','Cod_Color')
+            $mujeres = Mujeres::select('Mujeres_Id', 'Nombre','Apellido','Fecha_Nacimiento','Fecha_Muerte','Lore_Esp','Zona_Geografica','continentes.Nombre_Continente','Img_Ruta','Enlace_Referencia','ambitos.Nombre_Ambito','Ambito_Id','ambitos.Cod_Color')
             ->join('ambitos', 'ambitos.Id_Ambito', '=', 'mujeres.Ambito_Id') 
             ->join('continentes','continentes.Id_Continente', '=', 'mujeres.Continente_Id')
             ->where('Mujeres_Id',$id)
