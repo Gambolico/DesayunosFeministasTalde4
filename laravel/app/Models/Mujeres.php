@@ -17,11 +17,28 @@ class Mujeres extends Model
             ->get();
             return $mujeres;
         }
-/* 
-$mujeres = Mujeres::select('Mujeres_Id', 'Nombre','Apellido','Fecha_Nacimiento','Fecha_Muerte','Lore_Esp','Zona_Geografica','continentes.Nombre_Continente','Img_Ruta','Enlace_Referencia','ambitos.Nombre_Ambito','Ambito_Id','Cod_Color','Id_Ambito')
-                            ->join('ambitos', 'ambitos.Id_Ambito', '=', 'mujeres.Ambito_Id') 
-                            ->join('continentes','continentes.Id_Continente', '=', 'mujeres.Continente_Id')
-                             */
+
+        /* La informacion de las mujeres */
+        public static function getMujeresInf() {
+            $mujeres = Mujeres::select('Mujeres_Id', 'Nombre','Apellido','Fecha_Nacimiento','Fecha_Muerte','Lore_Esp','Zona_Geografica','continentes.Nombre_Continente','Img_Ruta','Enlace_Referencia','ambitos.Nombre_Ambito','Ambito_Id','Cod_Color')
+            ->join('ambitos', 'ambitos.Id_Ambito', '=', 'mujeres.Ambito_Id') ->join('continentes','continentes.Id_Continente', '=', 'mujeres.Continente_Id')
+            ->orderByRaw('Mujeres_Id', 'asc')
+            ->get();
+            return $mujeres;
+        }
+
+        /* Añadir Mujeres */
+        public static function añadirMujer($id) {
+            Mujeres::select('*')->where('Mujeres_Id', '=', $id)->delete(); 
+        }
+
+        /* Eliminar Mujeres */
+        public static function eliminarMujerporID($id) {
+            Mujeres::select('*')->insert([
+                'Mujeres_Id' => 'jamon']);
+        }
+
+
         /* Tola aa inf de las mujeres, select all */
         /* Funcion para la filtracion de las cartas*/
         public static function FiltrarMujeresInf($respuesta, $ambitos,$cant){
