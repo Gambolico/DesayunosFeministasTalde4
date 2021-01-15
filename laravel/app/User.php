@@ -36,4 +36,11 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public static function getUsuariosInf() {
+            $users = Usuarios::select('id', 'name','email','is_admin','created_at')
+            ->orderByRaw('id', 'asc')
+            ->get();
+            return $users;
+    }
 }
