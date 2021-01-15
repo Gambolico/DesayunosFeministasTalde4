@@ -74,7 +74,7 @@
                                         <td>{{$obj->email}}</td>
                                         <td>{{$obj->created_at}}</td>
                                         <td>
-                                            @if (auth()->user()->is_admin == 1)
+                                            @if ({{$obj->is_admin == 1}})
                                             SI
                                             @else
                                             NO

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Mujeres;
-use App\Models\Usuarios;
+use App\User;
 use App\Models\Ambitos;
 use Illuminate\Http\Request;
 use Log;
@@ -47,7 +47,7 @@ class AdminController extends Controller
     }
 
     public function editarUsuarios() {
-        $Users=Usuarios::getUsuariosInf();
+        $Users=User::getUsuariosInf();
 
         return view('components.AdminArea.editarUsuarios')->with('Users', $Users);
     }
