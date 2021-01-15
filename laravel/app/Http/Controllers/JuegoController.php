@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 use App\Models\Mujeres;
 use App\Models\Mujeresdesbloqueadas;
-use App\Models\Usuarios;
 use Illuminate\Http\Request;
 use Log;
 

@@ -1,11 +1,9 @@
 // register modal component
+
 $(document).ready(function() {
-   Vue.component('modal', {
-    template: '#modal-template'
-    })
-    
+
     // start app
-    new Vue({
+     new Vue({
         el: '#app',
         data: {
         showModal: false,
@@ -38,4 +36,7 @@ $(document).ready(function() {
         }
     })
 
-}) 
+}) ;
+
+
+

@@ -9,8 +9,7 @@ use Log;
 class MujeresController extends Controller
 {
     //
-    public function coleccion()
-    {
+    public function coleccion() {
         $Ambitos=Ambitos::getAmbitos();
         /* 
         Tambien se puede hacer asi
@@ -25,52 +24,36 @@ class MujeresController extends Controller
                 $output='';
                 $respuesta=$request->post('query');
                 $ambitos=$request->post('ambitos');
-                if(empty($respuesta)){
-                    if(!empty($ambitos)){
-                        $data =Mujeres::FiltrarMujeresInfAmbitos($ambitos);
-                        
-                    }
-                   else{
-                        
-                        $data =Mujeres::getMujeresInf();
-                    }
-                   
-                }
-                else if(!empty($respuesta)){
-                    if(empty($ambitos)){
-                        $data =Mujeres::FiltrarMujeresInfRes($respuesta);
-                    }
-                    else if(!empty($ambitos)){
-                        
-                        $data =Mujeres::FiltrarMujeresInf($respuesta,$ambitos);
-                        
-                    }
-                }
+                $data =Mujeres::FiltrarMujeresInf($respuesta,$ambitos);
                 $total_row=$data->count(); 
+                $ruta="";
                 if($total_row > 0)
                 {
                     foreach($data as $row)
                     {
                         /* COmo ueremos que salga por el html esto se guarda en output, array. El punto .=' sirve como un push.*/
                         $output .='
-                        <div id="'.$row->Mujeres_Id.'" id="show-modal" @click="showModal = true;" href="{{route(mujer,[id=>'.$row->Mujeres_Id.'])}}" class="col-md-3">
-                            <div class="card card-blog" style="background-color:'.$row->Cod_Color.';">
-                                <div id="'.$row->Mujeres_Id.'" class="card-image">
-                                    <a href="#"> <img class="img" src="images/fotos_de_mujeres/'.$row->Img_Ruta.'"> </a>
-                                    <div class="ripple-cont"></div>
-                                </div>
-                                    <div class="table">
-                                        <p lass="category text-warning">
-                                            <i class="fa fa-soundcloud"></i> 
-                                        </p>
-                                        <h6 class="card-caption">
-                                            <a href="#">'.$row->Nombre.' '.$row->Apellido.'</a>
-                                        </h6>
-                                        <div class="ftr">
-                                            <div class="stats"> <i class="fa fa-clock-o">'.$row->Nombre_Ambito.'</i></div>
-                                        </div>
+                        
+                        <div class="'.$row->Mujeres_Id.' col-md-3" >
+                            <a >
+                                <div class="card card-blog"  style="background-color:'.$row->Cod_Color.';">
+                                    <div id="'.$row->Mujeres_Id.'" class="card-image">
+                                        <a href="/coleccion/biografia/'.$row->Mujeres_Id.'"> <img class="img" src="images/fotos_de_mujeres/'.$row->Img_Ruta.'"> </a>
+                                        <div class="ripple-cont"></div>
                                     </div>
-                            </div>
+                                        <div class="table">
+                                            <p lass="category text-warning">
+                                                <i class="fa fa-soundcloud"></i> 
+                                            </p>
+                                            <h6 class="card-caption">
+                                                <a href="#">'.$row->Nombre.' '.$row->Apellido.'</a>
+                                            </h6>
+                                            <div class="ftr">
+                                                <div class="stats"> <i class="fa fa-clock-o">'.$row->Nombre_Ambito.'</i></div>
+                                            </div>
+                                        </div>
+                                </div>
+                            </a>
                         </div>
                         ';
                     }

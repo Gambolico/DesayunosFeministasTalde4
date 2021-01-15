@@ -6,7 +6,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MujeresController;
 use App\Http\Controllers\JuegoController;
 use App\Http\Controllers\AdminController;
-
+use App\Http\Controllers\BiografiaController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,6 +29,30 @@ Route::get('/login', [LoginController::class, 'viewLogin']);
 //* Login administrador
 
 Route::get('/areaAdmin', [AdminController::class, 'index'])->name('areaAdmin')->middleware('is_admin');
+
+//* Añadir Mujeres
+
+Route::get('/areaAdmin/AñadirMujeres', [AdminController::class, 'viewAñadirMujeres'])->name('AñadirMujeres');
+
+//* View Eliminar Mujeres
+
+Route::get('/areaAdmin/EliminarMujeres', [AdminController::class, 'viewEliminarMujeres'])->name('EliminarMujeres');
+
+    //* Eliminar Mujer
+
+    Route::get('/areaAdmin/EliminarMujeres/{id}', [AdminController::class, 'eliminarMujer'])->name('EliminarMujer');
+
+//* View Editar Usuarios
+
+Route::get('/areaAdmin/EditarUsuarios', [AdminController::class, 'viewEditarUsuarios'])->name('EditarUsuarios');
+
+    //* Eliminar Usuario
+
+    Route::get('/areaAdmin/EditarUsuarios/{id}', [AdminController::class, 'eliminarUsuarios'])->name('EliminarUsuario');
+
+    //* Hacer Usuario Admin
+
+    Route::get('/areaAdmin/EditarUsuarios/{id}', [AdminController::class, 'editarUsuarios'])->name('EditarUsuario');
 
 //* Intentar iniciar sesion
 
@@ -80,3 +104,4 @@ Route::get('/adivina/{modo}', [JuegoController::class, 'adivina'])->name('empeza
 
 Route::get('/coleccion', [MujeresController::class, 'coleccion'])->name('coleccion');
 Route::post('/coleccionFiltrar', [MujeresController::class, 'filtrarMujeres'])->name('coleccionFiltrar');
+Route::get('/coleccion/biografia/{id}', [BiografiaController::class, 'datosBiografia'])->name('biografia');
