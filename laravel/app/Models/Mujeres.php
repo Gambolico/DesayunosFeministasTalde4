@@ -41,7 +41,7 @@ class Mujeres extends Model
 
         /* Tola aa inf de las mujeres, select all */
         /* Funcion para la filtracion de las cartas*/
-        public static function FiltrarMujeresInf($respuesta, $ambitos,$cant){
+        public static function FiltrarMujeresInf($respuesta, $ambitos,$cant,$ordenarPor){
             /* HArtutako $ambitos, string bat da, array bihurtuko dugu -> */
             $myArray = explode(',', $ambitos);
             if(!empty($respuesta)){
@@ -57,6 +57,7 @@ class Mujeres extends Model
                                     ->orWhere('Zona_Geografica','like', '%'.$respuesta.'%');
                             })
                             ->whereIn('Ambito_Id', $myArray)
+                            ->orderBy($ordenarPor)
                             ->paginate($cant);
                 }
                 else{
@@ -65,6 +66,7 @@ class Mujeres extends Model
                             ->join('continentes','continentes.Id_Continente', '=', 'mujeres.Continente_Id')
                             ->where('Nombre','like', '%'.$respuesta.'%')
                             ->orWhere('Apellido','like', '%'.$respuesta.'%')
+                            ->orderBy($ordenarPor)
                             ->orWhere('Zona_Geografica','like', '%'.$respuesta.'%')
                             ->paginate($cant);
                 }
@@ -77,6 +79,7 @@ class Mujeres extends Model
                             ->join('ambitos', 'ambitos.Id_Ambito', '=', 'mujeres.Ambito_Id') 
                             ->join('continentes','continentes.Id_Continente', '=', 'mujeres.Continente_Id')
                             ->whereIn('Ambito_Id', $myArray)
+                            ->orderBy($ordenarPor)
                             ->paginate($cant);
                     }
                     else{
@@ -84,6 +87,7 @@ class Mujeres extends Model
                             ->join('ambitos', 'ambitos.Id_Ambito', '=', 'mujeres.Ambito_Id') 
                             ->join('continentes','continentes.Id_Continente', '=', 'mujeres.Continente_Id')
                             ->where('Ambito_Id','like', '%'.$ambitos.'%')
+                            ->orderBy($ordenarPor)
                             ->paginate($cant);
                     }
                     
@@ -93,6 +97,7 @@ class Mujeres extends Model
                     ->join('ambitos', 'ambitos.Id_Ambito', '=', 'mujeres.Ambito_Id') 
                     ->join('continentes','continentes.Id_Continente', '=', 'mujeres.Continente_Id')
                     ->orderBy('Mujeres_Id', 'asc')
+                    ->orderBy($ordenarPor)
                     ->paginate($cant);
                 }
             }

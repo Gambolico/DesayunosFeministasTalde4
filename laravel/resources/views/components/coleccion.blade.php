@@ -25,12 +25,19 @@
         
         <div class="col-md-4 my-3">
         <select class="mdb-select colorful-select dropdown-primary md-form" id="select" multiple searchable="Search here..">
-            <option value="" disabled selected>Seleccione ámbito</option>d
+            <option value="" disabled selected>Seleccione ámbito</option>
             @foreach($Ambitos as $obj)
             <option value="{{$obj->Id_Ambito}}">{{$obj->Nombre_Ambito}}</option>
             @endforeach
         </select>
-        
+        <select class="form-select form-select-lg bg-transparent" id="ordenarPor" aria-label=".form-select-lg example">
+            <option value="Mujeres_Id" disabled selected>Ordenar por</option>
+            <option value="Id_Ambito">Ambito</option>
+            <option value="Fecha_Nacimiento">Fecha de nacimiento</option>
+            <option value="Nombre">Nombre</option>
+            <option value="Apellido">Apellido</option>
+            <option value="Zona_Geografica">Zona geográfica</option>
+        </select>
         </div>
         <div class="col-md-6 my-3">
                 <div class="input-group stylish-input-group">
@@ -40,18 +47,18 @@
                 
         </div>
     </div>
-        <!-- Seccion de las cartas -->
-        <div class="mujeres">
-            <div class="cantidad">
-                <a id='cantidad'></a> <br> 
-            </div>
-            <div class=" mujeres row" id='carta'>
-                <!-- Para abrir el modal al elegir carta-->
-                <!-- Aqui vn las cartas -->
-            </div>
+    <!-- Seccion de las cartas -->
+    <div class="mujeres">
+        <div class="cantidad">
+            <a id='cantidad'></a> <br> 
         </div>
+        <div class=" mujeres row" id='carta'>
+            <!-- Para abrir el modal al elegir carta-->
+            <!-- Aqui vn las cartas -->
+        </div>
+    </div>
 
-        <a id="invisible"></a>
+        <a id="masCartas">Cargar más</a>
     
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   

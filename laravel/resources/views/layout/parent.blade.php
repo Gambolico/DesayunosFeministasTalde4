@@ -14,7 +14,7 @@
         <!-- CSS links -->
             <!-- Coleccion view -->
                 <!-- Parent -->
-                <link href="{{ asset('css/parent.css') }}" rel="stylesheet">
+                <link href="{{ asset('CSS/parent.css') }}" rel="stylesheet">
                 <!-- Cartas -->
                 <link href="{{ asset('CSS/cartas.css') }}" rel="stylesheet">
                 <!-- JS filter -->

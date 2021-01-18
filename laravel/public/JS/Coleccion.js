@@ -17,16 +17,15 @@ var _token = $('meta[name="csrf-token"]').attr('content');
                 ambitos=Array($(this).val());
                 fetch_customer_data(query,ambitos);
                 });
+        $('#ordenarPor').on('change',function(){
+                var ordenarPor = document.getElementById('ordenarPor').value;
+                console.log(ordenarPor);
+                fetch_customer_data(ordenarPor);
+                });
         /* Scrolling down */
-        $(window).scroll(function() {
-                if($(window).scrollTop() + $(window).height() == $(document).height()) {
-                        console.log('entra')
-                   cant=cant+12;
-                   fetch_customer_data(cant);
-                }
-             });
-         });
-    function fetch_customer_data(query,ambitos,cant){
+        
+     });    
+    function fetch_customer_data(query,ambitos,cant,ordenarPor){
         console.log(ambitos)
         $.ajax({
         /* Direccion del web.php */
@@ -35,6 +34,7 @@ var _token = $('meta[name="csrf-token"]').attr('content');
             data: {
                 query:query,
                 ambitos:ambitos,
+                ordenarPor:ordenarPor,
                 cant:cant,
                 /* token necesario para el post */
                 _token:_token
@@ -46,13 +46,6 @@ var _token = $('meta[name="csrf-token"]').attr('content');
             {
                 $('#carta').html(data.cartas_data);
                 $('#cantidad').text(data.total_data);
-                $('#pageno').val(data.nextPage);
             }
-        });
-        
-     }
-
-/* PAra el select */
-$(document).ready(function() {
-        
-});
+               });
+}
