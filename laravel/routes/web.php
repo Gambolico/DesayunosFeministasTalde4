@@ -30,9 +30,13 @@ Route::get('/login', [LoginController::class, 'viewLogin']);
 
 Route::get('/areaAdmin', [AdminController::class, 'index'])->name('areaAdmin')->middleware('is_admin');
 
-//* Añadir Mujeres
+//* View Añadir Mujeres
 
 Route::get('/areaAdmin/AñadirMujeres', [AdminController::class, 'viewAñadirMujeres'])->name('AñadirMujeres');
+
+    //* Añadir Mujeres
+
+    Route::post('/areaAdmin/AñadirMujer', [AdminController::class, 'AñadirMujer'])->name('AñadirMujer');
 
 //* View Eliminar Mujeres
 
@@ -48,7 +52,7 @@ Route::get('/areaAdmin/EditarUsuarios', [AdminController::class, 'viewEditarUsua
 
     //* Eliminar Usuario
 
-    Route::get('/areaAdmin/EditarUsuarios/{id}', [AdminController::class, 'eliminarUsuarios'])->name('EliminarUsuario');
+    Route::get('/areaAdmin/EliminarUsuarios/{id}', [AdminController::class, 'eliminarUsuarios'])->name('EliminarUsuario');
 
     //* Hacer Usuario Admin
 

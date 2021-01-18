@@ -40,6 +40,34 @@ class AdminController extends Controller
         return view('components.AdminArea.añadirMujeres');
     }
 
+        public function AñadirMujer(Request $request){
+            $data = $request->input();
+
+            $Nombre = $data['Nombre'];
+            $Apellido = $data['Apellido'];
+            $Fecha_Nacimiento = $data['Fecha_Nacimiento'];
+            $Fecha_Muerte = $data['Fecha_Muerte'];
+            $Lore_Esp = $data['Lore_Esp'];
+            $Zona_Geografica = $data['Zona_Geografica'];
+            $Continente_ID = $data['Continente_ID'];
+            $Img_Fefault = $data['Img_Fefault'];
+
+            $mujer = new Mujeres;
+
+            $mujer->Nombre = $Nombre;
+            $mujer->Apellido = $Apellido;
+            $mujer->Fecha_Nacimiento = $Fecha_Nacimiento;
+            $mujer->Fecha_Muerte = $Fecha_Muerte;
+            $mujer->Lore_Esp = $Lore_Esp;
+            $mujer->Zona_Geografica = $Zona_Geografica;
+            $mujer->Continente_ID = $Continente_ID;
+            $mujer->Img_Ruta = '';
+            $mujer->Img_Fefault = $Img_Fefault;
+
+            $mujer->save();
+            return redirect()->back()->with('error','Se ha añadido la mujer correctamente.');
+        }
+
     public function viewEliminarMujeres() {
         $Mujeres=Mujeres::getMujeresInf();
 
