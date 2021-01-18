@@ -5,6 +5,8 @@ use App\Models\Mujeres;
 use App\User;
 use App\Models\Ambitos;
 use Illuminate\Http\Request;
+use Log;
+
 
 class AdminController extends Controller
 {

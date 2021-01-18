@@ -2,16 +2,18 @@ var _token = $('meta[name="csrf-token"]').attr('content');
     $(document).ready(function(){
         
         fetch_customer_data(query ='',ambitos=null);
+        /* Al escribir en el buscador... */
         $('#search').on('keyup',function(){
         var ambitos=document.getElementById('select').value;
         var query = $(this).val();
         fetch_customer_data(query,ambitos);
         }); 
-
+        /* Al seleccionar en el select */
         $('select').on('change',function(){
                 var query = document.getElementById('search').value;
                 console.log(query);
-                ambitos=Number($(this).val());
+                ambitos = document.getElementById("select").value
+                ambitos=Array($(this).val());
                 fetch_customer_data(query,ambitos);
                 });
             });
