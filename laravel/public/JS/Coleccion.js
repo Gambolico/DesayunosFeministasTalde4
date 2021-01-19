@@ -33,24 +33,29 @@ var primeraVez;
 
         });
 
-        /* Coger valor de la cantidad */
-        window.onscroll = function(e) {
-                if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
-                        e.preventDefault();
-                        e.stopImmediatePropagation();
-                        console.log('entra')
-                        console.log(cant + 'antigua');
-                        cant=parseInt(cant)+parseInt(document.getElementById('cantidadCartas').value);
-                        console.log(cant + 'nueva');
-                        fetch_customer_data(query,ambitos,ordenarPor,cant);
-                        timer;
-                        clearTimeout(timer);
-                        
-                        timer= setInterval(function(){ 
-                                console.log('entra en ssegundos')
-                        }, 3000);
-                }
-            };
+        var timer;
+        $("document").ready(function(){
+
+                var callFunction = true;
+               /* Coger valor de la cantidad */
+               
+                window.onscroll = function(e) {
+                clearTimeout(timer);
+                timer = setTimeout(function() {
+                        if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+                                console.log('entra')
+                                console.log(cant + 'antigua');
+                                cant=parseInt(cant)+parseInt(document.getElementById('cantidadCartas').value);
+                                console.log(cant + 'nueva');
+                                fetch_customer_data(query,ambitos,ordenarPor,cant);
+                                callFunction=false;
+                        }
+                }, 300);
+                
+            };   
+        });
+
+        
   /*       $("#addCartas").on('view',function(e){
                
                
