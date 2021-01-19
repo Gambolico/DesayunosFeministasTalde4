@@ -1,9 +1,10 @@
 var _token = $('meta[name="csrf-token"]').attr('content');
+var primeraVez;
     $(document).ready(function(){
-        var cant=0;
-        fetch_customer_data(query ='',ambitos=null,ordenarPor='Mujeres_Id', cant);
+        comprobarPrimeraVez();
         $('.mdb-select').formSelect();
         /* Al escribir en el buscador... */
+
         $('#search').on('keyup',function(){
         var ordenarPor = document.getElementById('ordenarPor').value;
         var ambitos=document.getElementById('select').value;
@@ -14,7 +15,6 @@ var _token = $('meta[name="csrf-token"]').attr('content');
         $('#select').on('change',function(){
                 var ordenarPor = document.getElementById('ordenarPor').value;
                 var query = document.getElementById('search').value;
-                console.log(query);
                 var ambitos = document.getElementById("select").value
                 ambitos=Array($(this).val());
                 fetch_customer_data(query,ambitos,ordenarPor,cant);
@@ -34,26 +34,46 @@ var _token = $('meta[name="csrf-token"]').attr('content');
         });
 
         /* Coger valor de la cantidad */
-        $("#addCartas").on('click',function(){
-                cant=Number(cant)+Number(cant);
-                console.log(cant);
-                fetch_customer_data(query,ambitos,ordenarPor,cant);
-        });
-
-
-        /* Radio button, para cambiar de activo a no activo y viceversa */
-        $('#radioBtn a').on('click', function(){
-                var sel = $(this).data('title');
-                var tog = $(this).data('toggle');
-                $('#'+tog).prop('value', sel);
-                
-                $('a[data-toggle="'+tog+'"]').not('[data-title="'+sel+'"]').removeClass('active').addClass('notActive');
-                $('a[data-toggle="'+tog+'"][data-title="'+sel+'"]').removeClass('notActive').addClass('active');
-        })
-        /* Scrolling down */
+        window.onscroll = function(e) {
+                if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+                        e.preventDefault();
+                        e.stopImmediatePropagation();
+                        console.log('entra')
+                        console.log(cant + 'antigua');
+                        cant=parseInt(cant)+parseInt(document.getElementById('cantidadCartas').value);
+                        console.log(cant + 'nueva');
+                        fetch_customer_data(query,ambitos,ordenarPor,cant);
+                        timer;
+                        clearTimeout(timer);
+                        
+                        timer= setInterval(function(){ 
+                                console.log('entra en ssegundos')
+                        }, 3000);
+                }
+            };
+  /*       $("#addCartas").on('view',function(e){
+               
+               
+        }); */
 });    
+
+function comprobarPrimeraVez(){
+        /* Miramos si es la primera vez que entra a la seccion */
+        
+        console.log('entra al primeravez');
+        if(primeraVez==null){
+                console.log('entra aun siendo null');
+                fetch_customer_data(query ='',ambitos=null,ordenarPor='Mujeres_Id', cant=20);
+                primeraVez='no esta empty';
+        }
+        
+}
+function sumarCant(){
+        /* Miramos si es la primera vez que entra a la seccion */
+        
+        
+}
     function fetch_customer_data(query,ambitos,ordenarPor,cant){
-        console.log(ordenarPor);
         $.ajax({
         /* Direccion del web.php */
             url: 'coleccionFiltrar',
