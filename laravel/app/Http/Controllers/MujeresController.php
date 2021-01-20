@@ -19,6 +19,8 @@ class MujeresController extends Controller
     }
     
     public function filtrarMujeres(Request $request){
+
+        Log::debug("entra en la funcion");
         // get the search term
         if($request->ajax()){
                 $output='';
@@ -26,7 +28,8 @@ class MujeresController extends Controller
                 $ambitos=$request->post('ambitos');
                 $ordenarPor=$request->post('ordenarPor');
                 $cant=$request->post('cant');
-                $data =Mujeres::FiltrarMujeresInf($respuesta,$ambitos,$cant,$ordenarPor);
+                $data = Mujeres::FiltrarMujeresInf($respuesta,$ambitos,$cant,$ordenarPor);
+
                 $total_row=$data->count();
                 $ruta="";
                 if($total_row > 0)

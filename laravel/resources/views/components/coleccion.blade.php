@@ -19,7 +19,6 @@
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" 
         crossorigin="anonymous">
 </script>
-<script src="jQuery-inView.min.js"></script>
 
 <!-- Filtro de cartas -->
     <div class="filtro row">

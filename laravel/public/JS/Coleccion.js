@@ -79,6 +79,7 @@ function sumarCant(){
         
 }
     function fetch_customer_data(query,ambitos,ordenarPor,cant){
+        
         $.ajax({
         /* Direccion del web.php */
             url: 'coleccionFiltrar',
