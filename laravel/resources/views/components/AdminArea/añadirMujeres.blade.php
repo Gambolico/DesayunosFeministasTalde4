@@ -38,19 +38,27 @@
                             </ul>
 	                    </li>
                         <li>
-                            <a href="{{ route('EditarUsuarios') }}">Usuarios</a>
-                        </li>
+                            <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Usuarios</a>
+                            <ul class="collapse list-unstyled" id="homeSubmenu">
+                                <li>
+                                    <a href="{{ route('EditarUsuarios') }}">Editar Usuarios</a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('AgregarUsuarios') }}">Agregar Usuarios</a>
+                                </li>
+                            </ul>
+	                    </li>
                         <li>
                             <a href="{{ url('/') }}">Pagina Principal</a>
                         </li>
                     </ul>
-                <div class="footer">
-                    <p>
-                        <a>Copyright &copy; Desayunos Feministas | <script>document.write(new Date().getFullYear());</script></a>
-                    </p>
-                </div>
-	        </div>
-    	</nav>
+                    <div class="footer">
+                        <p>
+                            <a>Copyright &copy; Desayunos Feministas | <script>document.write(new Date().getFullYear());</script></a>
+                        </p>
+                    </div>
+	            </div>
+    	    </nav>
 
         <!-- Page Content  -->
         <div id="content" class="p-md-5">
@@ -79,8 +87,7 @@
                 </div>
                 <div class="form-group mb-1">
                     <label>Descripcion</label>
-                    <textarea class="form-control" name="Lore_Esp" 
-                    placeholder="Maria Salomea Skłodowska-Curie, ​​ más conocida como Marie Curie​​, fue una científica polaca nacionalizada francesa....">
+                    <textarea class="form-control" name="Lore_Esp" placeholder="Maria Salomea Skłodowska-Curie, ​​más conocida como Marie Curie​​, fue una científica polaca nacionalizada francesa....">
                     </textarea>
                 </div>
                 <div class="form-row">
@@ -108,7 +115,7 @@
                     </div>
                     <div class="form-group col-md-4 mb-4">
                         <label for="inputState">Ambito</label>
-                        <select name="Img_Fefault" class="form-control">
+                        <select name="Ambito_Id" class="form-control">
                         <option selected>Elige...</option>
                         <option value="1">História</option>
                         <option value="2">Derecho</option>

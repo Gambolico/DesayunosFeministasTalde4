@@ -28,9 +28,6 @@
         <!-- Login Form -->
         <form action="/register" method="POST">
             @csrf
-            <!-- Elegir Avatar -->
-            
-
             <input type="text" class="fadeIn second" name="email" placeholder="Correo Electronico">
             <input type="text" class="fadeIn second" name="username" placeholder="Usuario">
             <input type="password" class="fadeIn third" name="password" placeholder="Contraseña">

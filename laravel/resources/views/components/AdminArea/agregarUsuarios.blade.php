@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
     <head>
-        <title>Editar Usuarios</title>
+        <title>Agregar Usuarios</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -62,47 +62,44 @@
 
         <!-- Page Content  -->
         <div id="content" class="p-md-5">
-            <div class="container">
-                <div class="row">
-                @if ( session('error') )
-                    <div class="alert alert-success">{{ session('error') }}</div>
-                @endif
-                    <div class="col-12">
-                        <table class="table table-bordered">
-                            <thead>
-                                <tr>
-                                    <th scope="col">Usuario</th>
-                                    <th scope="col">Correo Electronico</th>
-                                    <th scope="col">Fechad de Creacion</th>
-                                    <th scope="col">Administrador</th>
-                                    <th scope="col">Admin & Eliminar</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($Users as $obj)
-                                    <tr>
-                                        <th scope="row">{{$obj->name}}</th>
-                                        <td>{{$obj->email}}</td>
-                                        <td>{{$obj->created_at}}</td>
-                                        <td><?php if($obj->is_admin == 1){
-                                                echo "Si";
-                                                } else{
-                                                    echo "No";
-                                                }?>
-                                        </td>
-                                        <td>
-                                            <a href="{{ route('EditarUsuario', ['id'=>$obj->id])}}" class="btn btn-primary">ADMIN</a> 
-                                            <a href="{{ route('EliminarUsuario', ['id'=>$obj->id])}}" class="btn btn-primary">ELIMINAR</a>
-                                        </td>
-                                    </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
+        @if ( session('error') )
+                <div class="alert alert-success">{{ session('error') }}</div>
+        @endif
+
+            <form id="app" method="POST" action="{{ route('AgregarUsuario') }}">
+                @csrf
+                
+                <div class="form-row">
+                    <div class="form-group col-md-6 mb-3">
+                        <label>Nombre de Usuario</label>
+                        <input type="text" class="form-control" name="username" id="username" placeholder="Nombre de Usuario" required>
                     </div>
-                </div>
-            </div>
+                    <div class="form-group col-md-6 mb-3">
+                        <label>Correo Electronico</label>
+                        <input type="text" class="form-control" name="email" id="email" placeholder="Correo Electronico">
+                    </div>
+                    <div class="form-group col-md-6 mb-3">
+                        <label>Contraseña</label>
+                        <input type="password" class="form-control" name="password" id="password" placeholder="Contraseña">
+                    </div>
+                    <div class="form-group col-md-6 mb-3">
+                        <label>Repetir Contraseña</label>
+                        <input type="password" class="form-control" name="password_confirmation" id="password_confirmation" placeholder="Repetir Contraseña">
+                    </div>
+                    <div class="form-group col-md-6 mb-3">
+                        <label>Administrador</label><br>
+                        <!-- checkbox -->
+                        <input class="form-check-input" type="radio" name="Admin" value="1"/>
+                        <label class="form-check-label" for="flexCheckDefault">SI</label>
+                        <!-- checkbox -->
+                        <input class="form-check-input" type="radio" name="Admin" value="0" checked/>
+                        <label class="form-check-label" for="flexCheckDefault">NO</label>
+                    </div>
+                <button type="submit" class="btn btn-primary">Añadir</button>
+            </form>
         </div>
 	</div>
+    
 
     <!-- JS -->
     <script src="{{ asset('JS/Admin.js') }}"></script>

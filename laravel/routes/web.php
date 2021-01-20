@@ -58,6 +58,14 @@ Route::get('/areaAdmin/EditarUsuarios', [AdminController::class, 'viewEditarUsua
 
     Route::get('/areaAdmin/EditarUsuarios/{id}', [AdminController::class, 'editarUsuarios'])->name('EditarUsuario');
 
+//* View Agregar Usuarios
+
+Route::get('/areaAdmin/AgregarUsuarios', [AdminController::class, 'viewAgregarUsuarios'])->name('AgregarUsuarios');
+
+    //* Agregar Usuarios
+
+    Route::post('/areaAdmin/AgregarUsuario', [AdminController::class, 'agregarUsuarios'])->name('AgregarUsuario');
+
 //* Intentar iniciar sesion
 
 Route::post('/login', [LoginController::class, 'tryLogin'])->name('tryLogIn');
