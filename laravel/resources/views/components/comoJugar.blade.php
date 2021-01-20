@@ -6,6 +6,7 @@
 {{-- <script>
         var slideIndex = 1;
       showSlides(slideIndex);
+      document.write("asdsdasd");
 
       // Next/previous controls
       function plusSlides(n) {

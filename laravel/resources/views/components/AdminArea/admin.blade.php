@@ -17,7 +17,7 @@
     <body>
 		
 		<div class="wrapper d-flex align-items-stretch">
-			<nav id="sidebar">
+        <nav id="sidebar">
 				<div class="custom-menu">
 					<button type="button" id="sidebarCollapse" class="btn btn-primary">
                         <i class="fa fa-bars"></i>
@@ -38,19 +38,27 @@
                             </ul>
 	                    </li>
                         <li>
-                            <a href="{{ route('EditarUsuarios') }}">Usuarios</a>
-                        </li>
+                            <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Usuarios</a>
+                            <ul class="collapse list-unstyled" id="homeSubmenu">
+                                <li>
+                                    <a href="{{ route('EditarUsuarios') }}">Editar Usuarios</a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('AgregarUsuarios') }}">Agregar Usuarios</a>
+                                </li>
+                            </ul>
+	                    </li>
                         <li>
                             <a href="{{ url('/') }}">Pagina Principal</a>
                         </li>
                     </ul>
-                <div class="footer">
-                    <p>
-                        <a>Copyright &copy; Desayunos Feministas | <script>document.write(new Date().getFullYear());</script></a>
-                    </p>
-                </div>
-	        </div>
-    	</nav>
+                    <div class="footer">
+                        <p>
+                            <a>Copyright &copy; Desayunos Feministas | <script>document.write(new Date().getFullYear());</script></a>
+                        </p>
+                    </div>
+	            </div>
+    	    </nav>
 
     <div id="content" class="p-md-5">
         <!-- Añadir Mujeres -->

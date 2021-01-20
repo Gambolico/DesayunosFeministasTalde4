@@ -38,83 +38,94 @@
                             </ul>
 	                    </li>
                         <li>
-                            <a href="{{ route('EditarUsuarios') }}">Usuarios</a>
-                        </li>
+                            <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Usuarios</a>
+                            <ul class="collapse list-unstyled" id="homeSubmenu">
+                                <li>
+                                    <a href="{{ route('EditarUsuarios') }}">Editar Usuarios</a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('AgregarUsuarios') }}">Agregar Usuarios</a>
+                                </li>
+                            </ul>
+	                    </li>
                         <li>
                             <a href="{{ url('/') }}">Pagina Principal</a>
                         </li>
                     </ul>
-                <div class="footer">
-                    <p>
-                        <a>Copyright &copy; Desayunos Feministas | <script>document.write(new Date().getFullYear());</script></a>
-                    </p>
-                </div>
-	        </div>
-    	</nav>
+                    <div class="footer">
+                        <p>
+                            <a>Copyright &copy; Desayunos Feministas | <script>document.write(new Date().getFullYear());</script></a>
+                        </p>
+                    </div>
+	            </div>
+    	    </nav>
 
         <!-- Page Content  -->
         <div id="content" class="p-md-5">
-            <form>
+        @if ( session('error') )
+                <div class="alert alert-success">{{ session('error') }}</div>
+        @endif
+            <form method="POST" action="{{ route('AñadirMujer') }}">
+                @csrf
                 <div class="form-row">
                     <div class="form-group col-md-6 mb-1">
                         <label>Nombre</label>
-                        <input type="text" class="form-control" id="inputNombre" placeholder="Ejemplo: Marie" required>
+                        <input type="text" class="form-control" name="Nombre" placeholder="Ejemplo: Marie" required>
                     </div>
                     <div class="form-group col-md-6 mb-1">
                         <label>Apellido</label>
-                        <input type="text" class="form-control" id="inputApellido" placeholder="Ejemplo: Curie">
+                        <input type="text" class="form-control" name="Apellido" placeholder="Ejemplo: Curie">
                     </div>
                     <div class="form-group col-md-6 mb-1">
                         <label>Año de Nacimiento</label>
-                        <input type="number" class="form-control" id="inputNacimiento" placeholder="Ejemplo: 1867">
+                        <input type="number" class="form-control" name="Fecha_Nacimiento" placeholder="Ejemplo: 1867">
                     </div>
                     <div class="form-group col-md-6 mb-1">
                         <label>Año de Fallecimiento</label>
-                        <input type="number" class="form-control" id="inputMuerte" placeholder="Ejemplo: 1934">
+                        <input type="number" class="form-control" name="Fecha_Muerte" placeholder="Ejemplo: 1934">
                     </div>
                 </div>
                 <div class="form-group mb-1">
                     <label>Descripcion</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="2" 
-                    placeholder="Maria Salomea Skłodowska-Curie, ​​ más conocida como Marie Curie​​, fue una científica polaca nacionalizada francesa....">
+                    <textarea class="form-control" name="Lore_Esp" placeholder="Maria Salomea Skłodowska-Curie, ​​más conocida como Marie Curie​​, fue una científica polaca nacionalizada francesa....">
                     </textarea>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6 mb-1">
                         <label>Pais</label>
-                        <input type="text" class="form-control" id="inputPais" placeholder="Ejemplo: Polonia/Francia">
+                        <input type="text" class="form-control" name="Zona_Geografica" placeholder="Ejemplo: Polonia/Francia">
                     </div>
                     <div class="form-group col-md-4 mb-1">
                         <label for="inputState">Continente</label>
-                        <select id="inputState" class="form-control">
-                        <option selected>Elige...</option>
-                        <option id="1">Norte America</option>
-                        <option id="2">Sudamerica</option>
-                        <option id="3">Europa</option>
-                        <option id="4">Africa</option>
-                        <option id="5">Asia</option>
-                        <option id="6">Oceania</option>
-                        <option id="7">Dos continentes</option>
-                        <option id="8">Desconocido</option>
+                        <select name="Continente_ID" class="form-control">
+                            <option selected>Elige...</option>
+                            <option value="1">Norte America</option>
+                            <option value="2">Sudamerica</option>
+                            <option value="3">Europa</option>
+                            <option value="4">Africa</option>
+                            <option value="5">Asia</option>
+                            <option value="6">Oceania</option>
+                            <option value="7">Dos continentes</option>
+                            <option value="8">Desconocido</option>
                         </select>
                     </div>
                     <div class="form-group col-md-4 mb-1">
                         <label>Ruta de la imagen</label>
-                        <input type="text" class="form-control" id="inpuRuta" placeholder="Ejemplo: Imagen.jpg, Archivo.png...">
+                        <input type="text" class="form-control" name="Img_Ruta" placeholder="Ejemplo: Imagen.jpg, Archivo.png...">
                     </div>
                     <div class="form-group col-md-4 mb-4">
                         <label for="inputState">Ambito</label>
-                        <select id="inputState" class="form-control">
+                        <select name="Ambito_Id" class="form-control">
                         <option selected>Elige...</option>
-                        <option id="1">História</option>
-                        <option id="2">Derecho</option>
-                        <option id="3">Antropología</option>
-                        <option id="4">Geografía</option>
-                        <option id="5">Filosofía</option>
-                        <option id="6">Psicología</option>
-                        <option id="7">Economía</option>
-                        <option id="8">Sociología</option>
-                        <option id="9">Pedagogía</option>
+                        <option value="1">História</option>
+                        <option value="2">Derecho</option>
+                        <option value="3">Antropología</option>
+                        <option value="4">Geografía</option>
+                        <option value="5">Filosofía</option>
+                        <option value="6">Psicología</option>
+                        <option value="7">Economía</option>
+                        <option value="8">Sociología</option>
+                        <option value="9">Pedagogía</option>
                         </select>
                     </div>
                 </div>
@@ -122,6 +133,7 @@
             </form>
         </div>
 	</div>
+    
 
     <!-- JS -->
     <script src="{{ asset('JS/Admin.js') }}"></script>
