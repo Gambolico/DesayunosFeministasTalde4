@@ -1,0 +1,30 @@
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+html .navbar {
+  padding-left: 15px;
+  background-color: #261343;
+  color: white;
+}
+
+html #sticky-footer {
+  background-color: #261343;
+  color: white;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+html .backgroundGeneral {
+  background-image: url("https://desayunosfeministascantabria.files.wordpress.com/2018/10/cropped-logotipo-2.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-attachment: fixed;
+}
+
+html main {
+  margin-bottom: 10%;
+}
+/*# sourceMappingURL=parent.css.map */

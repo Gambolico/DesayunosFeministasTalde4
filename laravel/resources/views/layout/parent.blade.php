@@ -14,7 +14,7 @@
         <!-- CSS links -->
             <!-- Coleccion view -->
                 <!-- Parent -->
-                <link href="{{ asset('CSS/parent.css') }}" rel="stylesheet">
+                <link href="{{ asset('sass/parent.css') }}" rel="stylesheet">
                 <!-- Cartas -->
                 <link href="{{ asset('CSS/cartas.css') }}" rel="stylesheet">
                 <!-- JS filter -->
@@ -84,6 +84,5 @@
             </div>
         @endif   
     </footer>
-
     </body>
 </html>
