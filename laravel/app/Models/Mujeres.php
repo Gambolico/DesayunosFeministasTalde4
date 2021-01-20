@@ -35,9 +35,15 @@ class Mujeres extends Model
         }
 
         /* Funcion para la filtracion de las cartas*/
-        public static function FiltrarMujeresInf($respuesta, $ambitos,$cant){
+        public static function FiltrarMujeresInf($respuesta, $ambitos,$cant,$ordenarPor){
+
             /* HArtutako $ambitos, string bat da, array bihurtuko dugu -> */
             $myArray = explode(',', $ambitos);
+            Log::debug($cant);
+            if($cant==0){
+                $cantM=Mujeres::getMujeresInf();
+                $cant=$cantM->count();
+            }
             if(!empty($respuesta)){
                 if(!empty($ambitos)){
                     /* Bilatzeko bi aldagaiak badaude */
@@ -51,6 +57,7 @@ class Mujeres extends Model
                                     ->orWhere('Zona_Geografica','like', '%'.$respuesta.'%');
                             })
                             ->whereIn('Ambito_Id', $myArray)
+                            ->orderBy($ordenarPor)
                             ->paginate($cant);
                 }
                 else{
@@ -60,6 +67,7 @@ class Mujeres extends Model
                             ->where('Nombre','like', '%'.$respuesta.'%')
                             ->orWhere('Apellido','like', '%'.$respuesta.'%')
                             ->orWhere('Zona_Geografica','like', '%'.$respuesta.'%')
+                            ->orderBy($ordenarPor,'asc')
                             ->paginate($cant);
                 }
             }
@@ -71,13 +79,15 @@ class Mujeres extends Model
                             ->join('ambitos', 'ambitos.Id_Ambito', '=', 'mujeres.Ambito_Id') 
                             ->join('continentes','continentes.Id_Continente', '=', 'mujeres.Continente_Id')
                             ->whereIn('Ambito_Id', $myArray)
+                            ->orderBy($ordenarPor,'asc')
                             ->paginate($cant);
                     }
                     else{
                         $mujeres = Mujeres::select('Mujeres_Id', 'Nombre','Apellido','Fecha_Nacimiento','Fecha_Muerte','Lore_Esp','Zona_Geografica','continentes.Nombre_Continente','Img_Ruta','Enlace_Referencia','ambitos.Nombre_Ambito','Ambito_Id','Cod_Color')
                             ->join('ambitos', 'ambitos.Id_Ambito', '=', 'mujeres.Ambito_Id') 
                             ->join('continentes','continentes.Id_Continente', '=', 'mujeres.Continente_Id')
-                            ->where('Ambito_Id','like', '%'.$ambitos.'%')
+                            ->whereIn('Ambito_Id', $myArray)
+                            ->orderBy($ordenarPor,'asc')
                             ->paginate($cant);
                     }
                     
@@ -86,7 +96,7 @@ class Mujeres extends Model
                     $mujeres = Mujeres::select('Mujeres_Id', 'Nombre','Apellido','Fecha_Nacimiento','Fecha_Muerte','Lore_Esp','Zona_Geografica','continentes.Nombre_Continente','Img_Ruta','Enlace_Referencia','ambitos.Nombre_Ambito','Ambito_Id','Cod_Color')
                     ->join('ambitos', 'ambitos.Id_Ambito', '=', 'mujeres.Ambito_Id') 
                     ->join('continentes','continentes.Id_Continente', '=', 'mujeres.Continente_Id')
-                    ->orderBy('Mujeres_Id', 'asc')
+                    ->orderBy($ordenarPor,'asc')
                     ->paginate($cant);
                 }
             }

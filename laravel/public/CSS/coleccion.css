@@ -6,7 +6,8 @@
 }
 .filtro{
     margin-top: 10px;
-    background-color: rgba(255, 255, 255, 0.349);
+    background-color: rgba(255, 255, 255, 0.705);
+    border-radius: 3px;
     display: block;
 }
 select {
@@ -17,3 +18,8 @@ select {
     padding: 20px;
     color: aliceblue;
 }
+
+body {
+    background-color: #8E24AA
+}
+

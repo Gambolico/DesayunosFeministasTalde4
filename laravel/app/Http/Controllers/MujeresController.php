@@ -24,9 +24,10 @@ class MujeresController extends Controller
                 $output='';
                 $respuesta=$request->post('query');
                 $ambitos=$request->post('ambitos');
+                $ordenarPor=$request->post('ordenarPor');
                 $cant=$request->post('cant');
-                $data =Mujeres::FiltrarMujeresInf($respuesta,$ambitos,$cant);
-                $total_row=$data->count(); 
+                $data =Mujeres::FiltrarMujeresInf($respuesta,$ambitos,$cant,$ordenarPor);
+                $total_row=$data->count();
                 $ruta="";
                 if($total_row > 0)
                 {
