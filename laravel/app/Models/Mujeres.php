@@ -9,6 +9,8 @@ class Mujeres extends Model
         //La tabla que vamos a usar
         protected $table = 'mujeres';
 
+        public $timestamps = false;
+
         public function getBiografia($id)
         {   
             $mujeresBiografia = Mujeres::select('Mujeres_Id', 'Nombre','Apellido','Fecha_Nacimiento','Fecha_Muerte','Lore_Esp','Zona_Geografica','continentes.Nombre_Continente','Img_Ruta','Enlace_Referencia','ambitos.Nombre_Ambito','Ambito_Id','Cod_Color')
@@ -27,19 +29,11 @@ class Mujeres extends Model
             return $mujeres;
         }
 
-        /* Añadir Mujeres */
-        public static function añadirMujer($id) {
+        /* Eliminar Mujeres */
+        public static function eliminarMujerporID($id) {
             Mujeres::select('*')->where('Mujeres_Id', '=', $id)->delete(); 
         }
 
-        /* Eliminar Mujeres */
-        public static function eliminarMujerporID($id) {
-            Mujeres::select('*')->insert([
-                'Mujeres_Id' => 'jamon']);
-        }
-
-
-        /* Tola aa inf de las mujeres, select all */
         /* Funcion para la filtracion de las cartas*/
         public static function FiltrarMujeresInf($respuesta, $ambitos,$cant,$ordenarPor){
 

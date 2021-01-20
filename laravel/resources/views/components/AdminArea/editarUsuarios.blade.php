@@ -38,24 +38,35 @@
                             </ul>
 	                    </li>
                         <li>
-                            <a href="{{ route('EditarUsuarios') }}">Usuarios</a>
-                        </li>
+                            <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Usuarios</a>
+                            <ul class="collapse list-unstyled" id="homeSubmenu">
+                                <li>
+                                    <a href="{{ route('EditarUsuarios') }}">Editar Usuarios</a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('AgregarUsuarios') }}">Agregar Usuarios</a>
+                                </li>
+                            </ul>
+	                    </li>
                         <li>
                             <a href="{{ url('/') }}">Pagina Principal</a>
                         </li>
                     </ul>
-                <div class="footer">
-                    <p>
-                        <a>Copyright &copy; Desayunos Feministas | <script>document.write(new Date().getFullYear());</script></a>
-                    </p>
-                </div>
-	        </div>
-    	</nav>
+                    <div class="footer">
+                        <p>
+                            <a>Copyright &copy; Desayunos Feministas | <script>document.write(new Date().getFullYear());</script></a>
+                        </p>
+                    </div>
+	            </div>
+    	    </nav>
 
         <!-- Page Content  -->
         <div id="content" class="p-md-5">
             <div class="container">
                 <div class="row">
+                @if ( session('error') )
+                    <div class="alert alert-success">{{ session('error') }}</div>
+                @endif
                     <div class="col-12">
                         <table class="table table-bordered">
                             <thead>

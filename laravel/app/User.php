@@ -50,6 +50,15 @@ class User extends Authenticatable
     }
 
     public static function hacerUsuarioAdmin($id) {
-        User::select('*')->where('id', '=', $id)->update(['is_admin' => 1]);
+
+        $user = Usuarios::select('is_admin')
+        ->where('id','=', $id)->get();
+
+        if ($user[0]->is_admin==0) {
+            Usuarios::select('*')->where('id', '=', $id)->update(['is_admin' => 1]);
+        } elseif ($user[0]->is_admin==1) {
+            Usuarios::select('*')->where('id', '=', $id)->update(['is_admin' => 0]);
+
+        }
     }
 }
