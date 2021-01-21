@@ -50,10 +50,21 @@ class JuegoController extends Controller
         
         if ($modo == 'historia') {
             if(auth()->check()){
+
+
+                $mujeres = Mujeresdesbloqueadas::checkMujeresNoDesbloqueadasByID(auth()->user()->id);
+
                 //* El susuario esta logeado
-                $mujeres=Mujeres::inRandomOrder()->limit(8)->get();
+                // $mujeres=Mujeres::inRandomOrder()->limit(8)->get();
     
-                return view('components.pareja', ['modo' => $modo,'mujeres' => $mujeres]);
+                if($mujeres){
+                    return view('components.pareja', ['modo' => $modo,'mujeres' => $mujeres]);
+                }
+                else
+                {
+                    return redirect()->route('coleccion', [auth()->user()->id]);
+                }
+
             }else{
                 //* No esta logeado, redirige a login
 
@@ -82,7 +93,7 @@ class JuegoController extends Controller
             $idMujer=$_POST['idMujer'];
             $idUsuario = auth()->user()->id;
 
-            $desbloqueada = Mujeresdesbloqueadas::checkDesbloqueadas($idUsuario, $idMujer);
+            $desbloqueada = Mujeresdesbloqueadas::checkMujerDesbloqueada($idUsuario, $idMujer);
 
             if($desbloqueada->count()==0){
                 try{
@@ -104,12 +115,7 @@ class JuegoController extends Controller
 
     public static function desbloquearMujeres($postData)
     {   
-        $desbloqueada = Mujeresdesbloqueadas::checkDesbloqueadas($idUsuario, $idMujer);
-
-        log::debug('saveMujer ' . $idMujer);
-        log::debug($desbloqueada->count());
-        
-        
+        $desbloqueada = Mujeresdesbloqueadas::checkMujerDesbloqueada($idUsuario, $idMujer);
 
         if($desbloqueada->count()==0){
             try{
