@@ -118,6 +118,8 @@ class Mujeres extends Model
         public static function FiltrarMujeresInfConUserID($respuesta, $ambitos,$cant,$ordenarPor,$user_id){
             /* HArtutako $ambitos, string bat da, array bihurtuko dugu -> */
             
+            log::debug("la respuesta es " .$respuesta);
+
             if($cant==0){
                 $cantM=Mujeres::getMujeresInfDesbloqueadaPorID($user_id);
                 $cant=$cantM->count();
@@ -143,13 +145,13 @@ class Mujeres extends Model
                             ->join('ambitos', 'ambitos.Id_Ambito', '=', 'mujeres.Ambito_Id') 
                             ->join('continentes','continentes.Id_Continente', '=', 'mujeres.Continente_Id')
                             ->join('mujeresdesbloqueadas', 'mujeresdesbloqueadas.Id_Mujeres', '=', 'mujeres.Mujeres_Id')
-                            ->where(function($query) use($respuesta, $user_id)
+                            ->where(function($query) use($respuesta)
                             {
                                 $query->where('Nombre','like', '%'.$respuesta.'%')
                                     ->orWhere('Apellido','like', '%'.$respuesta.'%')
-                                    ->orWhere('Zona_Geografica','like', '%'.$respuesta.'%')
-                                    ->orWhere('mujeresdesbloqueadas.Id_Usuario', '=', $user_id);
+                                    ->orWhere('Zona_Geografica','like', '%'.$respuesta.'%');
                             })
+                            ->where('mujeresdesbloqueadas.Id_Usuario', '=', $user_id)
                             ->whereIn('Ambito_Id', $arrayAmbitos)
                             ->orderBy($ordenarPor, 'asc')
                             ->paginate($cant);  

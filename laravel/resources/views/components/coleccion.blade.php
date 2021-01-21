@@ -23,16 +23,26 @@
 <!-- Filtro de cartas -->
     <div class="filtro row">
         
-        <div class="col-md-4 my-3">
+        <div class="col-md-3 my-3">
             <!-- Select de ambitos -->
-        <select class="mdb-select colorful-select dropdown-primary md-form" id="select" multiple searchable="Search here..">
-            <option value="" disabled selected>Seleccione ámbito</option>
-            @foreach($Ambitos as $obj)
-            <option value="{{$obj->Id_Ambito}}">{{$obj->Nombre_Ambito}}</option>
-            @endforeach
-        </select>
+            <select class="mdb-select colorful-select dropdown-primary md-form" id="select" multiple searchable="Search here..">
+                <option value="" disabled selected>Seleccione ámbito</option>
+                @foreach($Ambitos as $obj)
+                <option value="{{$obj->Id_Ambito}}">{{$obj->Nombre_Ambito}}</option>
+                @endforeach
+            </select>
+        </div>
+
+        <div class="col-md-3 my-3">
+            <!-- Barra buscadora -->
+            <div class="input-group stylish-input-group">
+                <input type="text" id="search" name="search" class="form-control"  placeholder="Search..." >
+            </div>
+        </div>
+
         <!-- Select de orden -->
-        <select class="form-select form-select-lg bg-transparent" id="ordenarPor" aria-label=".form-select-lg example">
+        <div class="col-md-3 my-3">
+            <select class="form-select form-select-lg bg-transparent" id="ordenarPor" aria-label=".form-select-lg example">
             <option value="Mujeres_Id" disabled selected>Ordenar por</option>
             <option value="Id_Ambito">Ambito</option>
             <option value="Fecha_Nacimiento">Fecha de nacimiento</option>
@@ -41,19 +51,12 @@
             <option value="Zona_Geografica">Zona geográfica</option>
         </select>
         </div>
-        <div class="col-md-3 my-3">
-            <!-- Barra buscadora -->
-                <div class="input-group stylish-input-group">
-                    <input type="text" id="search" name="search" class="form-control"  placeholder="Search..." >
-                    
-                </div>
-        </div>
         
-        <div class="col-md-4 my-3">
+        <div class="col-md-3 my-3">
             <!-- Select pagination -->
-            <p >Cantidad de cartas por página:</p>
             <select class="form-select form-select-lg bg-transparent" id="cantidadCartas" aria-label=".form-select-lg example">
-            <option value='20' selected>20</option>
+            <option disabled selected>Cartas por página</option>
+            <option value='20'>20</option>
             <option value="40">40</option>
             <option value="0">Todas</option>
 

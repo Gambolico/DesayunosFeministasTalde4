@@ -86,6 +86,7 @@ function sumarCant(){
         
         ordenarPor = document.getElementById('ordenarPor').value;
         query = document.getElementById('search').value;
+        console.log("la query es " + query)
         ambitos = document.getElementById("select").value;
         ambitos = Array($("#select").val());
 
