@@ -9,6 +9,7 @@ var primeraVez;
         var ordenarPor = document.getElementById('ordenarPor').value;
         var ambitos=document.getElementById('select').value;
         var query = $(this).val();
+        console.log('query buena ' + query)
         fetch_customer_data(query,ambitos,ordenarPor,cant);
         }); 
         /* Al seleccionar en el select  */
@@ -47,6 +48,10 @@ var primeraVez;
                                 console.log(cant + 'antigua');
                                 cant=parseInt(cant)+parseInt(document.getElementById('cantidadCartas').value);
                                 console.log(cant + 'nueva');
+                                console.log('query ' + query);
+                                ordenarPor = document.getElementById('ordenarPor').value;
+                                query = document.getElementById('search').value;
+                                ambitos = document.getElementById("select").value
                                 fetch_customer_data(query,ambitos,ordenarPor,cant);
                                 callFunction=false;
                         }
