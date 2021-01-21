@@ -18,12 +18,11 @@
 
 })(jQuery);
 
-//* Errores en Agregar Usuarios
 $(document).ready(function() {
-	$("#app").validate({
+	$("#formulario").validate({
 		rules: {
-			Izena : {
-				required: true
+			username : {
+				required: true,
 			},
 			email: {
 				required: true,
@@ -31,34 +30,33 @@ $(document).ready(function() {
 			},
 			password: {
 				required: true,
-				minlength: 8
+				minlenght: 8
 			},
 			password_confirmation: {
 				required: true,
-				minlength: 8
+				equalTo: "#password"
 			}
-			
 		},
 			messages : {
-				Izena: {
-					required: "El nombre de Usuario es obligatorio.",
+				username: {
+					required: "Por favor inserte un nombre de usuario."
 				},
-				Mail: {
-					required: "El correo es obligatorio.",
-					email: "El correo tiene que tener el formato adecuado"
+				email: {
+					required: "Por favor inserte un correo electronico.",
+					email: "Por favor inserte un correo valido."
 				},
 				password: {
-					required: "La contraseña es obligatoria.",
-					minlength: "La contraseña tiene que tener minimo 8 caracteres"
+					required: "Por favor inserte una contraseña."
 				},
 				password_confirmation: {
-					required: "La confirmacion de la contraseña es obligatoria.",
-					minlength: "La contraseña tiene que tener minimo 8 caracteres"
+					required: "Por favor inserte una contraseña.",
+					equalTo: "Las contraseñas tienen que coincidir."
 				}
 			},
 				errorPlacement: function(label, element) {
 				label.addClass('errorMsq');
-				element.parent().append(label)
-			},
+                element.parent().append(label).css("color","red")
+				$(element).css("border-color","red");
+			}
 		});
 	});
