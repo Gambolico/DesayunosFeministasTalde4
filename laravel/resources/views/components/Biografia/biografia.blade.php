@@ -11,7 +11,9 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.2.0/vue.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-resource/1.3.1/vue-resource.min.js"></script>
+<script src="https://cdn.jsdelivr.net/vue/latest/vue.js"></script>
 <script src="{{ asset('JS/Biografia.js') }}"></script>
+<script src="{{ asset('JS/Biografia2.js') }}"></script>
 
 <div class="containerBiografia p-3 my-3 bg-light"> 
         @foreach($Mujer as $obj)
@@ -26,21 +28,52 @@
                         <div class="row">
                             <div class="col-5">
                                 <div class="row">
-                                    <a><b>Ámbito: </b>{{$obj->Nombre_Ambito}}</a>
-                                </div>
-                                <div class="row">
-                                    <a><b>Continente: </b>{{$obj->Nombre_Continente}}</a>
-                                </div>
-                                <div class="row">
-                                    <a><b>Zona Geográfica: </b>{{$obj->Zona_Geografica}}</a>
-                                </div>
-                                <div class="row">
-                                    <a><b>Fecha de nacimiento: </b>{{$obj->Fecha_Nacimiento}}</a>
-                                </div>
-                                <div class="row">
-                                    <a><b>Fecha de muerte: </b>{{$obj->Fecha_Muerte}}</a>
-                                </div>
+                                    <div class="col col-7">
+                                        <b>Ámbito:</b>
+                                    </div>
+                                    <div class="col col-3">
+                                        <input type='text' v-model="ambito" placeholder="{{$obj->Nombre_Ambito}}">
 
+                                    </div>
+                                    <div class="col col-3">
+
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col col-7">
+                                        <b>Continente: </b>
+                                    </div>
+                                    <div v-if="continente!=null" class="col col-3">
+                                        <input type='text' v-model="continente" placeholder="{{$obj->Nombre_Continente}}" disabled></input>
+                                    </div>
+                                    <div v-else class="col col-3">
+                                        <input type='text' placeholder="Nan" disabled></input>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col col-7">
+                                        <b>Zona Geográfica: </b>
+                                    </div>
+                                    <div class="col col-3">
+                                        <input type='text' v-model="zona" placeholder="{{$obj->Zona_Geografica}}" disabled></input>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col col-7">
+                                        <b>Fecha de nacimiento: </b>
+                                    </div>
+                                    <div class="col col-3">
+                                        <input type='text' v-model="nac" placeholder="{{$obj->Fecha_Nacimiento}}" disabled></input>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col col-7">
+                                        <b>Fecha de muerte: </b>
+                                    </div>
+                                    <div class="col col-3">
+                                        <input type='text' v-model="muer" placeholder="{{$obj->Fecha_Muerte}}"  disabled></input>
+                                    </div>
+                                </div>
                             </div>
                         
                         <div class="col col-7"> 
