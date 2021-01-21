@@ -5,6 +5,7 @@
 @section('content')
 
 <meta name="csrf-token" content="{{ csrf_token() }}">
+<meta name="user_id" content="{{ $id }}">
 
 <!-- Biografia -->
 <!-- JS filter -->

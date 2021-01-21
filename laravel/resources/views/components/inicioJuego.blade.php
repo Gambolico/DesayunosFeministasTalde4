@@ -16,7 +16,7 @@
             <a href="{{ route('empezarAdivina', ['modo'=>$modo])}}" class="btn boton">ADIVINA</a>
         </div>
         <div class="col">
-            <a href="{{ url('/coleccion') }}" class="btn boton">MUJERES</a>
+            <a href="{{ route('coleccion', ['id'=>auth()->user()->id])}}" class="btn boton">MUJERES</a>
         </div>
     </div>
     

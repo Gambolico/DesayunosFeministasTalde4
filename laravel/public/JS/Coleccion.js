@@ -1,8 +1,9 @@
 var _token = $('meta[name="csrf-token"]').attr('content');
+var user_id = $('meta[name="user_id"]').attr('content');
 var primeraVez;
     $(document).ready(function(){
-        comprobarPrimeraVez();
-
+        fetch_customer_data(cant = 20);
+        // comprobarPrimeraVez();
         $('.mdb-select').formSelect();
         /* Al escribir en el buscador... */
 
@@ -20,12 +21,19 @@ var primeraVez;
 
         /* Coger valor de la cantidad */
         $("#cantidadCartas").on('change',function(){
+                
                 if (document.getElementById('cantidadCartas').value > cant){
                         cant=document.getElementById('cantidadCartas').value;
+                        fetch_customer_data(cant);
                 }
-                fetch_customer_data(cant);
-                
-
+                else if(document.getElementById('cantidadCartas').value == 0){
+                        cant=document.getElementById('cantidadCartas').value;
+                        fetch_customer_data(cant);
+                        cant=document.getElementById('cantidad').value;
+                }
+                else{
+                        fetch_customer_data(cant);
+                }    
         });
 
         var timer;
@@ -61,12 +69,12 @@ var primeraVez;
 function comprobarPrimeraVez(){
         /* Miramos si es la primera vez que entra a la seccion */
         
-        console.log('entra al primeravez');
-        if(primeraVez==null){
-                console.log('entra aun siendo null');
-                fetch_customer_data(cant = 20);
-                primeraVez='no esta empty';
-        }
+        // console.log('entra al primeravez');
+        // if(primeraVez==null){
+        //         console.log('entra aun siendo null');
+                
+        //         primeraVez='no esta empty';
+        // }
         
 }
 function sumarCant(){
@@ -78,7 +86,8 @@ function sumarCant(){
         
         ordenarPor = document.getElementById('ordenarPor').value;
         query = document.getElementById('search').value;
-        ambitos = document.getElementById("select").value
+        ambitos = document.getElementById("select").value;
+        ambitos = Array($("#select").val());
 
         $.ajax({
         /* Direccion del web.php */
@@ -89,6 +98,7 @@ function sumarCant(){
                 ambitos:ambitos,
                 ordenarPor:ordenarPor,
                 cant:cant,
+                user_id:user_id,
                 /* token necesario para el post */
                 _token:_token
                 
