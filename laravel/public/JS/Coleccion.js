@@ -2,34 +2,28 @@ var _token = $('meta[name="csrf-token"]').attr('content');
 var primeraVez;
     $(document).ready(function(){
         comprobarPrimeraVez();
+
         $('.mdb-select').formSelect();
         /* Al escribir en el buscador... */
 
         $('#search').on('keyup',function(){
-        var ordenarPor = document.getElementById('ordenarPor').value;
-        var ambitos=document.getElementById('select').value;
-        var query = $(this).val();
-        console.log('query buena ' + query)
-        fetch_customer_data(query,ambitos,ordenarPor,cant);
+        fetch_customer_data(cant);
         }); 
         /* Al seleccionar en el select  */
         $('#select').on('change',function(){
-                var ordenarPor = document.getElementById('ordenarPor').value;
-                var query = document.getElementById('search').value;
-                var ambitos = document.getElementById("select").value
-                ambitos=Array($(this).val());
-                fetch_customer_data(query,ambitos,ordenarPor,cant);
+                fetch_customer_data(cant);
                 });
         /* Ordenar por  */
         $('#ordenarPor').on('change',function(){
-                var ordenarPor = document.getElementById('ordenarPor').value;
-                fetch_customer_data(query,ambitos,ordenarPor,cant);
+                fetch_customer_data(cant);
         });
 
         /* Coger valor de la cantidad */
         $("#cantidadCartas").on('change',function(){
-                cant=document.getElementById('cantidadCartas').value;
-                fetch_customer_data(query,ambitos,ordenarPor,cant);
+                if (document.getElementById('cantidadCartas').value > cant){
+                        cant=document.getElementById('cantidadCartas').value;
+                }
+                fetch_customer_data(cant);
                 
 
         });
@@ -49,10 +43,7 @@ var primeraVez;
                                 cant=parseInt(cant)+parseInt(document.getElementById('cantidadCartas').value);
                                 console.log(cant + 'nueva');
                                 console.log('query ' + query);
-                                ordenarPor = document.getElementById('ordenarPor').value;
-                                query = document.getElementById('search').value;
-                                ambitos = document.getElementById("select").value
-                                fetch_customer_data(query,ambitos,ordenarPor,cant);
+                                fetch_customer_data(cant);
                                 callFunction=false;
                         }
                 }, 300);
@@ -73,7 +64,7 @@ function comprobarPrimeraVez(){
         console.log('entra al primeravez');
         if(primeraVez==null){
                 console.log('entra aun siendo null');
-                fetch_customer_data(query ='',ambitos=null,ordenarPor='Mujeres_Id', cant=20);
+                fetch_customer_data(cant = 20);
                 primeraVez='no esta empty';
         }
         
@@ -83,8 +74,12 @@ function sumarCant(){
         
         
 }
-    function fetch_customer_data(query,ambitos,ordenarPor,cant){
+    function fetch_customer_data(cant){
         
+        ordenarPor = document.getElementById('ordenarPor').value;
+        query = document.getElementById('search').value;
+        ambitos = document.getElementById("select").value
+
         $.ajax({
         /* Direccion del web.php */
             url: 'coleccionFiltrar',
