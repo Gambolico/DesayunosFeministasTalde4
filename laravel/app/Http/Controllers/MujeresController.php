@@ -9,16 +9,18 @@ use Log;
 class MujeresController extends Controller
 {
     //
-    public function coleccion() {
+    public function coleccion($id = null) {
         $Ambitos=Ambitos::getAmbitos();
         /* 
         Tambien se puede hacer asi
         return view('components.coleccion')->with('Mujeres', $mujeres); 
         */
-        return view('components.coleccion')->with('Ambitos', $Ambitos);
+        return view('components.coleccion')->with('Ambitos', $Ambitos)->with('id', $id);
     }
     
     public function filtrarMujeres(Request $request){
+
+        Log::debug("entra en la funcion");
         // get the search term
         if($request->ajax()){
                 $output='';
@@ -26,7 +28,14 @@ class MujeresController extends Controller
                 $ambitos=$request->post('ambitos');
                 $ordenarPor=$request->post('ordenarPor');
                 $cant=$request->post('cant');
-                $data =Mujeres::FiltrarMujeresInf($respuesta,$ambitos,$cant,$ordenarPor);
+                $user_id = $request->post('user_id');
+                if(!is_null($user_id)){
+                    $data = Mujeres::FiltrarMujeresInfConUserID($respuesta,$ambitos,$cant,$ordenarPor,$user_id);
+                }
+                else{
+                    $data = Mujeres::FiltrarMujeresInf($respuesta,$ambitos,$cant,$ordenarPor);
+                }
+
                 $total_row=$data->count();
                 $ruta="";
                 if($total_row > 0)

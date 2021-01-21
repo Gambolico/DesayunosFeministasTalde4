@@ -62,7 +62,7 @@
 
     <div id="content" class="p-md-5">
         <!-- Añadir Mujeres -->
-        <div class="card  mb-4">
+        <div class="card  mb-2">
             <div class="card-body">
                 <h5 class="card-title">Añadir Mujeres</h5>
                 <p class="card-text">Añade mujeres con su respectiva informacion (Nombre, Apellido, Imagen...)
@@ -72,7 +72,7 @@
         </div>
 
         <!-- Eliminar Mujeres -->
-        <div class="card  mb-4">
+        <div class="card  mb-2">
             <div class="card-body">
                 <h5 class="card-title">Eliminar Mujeres</h5>
                 <p class="card-text">Elimina una mujer, junto a toda su informacion de la Base de Datos.</p>
@@ -80,12 +80,21 @@
             </div>
         </div>
 
-        <!-- Usuarios -->
-        <div class="card">
+        <!-- Editar Usuarios -->
+        <div class="card mb-2">
             <div class="card-body">
                 <h5 class="card-title">Edita Usuarios</h5>
-                <p class="card-text">Añade, elimina o convierte en administrador a usuarios nuevos o existentes.</p>
+                <p class="card-text">Elimina o convierte en administrador los usuarios existentes.</p>
                 <a href="{{ route('EditarUsuarios') }}" class="btn btn-primary">Usuarios</a>
+            </div>
+        </div>
+
+        <!-- Agregar Usuarios -->
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Agrega Usuarios</h5>
+                <p class="card-text">Añade usuarios nuevos como administrador o usuarios normlaes.</p>
+                <a href="{{ route('AgregarUsuarios') }}" class="btn btn-primary">Usuarios</a>
             </div>
         </div>
     </div>

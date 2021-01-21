@@ -66,6 +66,9 @@
                 <div class="alert alert-success">{{ session('error') }}</div>
         @endif
             <form method="POST" action="{{ route('AñadirMujer') }}">
+            <textarea cols="100" readonly
+            style="border: none;resize: none;color: grey;">Introduzca la informacion de la mujer que desea añadir a la Base de Datos.
+            </textarea>
                 @csrf
                 <div class="form-row">
                     <div class="form-group col-md-6 mb-1">
@@ -74,30 +77,31 @@
                     </div>
                     <div class="form-group col-md-6 mb-1">
                         <label>Apellido</label>
-                        <input type="text" class="form-control" name="Apellido" placeholder="Ejemplo: Curie">
+                        <input type="text" class="form-control" name="Apellido" placeholder="Ejemplo: Curie" required>
                     </div>
                     <div class="form-group col-md-6 mb-1">
                         <label>Año de Nacimiento</label>
-                        <input type="number" class="form-control" name="Fecha_Nacimiento" placeholder="Ejemplo: 1867">
+                        <input type="number" class="form-control" name="Fecha_Nacimiento" placeholder="Ejemplo: 1867" required>
                     </div>
                     <div class="form-group col-md-6 mb-1">
                         <label>Año de Fallecimiento</label>
-                        <input type="number" class="form-control" name="Fecha_Muerte" placeholder="Ejemplo: 1934">
+                        <input type="number" class="form-control" name="Fecha_Muerte" placeholder="Ejemplo: 1934" required>
                     </div>
                 </div>
                 <div class="form-group mb-1">
                     <label>Descripcion</label>
-                    <textarea class="form-control" name="Lore_Esp" placeholder="Maria Salomea Skłodowska-Curie, ​​más conocida como Marie Curie​​, fue una científica polaca nacionalizada francesa....">
+                    <textarea class="form-control" name="Lore_Esp" placeholder="Maria Salomea Skłodowska-Curie, 
+                    ​​más conocida como Marie Curie​​, fue una científica polaca nacionalizada francesa...." maxlength="500" required>
                     </textarea>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6 mb-1">
                         <label>Pais</label>
-                        <input type="text" class="form-control" name="Zona_Geografica" placeholder="Ejemplo: Polonia/Francia">
+                        <input type="text" class="form-control" name="Zona_Geografica" placeholder="Ejemplo: Polonia/Francia" required>
                     </div>
                     <div class="form-group col-md-4 mb-1">
                         <label for="inputState">Continente</label>
-                        <select name="Continente_ID" class="form-control">
+                        <select name="Continente_ID" class="form-control" required>
                             <option selected>Elige...</option>
                             <option value="1">Norte America</option>
                             <option value="2">Sudamerica</option>
@@ -111,11 +115,11 @@
                     </div>
                     <div class="form-group col-md-4 mb-1">
                         <label>Ruta de la imagen</label>
-                        <input type="text" class="form-control" name="Img_Ruta" placeholder="Ejemplo: Imagen.jpg, Archivo.png...">
+                        <input type="text" class="form-control" name="Img_Ruta" placeholder="Ejemplo: Imagen.jpg, Archivo.png..." required>
                     </div>
                     <div class="form-group col-md-4 mb-4">
                         <label for="inputState">Ambito</label>
-                        <select name="Ambito_Id" class="form-control">
+                        <select name="Ambito_Id" class="form-control" required>
                         <option selected>Elige...</option>
                         <option value="1">História</option>
                         <option value="2">Derecho</option>

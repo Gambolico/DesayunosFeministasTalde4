@@ -114,6 +114,8 @@ Route::get('/adivina/{modo}', [JuegoController::class, 'adivina'])->name('empeza
 
 //* Vista coleccion
 
-Route::get('/coleccion', [MujeresController::class, 'coleccion'])->name('coleccion');
+Route::get('/coleccion-{id?}', [MujeresController::class, 'coleccion'])->name('coleccion');
+
 Route::post('/coleccionFiltrar', [MujeresController::class, 'filtrarMujeres'])->name('coleccionFiltrar');
+
 Route::get('/coleccion/biografia/{id}', [BiografiaController::class, 'datosBiografia'])->name('biografia');

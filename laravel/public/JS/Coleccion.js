@@ -1,36 +1,39 @@
 var _token = $('meta[name="csrf-token"]').attr('content');
+var user_id = $('meta[name="user_id"]').attr('content');
 var primeraVez;
     $(document).ready(function(){
-        comprobarPrimeraVez();
+        fetch_customer_data(cant = 20);
+        // comprobarPrimeraVez();
         $('.mdb-select').formSelect();
         /* Al escribir en el buscador... */
 
         $('#search').on('keyup',function(){
-        var ordenarPor = document.getElementById('ordenarPor').value;
-        var ambitos=document.getElementById('select').value;
-        var query = $(this).val();
-        fetch_customer_data(query,ambitos,ordenarPor,cant);
+        fetch_customer_data(cant);
         }); 
         /* Al seleccionar en el select  */
         $('#select').on('change',function(){
-                var ordenarPor = document.getElementById('ordenarPor').value;
-                var query = document.getElementById('search').value;
-                var ambitos = document.getElementById("select").value
-                ambitos=Array($(this).val());
-                fetch_customer_data(query,ambitos,ordenarPor,cant);
+                fetch_customer_data(cant);
                 });
         /* Ordenar por  */
         $('#ordenarPor').on('change',function(){
-                var ordenarPor = document.getElementById('ordenarPor').value;
-                fetch_customer_data(query,ambitos,ordenarPor,cant);
+                fetch_customer_data(cant);
         });
 
         /* Coger valor de la cantidad */
         $("#cantidadCartas").on('change',function(){
-                cant=document.getElementById('cantidadCartas').value;
-                fetch_customer_data(query,ambitos,ordenarPor,cant);
                 
-
+                if (document.getElementById('cantidadCartas').value > cant){
+                        cant=document.getElementById('cantidadCartas').value;
+                        fetch_customer_data(cant);
+                }
+                else if(document.getElementById('cantidadCartas').value == 0){
+                        cant=document.getElementById('cantidadCartas').value;
+                        fetch_customer_data(cant);
+                        cant=document.getElementById('cantidad').value;
+                }
+                else{
+                        fetch_customer_data(cant);
+                }    
         });
 
         var timer;
@@ -47,7 +50,8 @@ var primeraVez;
                                 console.log(cant + 'antigua');
                                 cant=parseInt(cant)+parseInt(document.getElementById('cantidadCartas').value);
                                 console.log(cant + 'nueva');
-                                fetch_customer_data(query,ambitos,ordenarPor,cant);
+                                console.log('query ' + query);
+                                fetch_customer_data(cant);
                                 callFunction=false;
                         }
                 }, 300);
@@ -65,12 +69,12 @@ var primeraVez;
 function comprobarPrimeraVez(){
         /* Miramos si es la primera vez que entra a la seccion */
         
-        console.log('entra al primeravez');
-        if(primeraVez==null){
-                console.log('entra aun siendo null');
-                fetch_customer_data(query ='',ambitos=null,ordenarPor='Mujeres_Id', cant=20);
-                primeraVez='no esta empty';
-        }
+        // console.log('entra al primeravez');
+        // if(primeraVez==null){
+        //         console.log('entra aun siendo null');
+                
+        //         primeraVez='no esta empty';
+        // }
         
 }
 function sumarCant(){
@@ -78,7 +82,14 @@ function sumarCant(){
         
         
 }
-    function fetch_customer_data(query,ambitos,ordenarPor,cant){
+    function fetch_customer_data(cant){
+        
+        ordenarPor = document.getElementById('ordenarPor').value;
+        query = document.getElementById('search').value;
+        console.log("la query es " + query)
+        ambitos = document.getElementById("select").value;
+        ambitos = Array($("#select").val());
+
         $.ajax({
         /* Direccion del web.php */
             url: 'coleccionFiltrar',
@@ -88,6 +99,7 @@ function sumarCant(){
                 ambitos:ambitos,
                 ordenarPor:ordenarPor,
                 cant:cant,
+                user_id:user_id,
                 /* token necesario para el post */
                 _token:_token
                 
