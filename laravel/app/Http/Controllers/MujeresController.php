@@ -53,13 +53,13 @@ class MujeresController extends Controller
                                         <div class="ripple-cont"></div>
                                     </div>
                                         <div class="table">
-                                            <p lass="category text-warning">
+                                            <p lass="category text-white">
                                                 <i class="fa fa-soundcloud"></i> 
                                             </p>
-                                            <h6 class="card-caption p-1 bg-light w-100">
-                                                <a href="#" class="card-caption text-dark ">'.$row->Nombre.' '.$row->Apellido.'</a>
+                                            <h6 class="card-caption p-1 w-100">
+                                                <a href="#" class="card-caption text-white ">'.$row->Nombre.' '.$row->Apellido.'</a>
                                             </h6>
-                                            <div class="ftr p-1 bg-dark w-100">
+                                            <div class="ftr p-1  w-100">
                                                 <div class="stats"> <i class="fa fa-clock-o ">'.$row->Nombre_Ambito.'</i></div>
                                                 <div class="stats"> <i class="fa fa-clock-o">'.$row->Fecha_Nacimiento.' - '.$row->Fecha_Muerte.'</i></div>
                                             </div>
