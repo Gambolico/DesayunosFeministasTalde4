@@ -93,3 +93,15 @@
   background-color: #5c2ba6;
   color: white;
 }
+
+input[type="text"] {
+  resize: none;
+  width: 100px;
+  height: auto;
+  background: transparent;
+  color: transparent;
+  resize: none;
+  border: 0 none;
+  
+
+}
