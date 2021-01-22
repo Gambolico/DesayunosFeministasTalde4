@@ -92,11 +92,11 @@ class AdminController extends Controller
 
 
         public function editarUsuarios($id) {
-            $Users=User::getUsuariosInfByID($id);
+            $User=User::getUsuariosInfByID($id);
 
 
 
-            return view('components.AdminArea.editarUsuarios')->with('Users', $Users);;
+            return view('components.AdminArea.editarUsuarios')->with('User', $User);;
         }
 
         public function eliminarUsuarios($id) {

@@ -60,3 +60,22 @@ $(document).ready(function() {
 			}
 		});
 	});
+
+	$(document).on("click", "#editar", function () {
+		var User = $(this).data('user');
+		console.log(User);
+		$("#username").val( User['name'] );
+		$("#email").val( User['email'] );
+
+		if(User['is_admin'] == 1){
+			console.log("admin == " + 1);
+			$("#admin1").prop("checked", true);
+		}
+		else{
+			$("#admin0").prop("checked", true);
+		}
+
+		// As pointed out in comments, 
+		// it is unnecessary to have to manually call the modal.
+		// $('#addBookDialog').modal('show');
+   });

@@ -12,7 +12,7 @@
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-        <link href="{{ asset('CSS/añadirMujeres.css') }}" rel="stylesheet">    
+        <link href="{{ asset('CSS/añadirMujeres.css') }}" rel="stylesheet">  
     </head>
     <body>
 		
@@ -92,7 +92,7 @@
                                         </td>
                                         <td>
                                         <a href="{{ route('EditarUsuario', ['id'=>$obj->id])}}" class="btn btn-primary" 
-                                        data-toggle="modal" data-target="#create">EDITAR</a>
+                                        data-toggle="modal" data-target="#create" id="editar" data-user="{{$obj}}">EDITAR</a>
                                     <!-- <a href="{{ route('EditarUsuario', ['id'=>$obj->id])}}" class="btn btn-primary">EDITAR</a> -->
                                         <a href="{{ route('EliminarUsuario', ['id'=>$obj->id])}}" class="btn btn-primary">ELIMINAR</a>
                                         </td>
@@ -113,37 +113,40 @@
                                     <div class="modal-body">
                                     <form name="formulario" id="formulario" method="POST" action="{{ route('AgregarUsuario') }}">
                                         @csrf
+                                        {{-- @foreach ($Users as $obj) --}}
                                         
-                                        @foreach ($Users as $obj)
-                                        <div class="form-row">
-                                            <div class="form-group col-md-6 mb-3">
-                                                <label>Nombre de Usuario</label>
-                                                <input type="text" class="form-control" name="username" id="username" value="{{$obj->name}}">
+                                            <div class="form-row">
+                                                <div class="form-group col-md-6 mb-3">
+                                                    <label>Nombre de Usuario</label>
+                                                    <input type="text" class="form-control" name="username" id="username" value="">
+                                                </div>
+                                                <div class="form-group col-md-6 mb-3">
+                                                    <label>Correo Electronico</label>
+                                                    <input type="text" class="form-control" name="email" id="email" placeholder="Correo Electronico">
+                                                </div>
+                                                <!-- Editar Contraseñas -->
+                                                <input class="form-check-input" type="radio" name="Admin"/>
+                                                <label class="form-check-label" for="flexCheckDefault" style="color: grey">Si deseas cambiar la contraseña</label>
+                                                <div class="form-group col-md-6 mb-3">
+                                                    <label>Contraseña</label>
+                                                    <input type="password" class="form-control" name="password" id="password" placeholder="Contraseña">
+                                                </div>
+                                                <div class="form-group col-md-6 mb-3">
+                                                    <label>Repetir Contraseña</label>
+                                                    <input type="password" class="form-control" name="password_confirmation"
+                                                    id="password_confirmation" placeholder="Repetir Contraseña">
+                                                </div>
+                                                <div class="form-group col-md-6 mb-3">
+                                                    <label>Administrador</label><br>
+                                                    <!-- checkbox -->
+                                                    <label class="form-check-label" for="flexCheckDefault">SI</label>
+                                                    <input id='admin1' class="form-check-input" type="radio" name="Admin" value="1"/>
+                                                    <!-- checkbox -->
+                                                    <label class="form-check-label" for="flexCheckDefault">NO</label>
+                                                    <input id='admin0' class="form-check-input" type="radio" name="Admin" value="0"/>
+                                                </div>
                                             </div>
-                                            <div class="form-group col-md-6 mb-3">
-                                                <label>Correo Electronico</label>
-                                                <input type="text" class="form-control" name="email" id="email" placeholder="Correo Electronico">
-                                            </div>
-                                            <div class="form-group col-md-6 mb-3">
-                                                <label>Contraseña</label>
-                                                <input type="password" class="form-control" name="password" id="password" placeholder="Contraseña">
-                                            </div>
-                                            <div class="form-group col-md-6 mb-3">
-                                                <label>Repetir Contraseña</label>
-                                                <input type="password" class="form-control" name="password_confirmation"
-                                                id="password_confirmation" placeholder="Repetir Contraseña">
-                                            </div>
-                                            <div class="form-group col-md-6 mb-3">
-                                                <label>Administrador</label><br>
-                                                <!-- checkbox -->
-                                                <label class="form-check-label" for="flexCheckDefault">SI</label>
-                                                <input class="form-check-input" type="radio" name="Admin" value="1"/>
-                                                <!-- checkbox -->
-                                                <label class="form-check-label" for="flexCheckDefault">NO</label>
-                                                <input class="form-check-input" type="radio" name="Admin" value="0"/>
-                                            </div>
-                                        </div>
-                                        @endforeach
+                                        {{-- @endforeach --}}
                                     </form>
                                     </div>
                                     <div class="modal-footer">
