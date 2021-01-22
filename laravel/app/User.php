@@ -45,11 +45,18 @@ class User extends Authenticatable
             return $users;
     }
 
+    public static function getUsuariosInfByID($id) {
+        $users = Usuarios::select('id', 'name','email','is_admin','created_at')
+        ->where('id', '=', $id)
+        ->get();
+        return $users;
+}
+
     public static function eliminarUsuarioPorID($id) {
         User::select('*')->where('id', '=', $id)->delete(); 
     }
 
-    public static function hacerUsuarioAdmin($id) {
+    /* public static function hacerUsuarioAdmin($id) {
 
         $user = Usuarios::select('is_admin')
         ->where('id','=', $id)->get();
@@ -60,5 +67,5 @@ class User extends Authenticatable
             Usuarios::select('*')->where('id', '=', $id)->update(['is_admin' => 0]);
 
         }
-    }
+    } */
 }

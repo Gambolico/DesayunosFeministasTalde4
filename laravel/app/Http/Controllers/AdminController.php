@@ -92,9 +92,11 @@ class AdminController extends Controller
 
 
         public function editarUsuarios($id) {
-            User::hacerUsuarioAdmin($id);
+            $Users=User::getUsuariosInfByID($id);
 
-            return redirect()->back()->with('error','El usuario ha sido actualizado correctamente.');
+
+
+            return view('components.AdminArea.editarUsuarios')->with('Users', $Users);;
         }
 
         public function eliminarUsuarios($id) {

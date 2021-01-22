@@ -66,18 +66,18 @@
 <!-- template for the modal component -->
 
 
-<!-- app -->
-<div id="app">
-  <a id="show-modal" @click="showModal = true" href="#">+Info</a>
-  <!-- use the modal component, pass in the prop -->
-  <modal v-if="showModal" @close="showModal = false">
-    <!--
-      you can use custom content here to overwrite
-      default content
-    -->
-    <h3 slot="header">Advertencia!</h3>
-  </modal>
-</div>
+    <!-- app -->
+    <div id="app">
+    <a id="show-modal" @click="showModal = true" href="#">+Info</a>
+    <!-- use the modal component, pass in the prop -->
+    <modal v-if="showModal" @close="showModal = false">
+        <!--
+        you can use custom content here to overwrite
+        default content
+        -->
+        <h3 slot="header">Advertencia!</h3>
+    </modal>
+    </div>
 
 <script type="text/x-template" id="modal-template">
     <transition name="modal">

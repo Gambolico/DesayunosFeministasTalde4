@@ -91,13 +91,67 @@
                                                 }?>
                                         </td>
                                         <td>
-                                            <a href="{{ route('EditarUsuario', ['id'=>$obj->id])}}" class="btn btn-primary">ADMIN</a> 
-                                            <a href="{{ route('EliminarUsuario', ['id'=>$obj->id])}}" class="btn btn-primary">ELIMINAR</a>
+                                        <a href="{{ route('EditarUsuario', ['id'=>$obj->id])}}" class="btn btn-primary" 
+                                        data-toggle="modal" data-target="#create">EDITAR</a>
+                                    <!-- <a href="{{ route('EditarUsuario', ['id'=>$obj->id])}}" class="btn btn-primary">EDITAR</a> -->
+                                        <a href="{{ route('EliminarUsuario', ['id'=>$obj->id])}}" class="btn btn-primary">ELIMINAR</a>
                                         </td>
                                     </tr>
                                 @endforeach
                             </tbody>
                         </table>
+                        <!-- Modal para editar el ususario -->
+                        <div class="modal fade" id="create">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal">
+                                            <span>×</span>
+                                        </button>
+                                        <h4>Editar Usuario</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                    <form name="formulario" id="formulario" method="POST" action="{{ route('AgregarUsuario') }}">
+                                        @csrf
+                                        
+                                        @foreach ($Users as $obj)
+                                        <div class="form-row">
+                                            <div class="form-group col-md-6 mb-3">
+                                                <label>Nombre de Usuario</label>
+                                                <input type="text" class="form-control" name="username" id="username" value="{{$obj->name}}">
+                                            </div>
+                                            <div class="form-group col-md-6 mb-3">
+                                                <label>Correo Electronico</label>
+                                                <input type="text" class="form-control" name="email" id="email" placeholder="Correo Electronico">
+                                            </div>
+                                            <div class="form-group col-md-6 mb-3">
+                                                <label>Contraseña</label>
+                                                <input type="password" class="form-control" name="password" id="password" placeholder="Contraseña">
+                                            </div>
+                                            <div class="form-group col-md-6 mb-3">
+                                                <label>Repetir Contraseña</label>
+                                                <input type="password" class="form-control" name="password_confirmation"
+                                                id="password_confirmation" placeholder="Repetir Contraseña">
+                                            </div>
+                                            <div class="form-group col-md-6 mb-3">
+                                                <label>Administrador</label><br>
+                                                <!-- checkbox -->
+                                                <label class="form-check-label" for="flexCheckDefault">SI</label>
+                                                <input class="form-check-input" type="radio" name="Admin" value="1"/>
+                                                <!-- checkbox -->
+                                                <label class="form-check-label" for="flexCheckDefault">NO</label>
+                                                <input class="form-check-input" type="radio" name="Admin" value="0"/>
+                                            </div>
+                                        </div>
+                                        @endforeach
+                                    </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <input type="submit" class="btn btn-primary" value="Guardar">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
