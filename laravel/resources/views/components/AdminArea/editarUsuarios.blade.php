@@ -16,49 +16,49 @@
     </head>
     <body>
 		
-		<div class="wrapper d-flex align-items-stretch">
+	<div class="wrapper d-flex align-items-stretch">
         <nav id="sidebar">
-				<div class="custom-menu">
-					<button type="button" id="sidebarCollapse" class="btn btn-primary">
-                        <i class="fa fa-bars"></i>
-                    </button>
+            <div class="custom-menu">
+                <button type="button" id="sidebarCollapse" class="btn btn-primary">
+                    <i class="fa fa-bars"></i>
+                </button>
+            </div>
+            <div class="p-4 pt-5">
+                <h2><a href="index.html" class="logo">Desayunos Feministas</a></h2>
+                <ul class="list-unstyled components mb-5">
+                    <li>
+                        <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Mujeres</a>
+                        <ul class="collapse list-unstyled" id="homeSubmenu">
+                            <li>
+                                <a href="{{ route('AñadirMujeres') }}">Añadir Mujeres</a>
+                            </li>
+                            <li>
+                                <a href="{{ route('EliminarMujeres') }}">Eliminar Mujeres</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Usuarios</a>
+                        <ul class="collapse list-unstyled" id="homeSubmenu">
+                            <li>
+                                <a href="{{ route('EditarUsuarios') }}">Editar Usuarios</a>
+                            </li>
+                            <li>
+                                <a href="{{ route('AgregarUsuarios') }}">Agregar Usuarios</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="{{ url('/') }}">Pagina Principal</a>
+                    </li>
+                </ul>
+                <div class="footer">
+                    <p>
+                        <a>Copyright &copy; Desayunos Feministas | <script>document.write(new Date().getFullYear());</script></a>
+                    </p>
                 </div>
-				<div class="p-4 pt-5">
-	                <h2><a href="index.html" class="logo">Desayunos Feministas</a></h2>
-	                <ul class="list-unstyled components mb-5">
-                        <li>
-                            <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Mujeres</a>
-                            <ul class="collapse list-unstyled" id="homeSubmenu">
-                                <li>
-                                    <a href="{{ route('AñadirMujeres') }}">Añadir Mujeres</a>
-                                </li>
-                                <li>
-                                    <a href="{{ route('EliminarMujeres') }}">Eliminar Mujeres</a>
-                                </li>
-                            </ul>
-	                    </li>
-                        <li>
-                            <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Usuarios</a>
-                            <ul class="collapse list-unstyled" id="homeSubmenu">
-                                <li>
-                                    <a href="{{ route('EditarUsuarios') }}">Editar Usuarios</a>
-                                </li>
-                                <li>
-                                    <a href="{{ route('AgregarUsuarios') }}">Agregar Usuarios</a>
-                                </li>
-                            </ul>
-	                    </li>
-                        <li>
-                            <a href="{{ url('/') }}">Pagina Principal</a>
-                        </li>
-                    </ul>
-                    <div class="footer">
-                        <p>
-                            <a>Copyright &copy; Desayunos Feministas | <script>document.write(new Date().getFullYear());</script></a>
-                        </p>
-                    </div>
-	            </div>
-    	    </nav>
+            </div>
+    	</nav>
 
         <!-- Page Content  -->
         <div id="content" class="p-md-5">
@@ -111,7 +111,7 @@
                                         <h4>Editar Usuario</h4>
                                     </div>
                                     <div class="modal-body">
-                                    <form name="formulario" id="formulario" method="POST" action="{{ route('AgregarUsuario') }}">
+                                    <form name="formularioModal" id="formulario" method="POST" action="{{ route('AgregarUsuario') }}">
                                         @csrf
                                         {{-- @foreach ($Users as $obj) --}}
                                         
@@ -125,15 +125,44 @@
                                                     <input type="text" class="form-control" name="email" id="email" placeholder="Correo Electronico">
                                                 </div>
                                                 <!-- Editar Contraseñas -->
-                                                <input class="form-check-input" type="radio" name="Admin"/>
+                                                <input class="form-check-input" type="checkbox" name="Contraseñas" id="Contraseñas" onClick="cambiarContraseñas()"/>
                                                 <label class="form-check-label" for="flexCheckDefault" style="color: grey">Si deseas cambiar la contraseña</label>
+
+                                                <script>
+                                                /* document.getElementById('Contraseñas').onchange = function() {
+                                                    document.getElementById('password').disabled = !this.checked;
+                                                    document.getElementById('password_confirmation').disabled = !this.checked;
+                                                }; */
+                                                function cambiarContraseñas(){
+                                                    var checkBox = document.getElementById("Contraseñas");
+                                                    var pasw = document.getElementById("password");
+                                                    var paswr = document.getElementById("password_confirmation");
+                                                    var paswLBL = document.getElementById("passwordLBL");
+                                                    var paswrLBL = document.getElementById("password_confirmationLBL");
+                                                    if (checkBox.checked == true){
+                                                        pasw.style.display = "block";
+                                                        paswr.style.display = "block";
+                                                        paswLBL.style.display = "block";
+                                                        paswrLBL.style.display = "block";
+                                                    } else {
+                                                        pasw.value = '';
+                                                        paswr.value = '';
+                                                        pasw.style.display = "none";
+                                                        paswr.style.display = "none";
+                                                        paswLBL.style.display = "none";
+                                                        paswrLBL.style.display = "none";
+                                                    }
+                                                }
+                                                </script>
+
                                                 <div class="form-group col-md-6 mb-3">
-                                                    <label>Contraseña</label>
-                                                    <input type="password" class="form-control" name="password" id="password" placeholder="Contraseña">
+                                                    <label id="passwordLBL" style="display:none">Contraseña</label>
+                                                    <input type="password" class="form-control" name="password" 
+                                                    id="password" style="display:none" placeholder="Contraseña">
                                                 </div>
                                                 <div class="form-group col-md-6 mb-3">
-                                                    <label>Repetir Contraseña</label>
-                                                    <input type="password" class="form-control" name="password_confirmation"
+                                                    <label id="password_confirmationLBL" style="display:none">Repetir Contraseña</label>
+                                                    <input type="password" style="display:none" class="form-control" name="password_confirmation"
                                                     id="password_confirmation" placeholder="Repetir Contraseña">
                                                 </div>
                                                 <div class="form-group col-md-6 mb-3">
