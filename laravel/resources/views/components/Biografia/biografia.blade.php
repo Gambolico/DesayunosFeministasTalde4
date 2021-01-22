@@ -15,7 +15,7 @@
 <script src="{{ asset('JS/Biografia.js') }}"></script>
 <script src="{{ asset('JS/Biografia2.js') }}"></script>
 
-<div class="containerBiografia p-3 my-3 bg-light"> 
+<div class="containerBiografia p-3 my-3 bg-light" id='containerBiografia' > 
         @foreach($Mujer as $obj)
         <div class="row h-auto" id="contenidoBio">
             <div class="col col-3">
@@ -31,9 +31,15 @@
                                     <div class="col col-7">
                                         <b>Ámbito:</b>
                                     </div>
-                                    <div class="col col-3">
-                                        <input type='text' v-model="ambito" placeholder="{{$obj->Nombre_Ambito}}">
-
+                                    <div class="col col-3 text-dark">
+                                        <input class="text-dark" style="display:none" type='text' v-model="ambito" value="{{$obj->Nombre_Ambito}}" name='ambito' placeholder="" disabled>
+                                       @{{ambito}}
+                                        <div v-if="this.ambito===''">
+                                            <input class="text-dark" type='text' v-model="ambito" name='ambito'  placeholder="No existe" disabled>
+                                        </div>
+                                        <div v-else>
+                                        <input class="text-dark" type='text' v-model="ambito" value="{{$obj->Nombre_Ambito}}">
+                                        </div>
                                     </div>
                                     <div class="col col-3">
 

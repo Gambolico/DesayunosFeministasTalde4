@@ -7,7 +7,7 @@ $(document).ready(function() {
       new Vue({
         el: '#app',
         data: {
-          showModal: false
+          showModal: false,
 
         }
       });
