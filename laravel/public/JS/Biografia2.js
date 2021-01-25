@@ -58,7 +58,7 @@ $(document).ready(function() {
                 switch (variable1) {
                     case 'História':
                         console.log('entta histo')
-                        this.imageLink='/images/ambitos/historia.jpg'
+                        this.imageLink='/images/ambitos/historia2.png'
                         console.log(this.imageLink)
                     break;
                     case 'Derecho':

@@ -25,11 +25,12 @@
                 <div class="row text-left">
                     <div class="col">
                         <div class="row">
-                            <div class="col-9"><h1 class='ml-5'>{{$obj->Apellido}}, {{$obj->Nombre}} </h1></div>
-                            <div class="col-2"><img v-if="ambito!='N/A'" :src='imageLink' height="60px"width="70px"></div>
-                        </div>
+                            <div class="col-7"><h1 class='ml-5'>{{$obj->Apellido}}, {{$obj->Nombre}} </h1><hr style="color:{{$obj->Cod_Color}}" SIZE="5"></div>
+                            <div class="col-3"><img v-if="ambito!='N/A'" :src='imageLink' height="120px"width="80px"></div>
                         
-                        <hr style="color:{{$obj->Cod_Color}}" SIZE="5">
+                        
+                        
+                        </div>
                         <div class="row">
                             <div class="col-5">
                                 <div class="row">
