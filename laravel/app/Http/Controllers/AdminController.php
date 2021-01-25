@@ -133,4 +133,9 @@ class AdminController extends Controller
             
             return redirect()->back()->with('error','El usuario ha sido agregado correctamente.');
         }
+
+        public function resetPassword() {
+            return view('auth.passwords.reset');
+        }
+
     }

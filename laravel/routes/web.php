@@ -7,6 +7,7 @@ use App\Http\Controllers\MujeresController;
 use App\Http\Controllers\JuegoController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BiografiaController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -74,7 +75,7 @@ Route::get('/areaAdmin/AgregarUsuarios', [AdminController::class, 'viewAgregarUs
 
 //* Intentar iniciar sesion
 
-Route::post('/login', [LoginController::class, 'tryLogin'])->name('tryLogIn');
+Route::post('/login', [LoginController::class, 'tryLogin'])->name('login');
 
 //* Intentar iniciar sesion
 
@@ -125,3 +126,11 @@ Route::get('/coleccion-{id?}', [MujeresController::class, 'coleccion'])->name('c
 Route::post('/coleccionFiltrar', [MujeresController::class, 'filtrarMujeres'])->name('coleccionFiltrar');
 
 Route::get('/coleccion/biografia/{id}', [BiografiaController::class, 'datosBiografia'])->name('biografia');
+
+Route::get('/forgot-password', [LoginController::class, 'forgotPassword'])->middleware('guest')->name('password.request');
+
+Route::post('/forgot-password', [LoginController::class, 'validateResetPassword'])->middleware('guest')->name('password.email');
+
+Route::get('/reset-password/{token}', [LoginController::class, 'resetPassword'])->middleware('guest')->name('password.reset');
+
+Route::post('/reset-password', [LoginController::class, 'resetPasswordEmail'])->middleware('guest')->name('password.update');

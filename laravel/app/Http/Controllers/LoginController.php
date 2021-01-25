@@ -5,6 +5,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Password;
+use Illuminate\Auth\Events\PasswordReset;
+use Illuminate\Support\Str;
 use Log;
 use App\User;
 
@@ -108,10 +111,60 @@ class LoginController extends Controller
             
     }
 
-    public function recuperarContraseña()
+    public function forgotPassword()
     {
         //? Aqui se hacen las transacciones con los modelos
 
-        return view('components.recuperar');
+        return view('auth.passwords.email');
     }
+
+    public function validateResetPassword(Request $request)
+    {
+        //? Aqui se hacen las transacciones con los modelos
+
+        $request->validate(['email' => 'required|email']);
+
+        $status = Password::sendResetLink(
+            $request->only('email')
+        );
+
+        return $status === Password::RESET_LINK_SENT
+        ? back()->with(['status' => __($status)])
+        : back()->withErrors(['email' => __($status)]);
+
+        return view('auth.passwords.reset');
+    }
+
+    public function resetPassword($token) {
+        return view('auth.passwords.reset', ['token' => $token]);
+    }
+
+    public function resetPasswordEmail(Request $request) {
+
+        $request->validate([
+            'token' => 'required',
+            'email' => 'required|email',
+            'password' => 'required|min:8|confirmed',
+        ]);
+    
+            
+
+        $status = Password::reset(
+            $request->only('email', 'password', 'password_confirmation', 'token'),
+            function ($user, $password) use ($request) {
+                $user->forceFill([
+                    'password' => Hash::make($password)
+                ])->save();
+    
+                $user->setRememberToken(Str::random(64));
+    
+                event(new PasswordReset($user));
+            }
+        );
+    
+        return $status == Password::PASSWORD_RESET
+                    ? redirect()->route('login')->with('status', __($status))
+                    : back()->withErrors(['email' => [__($status)]]);
+    }
+
 }
