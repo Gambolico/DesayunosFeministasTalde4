@@ -24,7 +24,12 @@
             <div class="col col-8">
                 <div class="row text-left">
                     <div class="col">
-                        <h1>{{$obj->Apellido}}, {{$obj->Nombre}} </h1> <hr style="color:{{$obj->Cod_Color}}" SIZE="5">
+                        <div class="row">
+                            <div class="col-9"><h1 class='ml-5'>{{$obj->Apellido}}, {{$obj->Nombre}} </h1></div>
+                            <div class="col-2"><img v-if="ambito!='N/A'" :src='imageLink' height="60px"width="70px"></div>
+                        </div>
+                        
+                        <hr style="color:{{$obj->Cod_Color}}" SIZE="5">
                         <div class="row">
                             <div class="col-5">
                                 <div class="row">
@@ -32,14 +37,8 @@
                                         <b>Ámbito:</b>
                                     </div>
                                     <div class="col col-3 text-dark">
-                                        <input class="text-dark" style="display:none" type='text' v-model="ambito" value="{{$obj->Nombre_Ambito}}" name='ambito' placeholder="" disabled>
-                                       @{{ambito}}
-                                        <div v-if="this.ambito===''">
-                                            <input class="text-dark" type='text' v-model="ambito" name='ambito'  placeholder="No existe" disabled>
-                                        </div>
-                                        <div v-else>
-                                        <input class="text-dark" type='text' v-model="ambito" value="{{$obj->Nombre_Ambito}}">
-                                        </div>
+                                        <input class="text-dark" type='text' v-model='ambito' name='{{$obj->Nombre_Ambito}}' id='ambito' disabled>
+                                        
                                     </div>
                                     <div class="col col-3">
 
@@ -49,19 +48,18 @@
                                     <div class="col col-7">
                                         <b>Continente: </b>
                                     </div>
-                                    <div v-if="continente!=null" class="col col-3">
-                                        <input type='text' v-model="continente" placeholder="{{$obj->Nombre_Continente}}" disabled></input>
+                                    <div class="col col-3">
+                                        <input class="text-dark"  type='text' v-model='continente' :value='continente'name="{{$obj->Nombre_Continente}}" id='continente' disabled>
+                                        
                                     </div>
-                                    <div v-else class="col col-3">
-                                        <input type='text' placeholder="Nan" disabled></input>
-                                    </div>
+                                    
                                 </div>
                                 <div class="row">
                                     <div class="col col-7">
                                         <b>Zona Geográfica: </b>
                                     </div>
                                     <div class="col col-3">
-                                        <input type='text' v-model="zona" placeholder="{{$obj->Zona_Geografica}}" disabled></input>
+                                        <input class="text-dark"  type='text' v-model="zona" name="{{$obj->Zona_Geografica}}" id='zona'disabled>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -69,7 +67,7 @@
                                         <b>Fecha de nacimiento: </b>
                                     </div>
                                     <div class="col col-3">
-                                        <input type='text' v-model="nac" placeholder="{{$obj->Fecha_Nacimiento}}" disabled></input>
+                                        <input class="text-dark"  type='text' v-model="nac" name="{{$obj->Fecha_Nacimiento}}" id='nac' disabled>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -77,12 +75,12 @@
                                         <b>Fecha de muerte: </b>
                                     </div>
                                     <div class="col col-3">
-                                        <input type='text' v-model="muer" placeholder="{{$obj->Fecha_Muerte}}"  disabled></input>
+                                        <input class="text-dark"  type='text' v-model="muer" name="{{$obj->Fecha_Muerte}}" id='muer'  disabled>
                                     </div>
                                 </div>
                             </div>
-                        
-                        <div class="col col-7"> 
+                            
+                        <div class="col col-6"> 
                         
                             <div class="col">
                                 <div class="row">
