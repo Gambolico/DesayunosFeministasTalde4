@@ -62,25 +62,25 @@ $(document).ready(function() {
                         console.log(this.imageLink)
                     break;
                     case 'Derecho':
-                        this.imageLink='../images/ambitos/'
+                        this.imageLink='/images/ambitos/Derecho.png'
                       break;
                     case 'Antropología':
-                        this.imageLink='../images/ambitos/'
+                        this.imageLink='/images/ambitos/Antropologia.png'
                       break;
                     case 'Geografía':
-                        this.imageLink='../images/ambitos/'
+                        this.imageLink='/images/ambitos/Geografia.png'
                       break;
                     case 'Filosofía':
-                        this.imageLink='../images/ambitos/'
+                        this.imageLink='/images/ambitos/'
                         break;
                     case 'Oceanía':
-                        this.imageLink='../images/ambitos/'
+                        this.imageLink='/images/ambitos/'
                       break;
                     case 'Psicología':
-                        this.imageLink='../images/ambitos/'
+                        this.imageLink='/images/ambitos/'
                     break;
                     case 'Economía':
-                        this.imageLink='../images/ambitos/'
+                        this.imageLink='/images/ambitos/'
                     break;
                     case 'Sociología':
                         this.imageLink='../images/ambitos/'
