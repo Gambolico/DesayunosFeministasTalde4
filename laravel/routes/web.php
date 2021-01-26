@@ -114,10 +114,6 @@ Route::get('/parejas/{modo}', [JuegoController::class, 'parejas'])->name('empeza
 
 Route::post('/parejas/desbloquear', [JuegoController::class, 'saveMujer']);
 
-//* Vista adivina (libre)
-
-Route::get('/adivina/{modo}', [JuegoController::class, 'adivina'])->name('empezarAdivina');
-
 //* Vista coleccion
 
 Route::get('/coleccion-{id?}', [MujeresController::class, 'coleccion'])->name('coleccion');

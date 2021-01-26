@@ -13,9 +13,6 @@
             <a href="{{ route('empezarParejas', ['modo'=>$modo])}}" class="btn boton">ENCUENTRA LAS PAREJAS</a>
         </div>
         <div class="col">
-            <a href="{{ route('empezarAdivina', ['modo'=>$modo])}}" class="btn boton">ADIVINA</a>
-        </div>
-        <div class="col">
             <a href="{{ route('coleccion', ['id'=>auth()->user()->id])}}" class="btn boton">MUJERES</a>
         </div>
     </div>
