@@ -20,7 +20,7 @@ class CreateMujeres extends Migration
             $table->string('Apellido');
             $table->string('Fecha_Nacimiento');
             $table->string('Muerte');
-            $table->string('Lore_Esp');
+            $table->string('Lore_Esp',1000);
             $table->string('Zona_Geografica');
             $table->integer('Continente_Id')->references('Id_Continente')->on('continentes');
             $table->string('Img_Ruta',300);
