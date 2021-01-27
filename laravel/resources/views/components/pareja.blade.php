@@ -51,7 +51,7 @@
 
     <div id="popup1" class="overlay">
         <div class="popup">
-            <a class="close" href=# >×</a>
+            <a class="btn close" href="{{ route('empezarParejas', ['modo'=>$modo])}}" >×</a>
             <h1>ENHORABUENA</h1>
             <div class="content-1">
                 Has conseguido acabar el juego en
@@ -59,7 +59,7 @@
             <div class="content-2">
                 <p><span id=finalMove> </span> movimientos y <span id=totalTime> </span> </p>
             </div>
-            <a class="underlineHover" href="{{ route('empezarParejas', ['modo'=>$modo])}}">Desbloquear las mujeres de esta partida</a>
+            <a class="underlineHover" href="{{ route('empezarParejas', ['modo'=>$modo])}}">Volver a Jugar</a>
         </div>            
     </div>
         

@@ -55,8 +55,7 @@
         <div class="col-md-3 my-3">
             <!-- Select pagination -->
             <select class="form-select form-select-lg bg-transparent" id="cantidadCartas" aria-label=".form-select-lg example">
-            <option disabled selected>Cartas por página</option>
-            <option value='20'>20</option>
+            <option value='20' selected>20</option>
             <option value="40">40</option>
             <option value="0">Todas</option>
 
