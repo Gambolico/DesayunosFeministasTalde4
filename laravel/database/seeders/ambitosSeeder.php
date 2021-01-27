@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class ambitosSeeder extends Seeder
 {
@@ -55,8 +56,8 @@ class ambitosSeeder extends Seeder
                 'Cod_Color'=>'#11e223',
             ],
         ];
-        foreach ($ambitos as $key => $value) {
-        Ambitos::create($value);
+        foreach ($ambitos as $key ) {
+            DB::table('ambitos')->insert($key);
         }
     }
     

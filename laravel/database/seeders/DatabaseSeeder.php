@@ -19,7 +19,8 @@ class DatabaseSeeder extends Seeder
 
         $this->call([
             CreateUsersSeeder::class,
-            continentesSeeder::class
+            continentesSeeder::class,
+            ambitosSeeder::class
         ]);
 
         // $path = 'app/developer_docs/countries.sql';
