@@ -32,7 +32,7 @@
                         
                         </div>
                         <div class="row">
-                            <div class="col-5">
+                            <div class="col-md-5">
                                 <div class="row">
                                     <div class="col col-7">
                                         <b>Ámbito:</b>
@@ -81,7 +81,7 @@
                                 </div>
                             </div>
                             
-                        <div class="col col-6"> 
+                        <div class="col-md-5"> 
                         
                             <div class="col">
                                 <div class="row">
