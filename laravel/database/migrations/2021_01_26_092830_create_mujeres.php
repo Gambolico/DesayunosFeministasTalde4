@@ -14,6 +14,7 @@ class CreateMujeres extends Migration
     public function up()
     {
             // The "users" table exists...
+            Schema::enableForeignKeyConstraints();
             Schema::create('mujeres', function (Blueprint $table) {
             $table->increments('Mujeres_id')->unique();
             $table->string('Nombre');
@@ -22,12 +23,17 @@ class CreateMujeres extends Migration
             $table->string('Fecha_Muerte');
             $table->string('Lore_Esp',1000);
             $table->string('Zona_Geografica');
-            $table->integer('Continente_Id')->references('Id_Continente')->on('continentes');
+            $table->integer('Continente_Id')->unsigned();
             $table->string('Img_Ruta',300);
             $table->string('Img_Fefault',300);
             $table->string('Enlace_Referencia',250);
-            $table->integer('Ambito_Id')->references('Id_Ambito')->on('ambitos');
+            $table->integer('Ambito_Id')->unsigned();
             $table->timestamps();
+           
+            });
+            Schema::table('mujeres',function($table){
+                $table->foreign('Continente_Id')->references('Id_Continente')->on('continentes')->onDelete('CASCADE')->onUpdate('CASCADE');
+                $table->foreign('Ambito_Id')->references('Id_Ambito')->on('ambitos')->onDelete('CASCADE')->onUpdate('CASCADE');
             });
     }
 
@@ -39,5 +45,6 @@ class CreateMujeres extends Migration
     public function down()
     {
         Schema::dropIfExists('mujeres');
+        
     }
 }

@@ -48,7 +48,7 @@ class ambitosSeeder extends Seeder
             [
                 'Id_Ambito'=>'8',
                 'Nombre_Ambito'=>'Sociología',
-                'Cod_Color'=>'#3877ff',
+                'Cod_Color'=>'#dae723',
             ],
             [
                 'Id_Ambito'=>'9',
