@@ -1,6 +1,7 @@
 <?php
 
-namespace Database\Seeders;
+use Illuminate\Database\Seeder;
+use Illuminate\Database\Eloquent\Model;
 
 // use Illuminate\Database\Seeder;
 
@@ -14,13 +15,13 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // $this->call(UserSeeder::class);
-        Eloquent::unguard();
+        // Eloquent::unguard();
 
-        $this->call('UserTableSeeder');
+        $this->call(createUsersSeeder::class);
         $this->command->info('User table seeded!');
 
-        $path = 'app/developer_docs/countries.sql';
-        DB::unprepared(file_get_contents($path));
-        $this->command->info('Country table seeded!');
+        // $path = 'app/developer_docs/countries.sql';
+        // DB::unprepared(file_get_contents($path));
+        // $this->command->info('Country table seeded!');
     }
 }
