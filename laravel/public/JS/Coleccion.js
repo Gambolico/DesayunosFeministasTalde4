@@ -83,12 +83,33 @@ function sumarCant(){
         
 }
     function fetch_customer_data(cant){
+        var ordenDOM = document.getElementById('ordenarPor');
+        if (ordenDOM != null && ordenDOM.value != '') {
+                ordenarPor = document.getElementById('ordenarPor').value;
+        }
+        else
+        {
+                ordenarPor = '';
+        }
+
+        var searchDOM = document.getElementById('search');
+        if (searchDOM != null && searchDOM.value != '') {
+                query = document.getElementById('search').value;
+        }
+        else{
+                query = '';
+        }
+
+        var ambitosDOM = document.getElementById('select');
+        if (searchDOM != null && searchDOM.value != '') {
+                ambitos = document.getElementById("select").value;
+                ambitos = Array($("#select").val());
+        }
+        else{
+                ambitos = '';
+        }
+
         
-        ordenarPor = document.getElementById('ordenarPor').value;
-        query = document.getElementById('search').value;
-        console.log("la query es " + query)
-        ambitos = document.getElementById("select").value;
-        ambitos = Array($("#select").val());
 
         $.ajax({
         /* Direccion del web.php */

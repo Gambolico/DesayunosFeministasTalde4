@@ -1,6 +1,6 @@
 @extends('layout.parent')
 
-@section('title', 'Coleccion')
+@section('title', 'Biografia')
 
 @section('content')
 <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
