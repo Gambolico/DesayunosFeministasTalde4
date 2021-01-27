@@ -7,14 +7,14 @@
 <!-- CSS -->
 <link href="{{ asset('CSS/biografia.css') }}" rel="stylesheet">
 
+
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.2.0/vue.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-resource/1.3.1/vue-resource.min.js"></script>
 <script src="https://cdn.jsdelivr.net/vue/latest/vue.js"></script>
-<script src="{{ asset('JS/Biografia.js') }}"></script>
 <script src="{{ asset('JS/Biografia2.js') }}"></script>
-
+ç
 <div class="containerBiografia p-3 my-3 bg-light" id='containerBiografia' > 
         @foreach($Mujer as $obj)
         <div class="row h-auto" id="contenidoBio">
@@ -100,23 +100,21 @@
         </div>
         @endforeach
         
-</div>
+
 <!-- template for the modal component -->
-
-
     <!-- app -->
-    <div id="app">
-    <a id="show-modal" @click="showModal = true" href="#">+Info</a>
-    <!-- use the modal component, pass in the prop -->
-    <modal v-if="showModal" @close="showModal = false">
-        <!--
-        you can use custom content here to overwrite
-        default content
-        -->
-        <h3 slot="header">Advertencia!</h3>
-    </modal>
+    <div id="appEx">
+        <a id="show-modal" v-on:click="changeModal" href="#">+Info</a>
+        <!-- use the modal component, pass in the prop -->
+        <modal v-if="showModal" @close="showModal = false">
+            <!--
+            you can use custom content here to overwrite
+            default content
+            -->
+            <h3 slot="header">Advertencia!</h3>
+        </modal>
     </div>
-
+</div>
 <script type="text/x-template" id="modal-template">
     <transition name="modal">
         <div class="modal-mask">

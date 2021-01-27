@@ -1,8 +1,12 @@
 $(document).ready(function() {
-
-    new Vue({
+        Vue.component('modal', {
+            template: '#modal-template'
+        });
+          // start app
+        new Vue({
         el: '#containerBiografia',
-        data: {
+            data: {
+                showModal: false,
                 ambito: 'N/A',
                 continente: 'N/A',
                 zona:'N/A',
@@ -11,7 +15,7 @@ $(document).ready(function() {
                 message:'N/A',
                 imageLink:''
             
-        },
+            },
         mounted() {
             //this.getDisabledDate();
             /* Miramos todos y cada uno de los ambitos y extraemos la informacion para si esta lleno el valor, calbiarlo */
@@ -50,6 +54,10 @@ $(document).ready(function() {
 
             },
         methods: {
+            changeModal: function(){
+                console.log('entravue')
+            this.showModal=true;
+            },
             ambitosImg: function(variable1){
                 console.log('entra');
                 console.log(variable1)
