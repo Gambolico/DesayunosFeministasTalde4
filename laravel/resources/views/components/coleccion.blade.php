@@ -55,17 +55,19 @@
         <div class="col-md-3 my-3">
             <!-- Select pagination -->
             <select class="form-select form-select-lg bg-transparent" id="cantidadCartas" aria-label=".form-select-lg example">
-            <option value='20' selected>20</option>
-            <option value="40">40</option>
-            <option value="0">Todas</option>
+                <option value='20' selected>20</option>
+                <option value="40">40</option>
+                <option value="0">Todas</option>
+            </select>      
 
-        </select>      
+
 
         </div>
     </div>
     <!-- Seccion de las cartas -->
     <div class="mujeres">
         <div class="cantidad">
+            <button id="imprimir">Imprimir mujeres</button>
             <a id='cantidad'></a><br> 
         </div>
         <div class=" mujeres row" id='carta'>
