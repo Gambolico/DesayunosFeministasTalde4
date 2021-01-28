@@ -20,7 +20,6 @@ class MujeresController extends Controller
     
     public function filtrarMujeres(Request $request){
 
-        Log::debug("entra en la funcion");
         // get the search term
         if($request->ajax()){
                 $output='';

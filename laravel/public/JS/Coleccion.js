@@ -8,12 +8,12 @@ var primeraVez;
         /* Al escribir en el buscador... */
 
         $('#search').on('keyup',function(){
-        fetch_customer_data(cant);
+                fetch_customer_data(cant);
         }); 
         /* Al seleccionar en el select  */
-        $('#select').on('change',function(){
+        $('#select').on('change', function(){
                 fetch_customer_data(cant);
-                });
+        });
         /* Ordenar por  */
         $('#ordenarPor').on('change',function(){
                 fetch_customer_data(cant);
@@ -101,15 +101,13 @@ function sumarCant(){
         }
 
         var ambitosDOM = document.getElementById('select');
-        if (searchDOM != null && searchDOM.value != '') {
+        if (ambitosDOM != null && ambitosDOM.value != '') {
                 ambitos = document.getElementById("select").value;
                 ambitos = Array($("#select").val());
         }
         else{
                 ambitos = '';
         }
-
-        
 
         $.ajax({
         /* Direccion del web.php */
