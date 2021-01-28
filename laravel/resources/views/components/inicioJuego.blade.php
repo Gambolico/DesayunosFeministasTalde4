@@ -13,7 +13,11 @@
             <a href="{{ route('empezarParejas', ['modo'=>$modo])}}" class="btn boton">ENCUENTRA LAS PAREJAS</a>
         </div>
         <div class="col">
-            <a href="{{ route('coleccion', ['id'=>auth()->user()->id])}}" class="btn boton">MUJERES</a>
+            @if (auth()->check())
+                <a href="{{ route('coleccion', ['id'=>auth()->user()->id])}}" class="btn boton">MUJERES</a>
+            @else
+                <a href="{{ url('coleccion') }}" class="btn boton">MUJERES</a>
+            @endif
         </div>
     </div>
     
