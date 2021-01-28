@@ -130,5 +130,16 @@ function sumarCant(){
                 $('#carta').html(data.cartas_data);
                 $('#cantidad').text(data.total_data);
             }
-               });
+        });
 }
+
+function imprimir() {    
+        var divToPrint = document.getElementById("mujeres");
+        var popupWin = window.open('', '_blank', 'width=300,height=300');
+        popupWin.document.open();
+        popupWin.document.write("<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css'><link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css' integrity='sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T' crossorigin='anonymous'><link href='CSS/imprimir.css' rel='stylesheet'><html><body onload='window.print()'>" + divToPrint.innerHTML + '</html>');
+        popupWin.document.close();
+}
+
+
+
