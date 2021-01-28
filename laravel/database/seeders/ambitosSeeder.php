@@ -22,11 +22,11 @@ class ambitosSeeder extends Seeder
             [
                 'Id_Ambito'=>'2',
                 'Nombre_Ambito'=>'Derecho',
-                'Cod_Color'=>'#693d1f',
+                'Cod_Color'=>'#00189e',
             ],[
                 'Id_Ambito'=>'3',
                 'Nombre_Ambito'=>'Antropología',
-                'Cod_Color'=>'#693d1f',
+                'Cod_Color'=>'#ff7300',
             ],[
                 'Id_Ambito'=>'4',
                 'Nombre_Ambito'=>'Geografía',
@@ -34,7 +34,7 @@ class ambitosSeeder extends Seeder
             ],[
                 'Id_Ambito'=>'5',
                 'Nombre_Ambito'=>'Filosofía',
-                'Cod_Color'=>'#d60000',
+                'Cod_Color'=>'#4d0064',
             ],[
                 'Id_Ambito'=>'6',
                 'Nombre_Ambito'=>'Psicología',
