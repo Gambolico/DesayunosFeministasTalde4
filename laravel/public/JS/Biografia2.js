@@ -1,8 +1,12 @@
 $(document).ready(function() {
-
-    new Vue({
+        Vue.component('modal', {
+            template: '#modal-template'
+        });
+          // start app
+        new Vue({
         el: '#containerBiografia',
-        data: {
+            data: {
+                showModal: false,
                 ambito: 'N/A',
                 continente: 'N/A',
                 zona:'N/A',
@@ -11,7 +15,7 @@ $(document).ready(function() {
                 message:'N/A',
                 imageLink:''
             
-        },
+            },
         mounted() {
             //this.getDisabledDate();
             /* Miramos todos y cada uno de los ambitos y extraemos la informacion para si esta lleno el valor, calbiarlo */
@@ -43,7 +47,6 @@ $(document).ready(function() {
                 if(variable5!=''){
                     this.muer=variable5;
                 }
-               
                 return this.ambito,this.continente, this.zona, this.nac, this.muer
 
                 
@@ -51,6 +54,10 @@ $(document).ready(function() {
 
             },
         methods: {
+            changeModal: function(){
+                console.log('entravue')
+            this.showModal=true;
+            },
             ambitosImg: function(variable1){
                 console.log('entra');
                 console.log(variable1)
@@ -58,39 +65,34 @@ $(document).ready(function() {
                 switch (variable1) {
                     case 'História':
                         console.log('entta histo')
-                        this.imageLink='/images/ambitos/historia2.png'
+                        this.imageLink='/images/ambitos/Historia.png'
                         console.log(this.imageLink)
                     break;
                     case 'Derecho':
-                        this.imageLink='../images/ambitos/'
+                        this.imageLink='/images/ambitos/Derecho.png'
                       break;
                     case 'Antropología':
-                        this.imageLink='../images/ambitos/'
+                        this.imageLink='/images/ambitos/Antropologia.png'
                       break;
                     case 'Geografía':
-                        this.imageLink='../images/ambitos/'
+                        this.imageLink='/images/ambitos/Geografia.png'
                       break;
                     case 'Filosofía':
-                        this.imageLink='../images/ambitos/'
+                        this.imageLink='/images/ambitos/Filosofia.png'
                         break;
-                    case 'Oceanía':
-                        this.imageLink='../images/ambitos/'
-                      break;
                     case 'Psicología':
-                        this.imageLink='../images/ambitos/'
-                    break;
+                        this.imageLink='/images/ambitos/Psicologia.png'
+                      break;
                     case 'Economía':
-                        this.imageLink='../images/ambitos/'
+                        this.imageLink='/images/ambitos/Economia.png'
                     break;
                     case 'Sociología':
-                        this.imageLink='../images/ambitos/'
+                        this.imageLink='/images/ambitos/Sociologia.png'
                     break;
                     case 'Pedagogía':
-                        this.imageLink='../images/ambitos/'
+                        this.imageLink='/images/ambitos/Pedagogia.png'
                     break;
-                  }
-                  
-                  
+                }
             }
         }
     });
