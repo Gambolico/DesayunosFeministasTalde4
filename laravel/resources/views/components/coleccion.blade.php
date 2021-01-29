@@ -23,7 +23,7 @@
 <!-- Filtro de cartas -->
     <div class="filtro row">
         
-        <div class="col-md-3 my-3">
+        <div class="col-md-4 my-3">
             <!-- Select de ambitos -->
             <select class="mdb-select colorful-select dropdown-primary md-form" id="select" multiple searchable="Search here..">
                 <option value="" disabled selected>Seleccione ámbito</option>
@@ -52,7 +52,7 @@
         </select>
         </div>
         
-        <div class="col-md-3 my-3">
+        <div class="col-md-2 my-3">
             <!-- Select pagination -->
             <select class="form-select form-select-lg bg-transparent" id="cantidadCartas" aria-label=".form-select-lg example">
                 <option value='20' selected>20</option>
