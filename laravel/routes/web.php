@@ -61,9 +61,11 @@ Route::get('/areaAdmin/EditarUsuarios', [AdminController::class, 'viewEditarUsua
 
     //* Editar Admin
 
-    // Route::get('/areaAdmin/EditarUsuarios/{id}', [AdminController::class, 'editarUsuarios'])->name('EditarUsuario');
-
     Route::get('/areaAdmin/EditarUsuarios/{id}', [AdminController::class, 'editarUsuarios'])->name('EditarUsuario');
+
+    //* Editar Usuarios
+
+    Route::post('/areaAdmin/EditarUsuarios/{id}', [AdminController::class, 'editarUsuariosModal'])->name('EditarUsuarioPost');
 
 //* View Agregar Usuarios
 

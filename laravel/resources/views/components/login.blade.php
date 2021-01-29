@@ -8,7 +8,6 @@
 <link href="{{ asset('CSS/login.css') }}" rel="stylesheet">
 
 
-
 <div class="wrapper fadeInDown">
 @if (session('error'))
     <div class="alert alert-success">

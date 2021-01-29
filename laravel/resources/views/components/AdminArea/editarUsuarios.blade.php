@@ -12,6 +12,7 @@
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>    
         <link href="{{ asset('CSS/añadirMujeres.css') }}" rel="stylesheet">  
     </head>
     <body>
@@ -105,17 +106,18 @@
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal">
-                                            <span>×</span>
+                                        <button type="button" class="btn close" data-dismiss="modal">
+                                            <span>X</span>
                                         </button>
                                         <h4>Editar Usuario</h4>
                                     </div>
                                     <div class="modal-body">
-                                    <form name="formularioModal" id="formulario" method="POST" action="{{ route('AgregarUsuario') }}">
+                                    <form name="formularioModal" id="formularioModal" method="POST" action="{{ route('EditarUsuarioPost', ['id'=>$obj->id])}}">
                                         @csrf
                                         {{-- @foreach ($Users as $obj) --}}
                                         
                                             <div class="form-row">
+                                                <input type="text" class="form-control" name="id" id="id" value="" style="display:none">
                                                 <div class="form-group col-md-6 mb-3">
                                                     <label>Nombre de Usuario</label>
                                                     <input type="text" class="form-control" name="username" id="username" value="">
@@ -129,10 +131,6 @@
                                                 <label class="form-check-label" for="flexCheckDefault" style="color: grey">Si deseas cambiar la contraseña</label>
 
                                                 <script>
-                                                /* document.getElementById('Contraseñas').onchange = function() {
-                                                    document.getElementById('password').disabled = !this.checked;
-                                                    document.getElementById('password_confirmation').disabled = !this.checked;
-                                                }; */
                                                 function cambiarContraseñas(){
                                                     var checkBox = document.getElementById("Contraseñas");
                                                     var pasw = document.getElementById("password");
@@ -176,11 +174,12 @@
                                                 </div>
                                             </div>
                                         {{-- @endforeach --}}
+                                        <div class="modal-footer">
+                                            <input type="submit" class="btn btn-primary" value="Guardar">
+                                        </div>
                                     </form>
                                     </div>
-                                    <div class="modal-footer">
-                                        <input type="submit" class="btn btn-primary" value="Guardar">
-                                    </div>
+                                    
                                 </div>
                             </div>
                         </div>

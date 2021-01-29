@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Mujeres;
+
 use App\User;
 use App\Models\Ambitos;
 use Illuminate\Http\Request;
@@ -94,8 +95,6 @@ class AdminController extends Controller
         public function editarUsuarios($id) {
             $User=User::getUsuariosInfByID($id);
 
-
-
             return view('components.AdminArea.editarUsuarios')->with('User', $User);;
         }
 
@@ -114,7 +113,6 @@ class AdminController extends Controller
                     'Admin' => 'required'
                 ]);
 
-
             $data = $request->input();
                 
             $nombreUsuario = $data['username'];
@@ -123,7 +121,6 @@ class AdminController extends Controller
             $is_admin = $data['Admin'];
 
             $usuario = new User;
-            
 
             $usuario->name = cleanInput($nombreUsuario);
             $usuario->password = $passwordUsuario;
@@ -136,6 +133,50 @@ class AdminController extends Controller
 
         public function resetPassword() {
             return view('auth.passwords.reset');
+        }
+
+        public function editarUsuariosModal(Request $request) {
+            
+            
+
+            if(isset($request['Contraseñas'])){
+                $validated = $request->validate([
+                    'username' => 'required',
+                    'password' => 'required|min:8|confirmed',
+                    'email' => 'required|email',
+                    'Admin' => 'required'
+                ]);
+            }else{
+                $validated = $request->validate([
+                    'username' => 'required',
+                    'email' => 'required|email',
+                    'Admin' => 'required'
+                ]);
+                
+            }            
+
+            $data = $request->input();
+            
+            $nombreUsuario = $data['username'];
+            $emailUsuario = $data['email'];
+            $is_admin = $data['Admin'];
+            $user_id = $data['id'];
+
+            $User=User::find($user_id);
+            
+            $User->is_admin = $is_admin;
+            $User->is_admin = $is_admin;
+            $User->is_admin = $is_admin;
+            $User->is_admin = $is_admin;
+
+
+            if(isset($data['password'])){
+                $password = bcrypt(cleanInput($data['password']));
+                $User->password = $password;
+            }
+            $User->save();
+
+            return redirect()->back();
         }
 
     }
