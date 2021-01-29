@@ -66,6 +66,7 @@ $(document).ready(function() {
 		console.log(User);
 		$("#username").val( User['name'] );
 		$("#email").val( User['email'] );
+		$("#id").val( User['id'] );
 
 		if(User['is_admin'] == 1){
 			console.log("admin == " + 1);
@@ -78,4 +79,4 @@ $(document).ready(function() {
 		// As pointed out in comments, 
 		// it is unnecessary to have to manually call the modal.
 		// $('#addBookDialog').modal('show');
-   });
+    });
