@@ -16,7 +16,7 @@ class CreateMujeres extends Migration
             // The "users" table exists...
             Schema::enableForeignKeyConstraints();
             Schema::create('mujeres', function (Blueprint $table) {
-            $table->increments('Mujeres_id')->unique();
+            $table->increments('Mujeres_Id')->unique();
             $table->string('Nombre');
             $table->string('Apellido');
             $table->string('Fecha_Nacimiento');
