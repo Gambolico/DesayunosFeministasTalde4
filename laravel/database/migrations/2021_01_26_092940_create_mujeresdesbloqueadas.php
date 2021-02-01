@@ -13,14 +13,14 @@ class CreateMujeresdesbloqueadas extends Migration
      */
     public function up()
     {
+        Schema::enableForeignKeyConstraints();
         Schema::create('mujeresdesbloqueadas', function (Blueprint $table) {
             $table->increments('Id_Desbloqueadas')->unique();
-            $table->string('Id_Usuario')->unsigned();
-            $table->string('Id_Mujeres')->unsigned();
+            $table->foreignId('Id_Usuario')->references('id')->on('users')->onDelete('CASCADE')->onUpdate('CASCADE');
+            $table->integer('Id_Mujeres')->unsigned();
             $table->timestamps();
         });
         Schema::table('mujeresdesbloqueadas',function($table){
-            $table->foreign('Id_Usuario')->references('id')->on('users')->onDelete('CASCADE')->onUpdate('CASCADE');
             $table->foreign('Id_Mujeres')->references('Mujeres_Id')->on('mujeres')->onDelete('CASCADE')->onUpdate('CASCADE');
         });
     }
